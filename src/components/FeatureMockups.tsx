@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { Mail, BellOff, Laptop } from "lucide-react";
 import HeroMockup from "@/components/HeroMockup";
+import { useEffect, useState } from "react";
 
 const FrameShell = ({ children }: { children: React.ReactNode }) => (
   <div className="relative aspect-[4/3] w-full overflow-hidden rounded-2xl bg-[#0b0b14] ring-1 ring-white/5">
@@ -62,62 +63,81 @@ export const NotificationMockup = () => (
 );
 
 /* --------- CLOSE TO BLUR (lid angle drops, blur grows) --------- */
-export const LidMockup = () => (
-  <FrameShell>
-    <div className="absolute inset-0 bg-gradient-to-br from-slate-900 via-[#0b0b14] to-black" />
+const LID_PRESETS = [
+  { label: "90° Open", angle: 75 },
+  { label: "45° Blur", angle: 45 },
+  { label: "10° Safe", angle: 8 },
+];
 
-    {/* simple side-view diagram */}
-    <div className="absolute inset-0 flex items-center justify-center">
-      <div className="relative h-40 w-56">
-        {/* base (keyboard) */}
-        <div className="absolute bottom-10 left-6 h-1 w-40 rounded-full bg-white/80" />
-        {/* hinge */}
-        <div className="absolute bottom-[38px] left-6 h-2 w-2 -translate-x-1 rounded-full bg-white/60" />
-        {/* lid — pivots from hinge */}
-        <div
-          className="absolute bottom-[40px] left-6 h-40 w-1.5 origin-bottom rounded-full bg-brand-violet shadow-[0_0_18px_hsl(var(--brand-violet)/0.6)] animate-[lidCloseSide_5s_ease-in-out_infinite]"
-        />
-      </div>
-    </div>
+export const LidMockup = () => {
+  const [i, setI] = useState(0);
+  useEffect(() => {
+    const t = setInterval(() => setI((n) => (n + 1) % LID_PRESETS.length), 1600);
+    return () => clearInterval(t);
+  }, []);
+  const angle = LID_PRESETS[i].angle;
 
-    {/* angle pills — active one syncs with the lid animation */}
-    <div className="absolute bottom-4 left-1/2 flex -translate-x-1/2 gap-2 text-[10px] font-medium">
-      <div className="relative rounded-full bg-white/5 px-2.5 py-1 text-white/60 ring-1 ring-white/10">
-        90° Open
-        <span className="absolute inset-0 rounded-full bg-brand-violet/30 text-white ring-1 ring-brand-violet/50 px-2.5 py-1 opacity-0 animate-[pill90_5s_ease-in-out_infinite] flex items-center justify-center">90° Open</span>
-      </div>
-      <div className="relative rounded-full bg-white/5 px-2.5 py-1 text-white/60 ring-1 ring-white/10">
-        45° Blur
-        <span className="absolute inset-0 rounded-full bg-brand-violet/30 text-white ring-1 ring-brand-violet/50 px-2.5 py-1 opacity-0 animate-[pill45_5s_ease-in-out_infinite] flex items-center justify-center">45° Blur</span>
-      </div>
-      <div className="relative rounded-full bg-white/5 px-2.5 py-1 text-white/60 ring-1 ring-white/10">
-        10° Safe
-        <span className="absolute inset-0 rounded-full bg-brand-violet/30 text-white ring-1 ring-brand-violet/50 px-2.5 py-1 opacity-0 animate-[pill10_5s_ease-in-out_infinite] flex items-center justify-center">10° Safe</span>
-      </div>
-    </div>
+  return (
+    <FrameShell>
+      <div className="absolute inset-0 bg-gradient-to-br from-slate-900 via-[#0b0b14] to-black" />
 
-    <style>{`
-      @keyframes lidCloseSide {
-        0%   { transform: rotate(0deg); }
-        35%  { transform: rotate(45deg); }
-        65%  { transform: rotate(80deg); }
-        100% { transform: rotate(0deg); }
-      }
-      @keyframes pill90 {
-        0%, 15%, 90%, 100% { opacity: 1; }
-        25%, 85% { opacity: 0; }
-      }
-      @keyframes pill45 {
-        0%, 25%, 55%, 100% { opacity: 0; }
-        35%, 45% { opacity: 1; }
-      }
-      @keyframes pill10 {
-        0%, 55%, 85%, 100% { opacity: 0; }
-        65%, 78% { opacity: 1; }
-      }
-    `}</style>
-  </FrameShell>
-);
+      <div className="absolute inset-0 flex items-center justify-center pb-10">
+        <svg viewBox="0 0 300 240" className="h-[78%] w-[78%]" fill="none">
+          <defs>
+            <filter id="lidGlow" x="-50%" y="-50%" width="200%" height="200%">
+              <feGaussianBlur stdDeviation="4" result="b" />
+              <feMerge>
+                <feMergeNode in="b" />
+                <feMergeNode in="SourceGraphic" />
+              </feMerge>
+            </filter>
+            <linearGradient id="lidStroke" x1="0" y1="0" x2="1" y2="0">
+              <stop offset="0%" stopColor="hsl(var(--brand-violet))" />
+              <stop offset="100%" stopColor="hsl(var(--brand-glow))" />
+            </linearGradient>
+          </defs>
+
+          {/* keyboard base */}
+          <line x1="100" y1="200" x2="240" y2="200" stroke="rgba(255,255,255,0.85)" strokeWidth="4" strokeLinecap="round" />
+          {/* hinge */}
+          <circle cx="100" cy="200" r="3.5" fill="rgba(255,255,255,0.7)" />
+
+          {/* lid (drawn horizontal, rotated around hinge) */}
+          <motion.line
+            x1="100"
+            y1="200"
+            x2="240"
+            y2="200"
+            stroke="url(#lidStroke)"
+            strokeWidth="5"
+            strokeLinecap="round"
+            filter="url(#lidGlow)"
+            style={{ transformBox: "fill-box", transformOrigin: "0% 100%" } as any}
+            animate={{ rotate: -angle }}
+            transition={{ type: "spring", stiffness: 90, damping: 14 }}
+          />
+        </svg>
+      </div>
+
+      {/* preset pills */}
+      <div className="absolute bottom-4 left-1/2 flex -translate-x-1/2 gap-2 text-[10px] font-medium">
+        {LID_PRESETS.map((p, idx) => (
+          <div
+            key={p.label}
+            className={[
+              "rounded-full px-2.5 py-1 ring-1 transition-all",
+              idx === i
+                ? "bg-brand-violet text-white ring-brand-violet/60 shadow-[0_0_18px_hsl(var(--brand-violet)/0.5)]"
+                : "bg-white/5 text-white/60 ring-white/10",
+            ].join(" ")}
+          >
+            {p.label}
+          </div>
+        ))}
+      </div>
+    </FrameShell>
+  );
+};
 
 /* --------- COUGH TO HIDE (3/4 laptop + person silhouette + cough bubble) --------- */
 export const CoughMockup = () => (
