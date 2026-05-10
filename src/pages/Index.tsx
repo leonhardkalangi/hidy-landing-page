@@ -19,8 +19,8 @@ const Hero = () => (
         </span>
       </Reveal>
       <Reveal>
-        <div className="relative mt-8 px-4 pt-[80px] md:pt-[110px]">
-          <div className="pointer-events-none absolute left-1/2 -top-2 z-10 flex h-[110px] w-[200px] -translate-x-1/2 items-end justify-center md:h-[150px] md:w-[280px]">
+        <div className="relative mt-8 px-4 pt-[100px] md:pt-[140px]">
+          <div className="pointer-events-none absolute left-1/2 top-0 z-10 flex h-[110px] w-[200px] -translate-x-1/2 items-end justify-center md:h-[150px] md:w-[280px]">
             <span className="absolute inset-x-[-10%] bottom-[-20%] top-[10%] rounded-[50%] bg-[radial-gradient(ellipse_at_center,hsl(var(--brand-violet)/0.55),transparent_70%)] blur-3xl" />
             <img
               src={hidyIcon}
