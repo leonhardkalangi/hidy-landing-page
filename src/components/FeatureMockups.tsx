@@ -82,8 +82,8 @@ export const LidMockup = () => {
       <div className="absolute inset-0 bg-gradient-to-br from-slate-900 via-[#0b0b14] to-black" />
 
       {/* side-view diagram */}
-      <div className="absolute inset-0 flex items-center justify-center pb-12 pt-6">
-        <div className="relative h-40 w-40">
+      <div className="absolute inset-0 flex items-center justify-center">
+        <div className="relative h-40 w-40 -translate-x-20 translate-y-20">
           {/* base — anchored at bottom, hinge at left */}
           <div className="absolute bottom-0 left-0 h-1 w-44 rounded-full bg-white/85" />
           {/* hinge */}
@@ -98,7 +98,7 @@ export const LidMockup = () => {
       </div>
 
       {/* preset pills */}
-      <div className="absolute bottom-4 left-1/2 flex -translate-x-1/2 gap-2 text-[10px] font-medium">
+      <div className="absolute bottom-6 left-1/2 flex -translate-x-1/2 gap-2 text-[10px] font-medium">
         {LID_PRESETS.map((p, idx) => (
           <div
             key={p.label}
