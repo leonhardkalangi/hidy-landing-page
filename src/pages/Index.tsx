@@ -1,10 +1,10 @@
 import { motion } from "framer-motion";
-import { Apple, Eye, Wind, Laptop, Command, BellOff, SquareDashed, ShieldCheck, Github, Twitter, Check, X, Mic } from "lucide-react";
+import { Apple, Eye, Wind, Laptop, BellOff, SquareDashed, ShieldCheck, Github, Twitter, Check, X, Mic } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import hidyIcon from "@/assets/hidy-icon.png";
 import HeroMockup from "@/components/HeroMockup";
-import { NotificationMockup, LidMockup, CoughMockup, HotkeyMockup, MarkingMockup } from "@/components/FeatureMockups";
+import { NotificationMockup, LidMockup, CoughMockup, MarkingMockup } from "@/components/FeatureMockups";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 24 },
@@ -114,7 +114,6 @@ const Wedge = () => {
 const features = [
   { icon: Mic, title: "Cough to hide", body: "Just cough naturally. Hidy listens for the short, sharp burst and instantly frosts your screen — speech and music are ignored. Perfect for cafés, open offices, and shoulder surfers.", Mockup: CoughMockup },
   { icon: Laptop, title: "Close to blur", body: "Start closing your laptop lid. Hidy senses the angle drop and blurs everything before it touches the keyboard. Open back up, you're protected.", Mockup: LidMockup },
-  { icon: Command, title: "Hotkey to blur", body: "⌘⌃B from anywhere. Instant frost. Hit it again to clear. Nothing fancy — just always there.", Mockup: HotkeyMockup },
   { icon: BellOff, title: "Notification pop-ups, frosted", body: "Mail, Messages, Slack pings — incoming notification banners get frosted the moment they appear, so a stranger over your shoulder never sees the preview. Perfect for screen shares and coffee shops.", Mockup: NotificationMockup },
   { icon: SquareDashed, title: "Marking Blur for any spot", body: "Drag a rectangle anywhere on your screen. That area stays frosted forever. Perfect for the WhatsApp Web sidebar or your bank tab corner.", Mockup: MarkingMockup },
 ];
