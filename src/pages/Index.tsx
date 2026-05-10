@@ -19,26 +19,20 @@ const Hero = () => (
         </span>
       </Reveal>
       <Reveal>
-        <div className="relative mt-6 flex justify-center">
-          <div className="relative inline-flex flex-col items-center px-4">
-            <div className="pointer-events-none absolute left-1/2 top-[62%] h-36 w-36 -translate-x-1/2 -translate-y-1/2 rounded-full bg-[radial-gradient(circle,hsl(var(--brand-violet)/0.3),transparent_72%)] blur-3xl md:h-52 md:w-52" />
-            <h1 className="relative z-10 flex max-w-5xl flex-col items-center gap-3 text-center text-5xl font-bold leading-[0.94] tracking-tight text-gradient md:gap-4 md:text-7xl">
-              <span className="block">Privacy that doesn&apos;t</span>
-              <span className="flex flex-wrap items-center justify-center gap-x-3 gap-y-2 md:gap-x-5">
-                <span>watch</span>
-                <span className="relative inline-flex h-16 w-16 shrink-0 items-center justify-center md:h-24 md:w-24">
-                  <span className="absolute inset-0 rounded-[30%] bg-[radial-gradient(circle,hsl(var(--brand-blue)/0.34),transparent_70%)] blur-2xl" />
-                  <img
-                    src={hidyIcon}
-                    alt=""
-                    aria-hidden="true"
-                    className="relative h-full w-full rounded-[30%] object-cover animate-float shadow-[0_18px_40px_-12px_hsl(var(--brand-violet)/0.8)]"
-                  />
-                </span>
-                <span>you back.</span>
-              </span>
-            </h1>
-          </div>
+        <div className="relative mt-6 px-4">
+          <h1 className="relative mx-auto flex max-w-5xl flex-col items-center text-center text-5xl font-bold leading-[0.94] tracking-tight text-gradient md:text-7xl">
+            <span className="block">Privacy that doesn&apos;t watch</span>
+            <span className="relative my-2 inline-flex h-20 w-20 items-center justify-center md:my-3 md:h-28 md:w-28">
+              <span className="pointer-events-none absolute inset-[-40%] rounded-full bg-[radial-gradient(circle,hsl(var(--brand-violet)/0.45),transparent_70%)] blur-2xl" />
+              <img
+                src={hidyIcon}
+                alt=""
+                aria-hidden="true"
+                className="relative h-full w-full rounded-[30%] object-cover animate-float shadow-[0_18px_40px_-12px_hsl(var(--brand-violet)/0.8)]"
+              />
+            </span>
+            <span className="block">you back.</span>
+          </h1>
         </div>
       </Reveal>
       <Reveal>
