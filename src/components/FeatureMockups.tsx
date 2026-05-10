@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Mail, BellOff, Laptop } from "lucide-react";
+import { Mail, BellOff, Laptop, Mic, Video, PhoneOff, MessageSquare, Users, MoreVertical } from "lucide-react";
 import HeroMockup from "@/components/HeroMockup";
 import { useEffect, useState } from "react";
 
@@ -10,25 +10,55 @@ const FrameShell = ({ children }: { children: React.ReactNode }) => (
   </div>
 );
 
-/* --------- NOTIFICATION (banner appears -> frosts) --------- */
+/* --------- MEETING MODE (Google Meet UI + notification banner that frosts) --------- */
 export const NotificationMockup = () => (
   <FrameShell>
-    {/* fake desktop background */}
-    <div className="absolute inset-0 bg-gradient-to-br from-indigo-900/40 via-purple-900/30 to-slate-900" />
-    {/* menu bar */}
-    <div className="absolute inset-x-0 top-0 h-6 bg-black/40 backdrop-blur-sm flex items-center justify-end gap-3 px-3 text-[8px] text-white/70">
-      <span>100%</span><span>Wed 13:12</span>
+    {/* Meet dark backdrop */}
+    <div className="absolute inset-0 bg-[#202124]" />
+
+    {/* meeting tiles */}
+    <div className="absolute inset-3 bottom-10 grid grid-cols-2 gap-2">
+      {/* presenter tile */}
+      <div className="relative col-span-1 rounded-lg bg-gradient-to-br from-slate-700 to-slate-900 overflow-hidden">
+        <div className="absolute inset-0 flex items-center justify-center">
+          <div className="h-10 w-10 rounded-full bg-gradient-to-br from-amber-400 to-rose-500 flex items-center justify-center text-white text-[11px] font-semibold">SC</div>
+        </div>
+        <div className="absolute bottom-1 left-1.5 text-[8px] text-white/90 font-medium">Sarah Chen</div>
+        <div className="absolute bottom-1 right-1.5 flex h-3.5 w-3.5 items-center justify-center rounded-full bg-black/60">
+          <Mic className="h-2 w-2 text-white" />
+        </div>
+      </div>
+      {/* self tile */}
+      <div className="relative col-span-1 rounded-lg bg-gradient-to-br from-indigo-800 to-slate-900 overflow-hidden">
+        <div className="absolute inset-0 flex items-center justify-center">
+          <div className="h-10 w-10 rounded-full bg-gradient-to-br from-sky-400 to-violet-500 flex items-center justify-center text-white text-[11px] font-semibold">You</div>
+        </div>
+        <div className="absolute bottom-1 left-1.5 text-[8px] text-white/90 font-medium">You</div>
+        <div className="absolute bottom-1 right-1.5 flex h-3.5 w-3.5 items-center justify-center rounded-full bg-rose-500">
+          <Mic className="h-2 w-2 text-white" />
+        </div>
+      </div>
     </div>
 
-    {/* banner */}
+    {/* meeting bottom bar */}
+    <div className="absolute inset-x-0 bottom-0 h-8 bg-[#1a1a1c] flex items-center justify-between px-3">
+      <div className="text-[8px] text-white/70 font-mono">14:32 | abc-defg-hij</div>
+      <div className="flex items-center gap-1.5">
+        <div className="flex h-5 w-5 items-center justify-center rounded-full bg-white/10"><Mic className="h-2.5 w-2.5 text-white" /></div>
+        <div className="flex h-5 w-5 items-center justify-center rounded-full bg-white/10"><Video className="h-2.5 w-2.5 text-white" /></div>
+        <div className="flex h-5 w-7 items-center justify-center rounded-full bg-rose-500"><PhoneOff className="h-2.5 w-2.5 text-white" /></div>
+        <div className="flex h-5 w-5 items-center justify-center rounded-full bg-white/10"><MessageSquare className="h-2.5 w-2.5 text-white" /></div>
+        <div className="flex h-5 w-5 items-center justify-center rounded-full bg-white/10"><Users className="h-2.5 w-2.5 text-white" /></div>
+      </div>
+      <div className="flex h-5 w-5 items-center justify-center rounded-full bg-white/10"><MoreVertical className="h-2.5 w-2.5 text-white" /></div>
+    </div>
+
+    {/* incoming notification banner */}
     <motion.div
       initial={{ opacity: 0, x: 40, y: -10 }}
-      animate={{
-        opacity: [0, 1, 1, 1, 1],
-        x: [40, 0, 0, 0, 0],
-      }}
+      animate={{ opacity: [0, 1, 1, 1, 1], x: [40, 0, 0, 0, 0] }}
       transition={{ duration: 4, times: [0, 0.2, 0.5, 0.8, 1], repeat: Infinity, repeatDelay: 0.5 }}
-      className="absolute right-3 top-9 w-[58%] rounded-xl bg-white/95 p-2.5 shadow-xl"
+      className="absolute right-3 top-3 w-[58%] rounded-xl bg-white/95 p-2.5 shadow-xl"
     >
       <div className="flex items-start gap-2">
         <div className="flex h-7 w-7 shrink-0 items-center justify-center rounded-md bg-blue-500">
@@ -44,10 +74,10 @@ export const NotificationMockup = () => (
         </div>
       </div>
 
-      {/* frost overlay that animates in */}
+      {/* frost overlay */}
       <motion.div
-        initial={{ opacity: 0, backdropFilter: "blur(0px)" }}
-        animate={{ opacity: [0, 0, 1, 1, 0], backdropFilter: ["blur(0px)", "blur(0px)", "blur(8px)", "blur(8px)", "blur(0px)"] as any }}
+        initial={{ opacity: 0 }}
+        animate={{ opacity: [0, 0, 1, 1, 0] }}
         transition={{ duration: 4, times: [0, 0.35, 0.5, 0.85, 1], repeat: Infinity, repeatDelay: 0.5 }}
         className="absolute inset-0 rounded-xl bg-white/40"
         style={{ backdropFilter: "blur(8px)" as any }}
