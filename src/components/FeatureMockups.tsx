@@ -75,11 +75,15 @@ export const LidMockup = () => (
         <div className="absolute bottom-[38px] left-6 h-2 w-2 -translate-x-1 rounded-full bg-white/60" />
         {/* lid — pivots from hinge */}
         <div
-          className="absolute bottom-[40px] left-6 h-24 w-1.5 origin-bottom rounded-full bg-brand-violet shadow-[0_0_18px_hsl(var(--brand-violet)/0.6)] animate-[lidCloseSide_5s_ease-in-out_infinite]"
+          className="absolute bottom-[40px] left-6 h-40 w-1.5 origin-bottom rounded-full bg-brand-violet shadow-[0_0_18px_hsl(var(--brand-violet)/0.6)] animate-[lidCloseSide_5s_ease-in-out_infinite]"
         />
-        {/* angle labels */}
-        <div className="absolute bottom-2 left-2 text-xs font-medium text-white/70">30°</div>
-        <div className="absolute bottom-2 right-2 text-xs font-medium text-white/70">120°</div>
+        {/* live angle readout */}
+        <div className="absolute -top-2 left-1/2 -translate-x-1/2 text-sm font-semibold tracking-tight">
+          <span className="absolute inset-0 text-center text-white animate-[angle90_5s_ease-in-out_infinite]">90°</span>
+          <span className="absolute inset-0 text-center text-brand-violet animate-[angle45_5s_ease-in-out_infinite] opacity-0">45°</span>
+          <span className="absolute inset-0 text-center text-brand-glow animate-[angle10_5s_ease-in-out_infinite] opacity-0">10°</span>
+          <span className="invisible">000°</span>
+        </div>
       </div>
     </div>
 
@@ -103,9 +107,21 @@ export const LidMockup = () => (
     <style>{`
       @keyframes lidCloseSide {
         0%   { transform: rotate(0deg); }
-        35%  { transform: rotate(30deg); }
-        65%  { transform: rotate(60deg); }
+        35%  { transform: rotate(45deg); }
+        65%  { transform: rotate(80deg); }
         100% { transform: rotate(0deg); }
+      }
+      @keyframes angle90 {
+        0%, 15%, 90%, 100% { opacity: 1; }
+        25%, 85% { opacity: 0; }
+      }
+      @keyframes angle45 {
+        0%, 25%, 55%, 100% { opacity: 0; }
+        35%, 45% { opacity: 1; }
+      }
+      @keyframes angle10 {
+        0%, 55%, 85%, 100% { opacity: 0; }
+        65%, 78% { opacity: 1; }
       }
     `}</style>
   </FrameShell>
