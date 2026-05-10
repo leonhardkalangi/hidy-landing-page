@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { Mail, BellOff, Laptop } from "lucide-react";
 import lidPhoto from "@/assets/feature-lid-photo.jpg";
-import coughPhoto from "@/assets/feature-cough-photo.jpg";
+import HeroMockup from "@/components/HeroMockup";
 
 const FrameShell = ({ children }: { children: React.ReactNode }) => (
   <div className="relative aspect-[4/3] w-full overflow-hidden rounded-2xl bg-[#0b0b14] ring-1 ring-white/5">
@@ -106,62 +106,9 @@ export const LidMockup = () => (
 
 /* --------- COUGH TO HIDE (3/4 laptop + person silhouette + cough bubble) --------- */
 export const CoughMockup = () => (
-  <FrameShell>
-    <img
-      src={coughPhoto}
-      alt=""
-      loading="lazy"
-      className="absolute inset-0 h-full w-full object-cover"
-    />
-    <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-black/30" />
-
-    {/* frost overlay clipped over the laptop screen on the right */}
-    <motion.div
-      initial={{ opacity: 0 }}
-      animate={{ opacity: [0, 0, 0.95, 0.95, 0] }}
-      transition={{ duration: 4.5, times: [0, 0.4, 0.55, 0.9, 1], repeat: Infinity, repeatDelay: 0.4 }}
-      className="pointer-events-none absolute left-[63%] right-[10%] top-[44%] h-[36%] rounded-md bg-white/40"
-      style={{ backdropFilter: "blur(10px)" as any }}
-    />
-
-    {/* cough bubble */}
-    <motion.div
-      initial={{ opacity: 0, scale: 0.7, y: 8 }}
-      animate={{
-        opacity: [0, 0, 1, 1, 0],
-        scale: [0.7, 0.7, 1, 1, 0.7],
-        y: [8, 8, 0, 0, 8],
-      }}
-      transition={{ duration: 4.5, times: [0, 0.3, 0.45, 0.7, 1], repeat: Infinity, repeatDelay: 0.4 }}
-      className="absolute left-[34%] top-[20%]"
-    >
-      <div className="relative rounded-2xl bg-white px-3 py-1.5 text-[11px] font-semibold text-slate-900 shadow-xl">
-        “cough!”
-        <span className="absolute -bottom-1 left-3 h-3 w-3 rotate-45 bg-white" />
-      </div>
-    </motion.div>
-
-    {/* sound waves emitting toward laptop */}
-    {[0, 1, 2].map((i) => (
-      <motion.span
-        key={i}
-        initial={{ opacity: 0, scale: 0.6 }}
-        animate={{ opacity: [0, 0, 0.6, 0, 0], scale: [0.6, 0.6, 1.4, 1.8, 0.6] }}
-        transition={{ duration: 4.5, times: [0, 0.35, 0.5, 0.65, 1], repeat: Infinity, repeatDelay: 0.4, delay: i * 0.08 }}
-        className="absolute left-[48%] top-[40%] h-6 w-6 rounded-full border border-brand-glow/60"
-      />
-    ))}
-
-    {/* status pill */}
-    <motion.div
-      initial={{ opacity: 0 }}
-      animate={{ opacity: [0, 0, 1, 1, 0] }}
-      transition={{ duration: 4.5, times: [0, 0.45, 0.55, 0.9, 1], repeat: Infinity, repeatDelay: 0.4 }}
-      className="absolute left-3 top-3 rounded-full bg-black/60 px-3 py-1 text-[10px] text-white ring-1 ring-white/10 backdrop-blur"
-    >
-      Cough detected — hiding screen
-    </motion.div>
-  </FrameShell>
+  <div className="relative aspect-[4/3] w-full overflow-hidden rounded-2xl">
+    <HeroMockup />
+  </div>
 );
 
 /* --------- MARKING BLUR (drag rectangle then frost area) --------- */
