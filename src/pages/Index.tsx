@@ -19,19 +19,17 @@ const Hero = () => (
         </span>
       </Reveal>
       <Reveal>
-        <h1 className="mt-6 text-5xl md:text-7xl font-bold tracking-tight leading-[1.05] text-gradient">
-          <span className="relative inline-block">
-            <img
-              src={hidyIcon}
-              alt=""
-              aria-hidden="true"
-              className="pointer-events-none absolute left-1/2 top-1/2 -z-10 h-24 w-24 md:h-36 md:w-36 rounded-[28%] opacity-95 animate-float drop-shadow-[0_20px_40px_hsl(var(--brand-violet)/0.55)]"
-            />
-            <span className="relative">Privacy that doesn't</span>
-            <br />
-            <span className="relative">watch you back.</span>
-          </span>
-        </h1>
+        <div className="relative mt-6 inline-block">
+          <img
+            src={hidyIcon}
+            alt=""
+            aria-hidden="true"
+            className="pointer-events-none absolute left-1/2 top-1/2 z-0 h-24 w-24 md:h-36 md:w-36 -translate-x-1/2 -translate-y-1/2 rounded-[28%] opacity-90 animate-float drop-shadow-[0_20px_40px_hsl(var(--brand-violet)/0.55)]"
+          />
+          <h1 className="relative z-10 text-5xl md:text-7xl font-bold tracking-tight leading-[1.05] text-gradient">
+            Privacy that doesn't<br />watch you back.
+          </h1>
+        </div>
       </Reveal>
       <Reveal>
         <p className="mx-auto mt-6 max-w-2xl text-lg md:text-xl text-muted-foreground">
