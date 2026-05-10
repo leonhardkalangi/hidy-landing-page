@@ -1,5 +1,7 @@
 import { motion } from "framer-motion";
-import { Mail, BellOff, Laptop, Command } from "lucide-react";
+import { Mail, BellOff, Laptop } from "lucide-react";
+import lidPhoto from "@/assets/feature-lid-photo.jpg";
+import coughPhoto from "@/assets/feature-cough-photo.jpg";
 
 const FrameShell = ({ children }: { children: React.ReactNode }) => (
   <div className="relative aspect-[4/3] w-full overflow-hidden rounded-2xl bg-[#0b0b14] ring-1 ring-white/5">
@@ -63,53 +65,32 @@ export const NotificationMockup = () => (
 /* --------- CLOSE TO BLUR (lid angle drops, blur grows) --------- */
 export const LidMockup = () => (
   <FrameShell>
-    <div className="absolute inset-0 bg-gradient-to-b from-slate-900 to-black" />
+    <img
+      src={lidPhoto}
+      alt=""
+      loading="lazy"
+      className="absolute inset-0 h-full w-full object-cover"
+    />
 
-    {/* MacBook — side / 3-quarter profile via SVG */}
-    <svg
-      viewBox="0 0 400 260"
-      className="absolute inset-0 h-full w-full"
-      preserveAspectRatio="xMidYMid meet"
-      aria-hidden
+    {/* lid-closing curtain: a dark band that descends from the top of the screen */}
+    <motion.div
+      initial={{ height: "0%" }}
+      animate={{ height: ["0%", "0%", "55%", "55%", "0%"] }}
+      transition={{ duration: 4.5, times: [0, 0.2, 0.55, 0.85, 1], repeat: Infinity, repeatDelay: 0.4, ease: "easeInOut" }}
+      className="pointer-events-none absolute left-[24%] right-[22%] top-[31%] overflow-hidden rounded-t-[10px]"
+      style={{ transformOrigin: "top center" }}
     >
-      <defs>
-        <linearGradient id="lidScreenGrad" x1="0" x2="1" y1="0" y2="1">
-          <stop offset="0%" stopColor="#fb923c" />
-          <stop offset="55%" stopColor="#f472b6" />
-          <stop offset="100%" stopColor="#a855f7" />
-        </linearGradient>
-        <linearGradient id="lidBaseGrad" x1="0" x2="0" y1="0" y2="1">
-          <stop offset="0%" stopColor="#a1a1aa" />
-          <stop offset="100%" stopColor="#52525b" />
-        </linearGradient>
-      </defs>
-      <ellipse cx="200" cy="218" rx="160" ry="9" fill="rgba(0,0,0,0.55)" />
-      <g>
-        <path d="M 70,205 L 330,205 L 305,196 L 95,196 Z" fill="url(#lidBaseGrad)" />
-        <path d="M 70,205 L 330,205 L 325,213 L 75,213 Z" fill="#3f3f46" />
-        <rect x="125" y="198" width="150" height="3" rx="1" fill="rgba(0,0,0,0.35)" />
-      </g>
-      <motion.g
-        initial={{ rotate: -100 }}
-        animate={{ rotate: [-100, -100, -5, -5, -100] }}
-        transition={{ duration: 4.5, times: [0, 0.2, 0.55, 0.85, 1], repeat: Infinity, repeatDelay: 0.4, ease: "easeInOut" }}
-        style={{ transformOrigin: "200px 196px", transformBox: "view-box" as any }}
-      >
-        <rect x="95" y="196" width="210" height="135" rx="8" fill="#27272a" />
-        <rect x="103" y="201" width="194" height="122" rx="5" fill="#0a0a0a" />
-        <rect x="106" y="204" width="188" height="116" rx="3" fill="url(#lidScreenGrad)" />
-        <ellipse cx="160" cy="240" rx="60" ry="30" fill="rgba(255,255,255,0.32)" />
-        <rect x="190" y="201" width="20" height="3" rx="1.5" fill="#0a0a0a" />
-        <motion.rect
-          x="106" y="204" width="188" height="116" rx="3"
-          fill="rgba(255,255,255,0.55)"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: [0, 0, 0.85, 0.85, 0] }}
-          transition={{ duration: 4.5, times: [0, 0.25, 0.55, 0.85, 1], repeat: Infinity, repeatDelay: 0.4 }}
-          style={{ filter: "blur(2px)" }}
-        />
-      </motion.g>
-    </svg>
+      <div className="h-full w-full bg-gradient-to-b from-zinc-900 via-zinc-800 to-zinc-700/80 ring-1 ring-white/5" />
+    </motion.div>
+
+    {/* frost overlay clipped to the laptop screen area */}
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: [0, 0, 0.95, 0.95, 0] }}
+      transition={{ duration: 4.5, times: [0, 0.3, 0.55, 0.85, 1], repeat: Infinity, repeatDelay: 0.4 }}
+      className="pointer-events-none absolute left-[24%] right-[22%] top-[31%] h-[34%] rounded-md bg-white/35"
+      style={{ backdropFilter: "blur(10px)" as any }}
+    />
 
     {/* status pill */}
     <motion.div
@@ -126,86 +107,22 @@ export const LidMockup = () => (
 /* --------- COUGH TO HIDE (3/4 laptop + person silhouette + cough bubble) --------- */
 export const CoughMockup = () => (
   <FrameShell>
-    <div className="absolute inset-0 bg-gradient-to-br from-slate-900 via-slate-950 to-black" />
+    <img
+      src={coughPhoto}
+      alt=""
+      loading="lazy"
+      className="absolute inset-0 h-full w-full object-cover"
+    />
+    <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-black/30" />
 
-    {/* desk plane glow */}
-    <div className="absolute inset-x-0 bottom-0 h-1/3 bg-[radial-gradient(ellipse_at_bottom,hsl(var(--brand-violet)/0.18),transparent_70%)]" />
-
-    {/* 3/4 laptop */}
-    <div className="absolute inset-0 flex items-center justify-center" style={{ perspective: "1100px" }}>
-      <div
-        className="relative w-[55%]"
-        style={{ transformStyle: "preserve-3d", transform: "rotateX(18deg) rotateY(-25deg)" }}
-      >
-        {/* base */}
-        <div
-          className="relative h-[28px] w-full rounded-[8px] bg-gradient-to-b from-zinc-400 via-zinc-500 to-zinc-700 shadow-[0_25px_50px_-10px_rgba(0,0,0,0.7)]"
-          style={{ transform: "rotateX(78deg) translateZ(-2px)", transformOrigin: "top center" }}
-        >
-          <div className="absolute inset-x-[12%] top-1 bottom-2 rounded bg-zinc-800/60" />
-        </div>
-
-        {/* lid (open at angle) */}
-        <div
-          className="absolute -top-[155%] left-0 right-0 h-[160%] rounded-[10px] bg-zinc-800 p-[5px] shadow-[0_25px_50px_-10px_rgba(0,0,0,0.8)] ring-1 ring-white/10"
-          style={{ transformOrigin: "bottom center", transform: "rotateX(-3deg)" }}
-        >
-          <div className="relative h-full w-full overflow-hidden rounded-[6px] bg-slate-900">
-            {/* fake content lines */}
-            <div className="space-y-1.5 p-2">
-              <div className="h-1.5 w-2/3 rounded-full bg-white/40" />
-              <div className="h-1.5 w-1/2 rounded-full bg-white/25" />
-              <div className="h-1.5 w-3/4 rounded-full bg-white/25" />
-              <div className="h-1.5 w-1/3 rounded-full bg-white/20" />
-              <div className="h-1.5 w-3/5 rounded-full bg-white/20" />
-            </div>
-            {/* notch */}
-            <div className="absolute left-1/2 top-0 h-1.5 w-8 -translate-x-1/2 rounded-b bg-black/80" />
-
-            {/* frost overlay triggered by cough */}
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: [0, 0, 1, 1, 0] }}
-              transition={{ duration: 4.5, times: [0, 0.45, 0.6, 0.9, 1], repeat: Infinity, repeatDelay: 0.4 }}
-              className="absolute inset-0 bg-white/30"
-              style={{ backdropFilter: "blur(12px)" as any }}
-            />
-          </div>
-        </div>
-      </div>
-    </div>
-
-    {/* person silhouette (3/4 from right side, looking at screen) */}
-    <svg
-      viewBox="0 0 100 140"
-      className="absolute -right-1 bottom-0 h-[85%] w-auto text-slate-950"
-      preserveAspectRatio="xMaxYMax meet"
-      aria-hidden
-    >
-      {/* shoulders/torso */}
-      <path
-        d="M -10,140 Q 10,90 35,82 Q 55,78 70,90 Q 90,108 100,140 Z"
-        fill="hsl(220 40% 10%)"
-        stroke="hsl(250 40% 30% / 0.5)"
-        strokeWidth="0.6"
-      />
-      {/* head 3/4 profile */}
-      <path
-        d="M 35,72 Q 32,55 42,48 Q 55,42 64,52 Q 70,60 67,72 Q 66,78 60,80 Q 58,84 55,84 Q 50,86 46,84 Q 38,82 35,72 Z"
-        fill="hsl(220 40% 12%)"
-        stroke="hsl(250 40% 35% / 0.6)"
-        strokeWidth="0.6"
-      />
-      {/* hand to mouth (covering cough) */}
-      <motion.path
-        animate={{ y: [0, 0, -2, 0, 0] }}
-        transition={{ duration: 4.5, times: [0, 0.35, 0.5, 0.65, 1], repeat: Infinity, repeatDelay: 0.4 }}
-        d="M 30,80 Q 28,72 35,70 Q 42,69 44,74 Q 45,80 40,82 Q 34,84 30,80 Z"
-        fill="hsl(220 40% 14%)"
-        stroke="hsl(250 40% 35% / 0.6)"
-        strokeWidth="0.6"
-      />
-    </svg>
+    {/* frost overlay clipped over the laptop screen on the right */}
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: [0, 0, 0.95, 0.95, 0] }}
+      transition={{ duration: 4.5, times: [0, 0.4, 0.55, 0.9, 1], repeat: Infinity, repeatDelay: 0.4 }}
+      className="pointer-events-none absolute left-[63%] right-[10%] top-[44%] h-[36%] rounded-md bg-white/40"
+      style={{ backdropFilter: "blur(10px)" as any }}
+    />
 
     {/* cough bubble */}
     <motion.div
@@ -216,11 +133,11 @@ export const CoughMockup = () => (
         y: [8, 8, 0, 0, 8],
       }}
       transition={{ duration: 4.5, times: [0, 0.3, 0.45, 0.7, 1], repeat: Infinity, repeatDelay: 0.4 }}
-      className="absolute right-[18%] top-[28%]"
+      className="absolute left-[34%] top-[20%]"
     >
       <div className="relative rounded-2xl bg-white px-3 py-1.5 text-[11px] font-semibold text-slate-900 shadow-xl">
         “cough!”
-        <span className="absolute -bottom-1 right-3 h-3 w-3 rotate-45 bg-white" />
+        <span className="absolute -bottom-1 left-3 h-3 w-3 rotate-45 bg-white" />
       </div>
     </motion.div>
 
@@ -231,7 +148,7 @@ export const CoughMockup = () => (
         initial={{ opacity: 0, scale: 0.6 }}
         animate={{ opacity: [0, 0, 0.6, 0, 0], scale: [0.6, 0.6, 1.4, 1.8, 0.6] }}
         transition={{ duration: 4.5, times: [0, 0.35, 0.5, 0.65, 1], repeat: Infinity, repeatDelay: 0.4, delay: i * 0.08 }}
-        className="absolute right-[26%] top-[55%] h-6 w-6 rounded-full border border-brand-glow/60"
+        className="absolute left-[48%] top-[40%] h-6 w-6 rounded-full border border-brand-glow/60"
       />
     ))}
 
@@ -244,47 +161,6 @@ export const CoughMockup = () => (
     >
       Cough detected — hiding screen
     </motion.div>
-  </FrameShell>
-);
-
-/* --------- HOTKEY (cmd+ctrl+B pressed -> frost) --------- */
-export const HotkeyMockup = () => (
-  <FrameShell>
-    <div className="absolute inset-0 bg-gradient-to-br from-violet-900/40 via-slate-900 to-black" />
-    {/* fake doc */}
-    <div className="absolute inset-x-6 top-6 bottom-20 rounded-xl bg-white/95 p-4 ring-1 ring-white/10">
-      <div className="space-y-2">
-        <div className="h-2 w-2/3 rounded-full bg-slate-300" />
-        <div className="h-2 w-1/2 rounded-full bg-slate-200" />
-        <div className="h-2 w-3/4 rounded-full bg-slate-200" />
-        <div className="h-2 w-2/5 rounded-full bg-slate-200" />
-      </div>
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: [0, 0, 1, 1, 0] }}
-        transition={{ duration: 3.5, times: [0, 0.35, 0.45, 0.9, 1], repeat: Infinity, repeatDelay: 0.4 }}
-        className="absolute inset-0 rounded-xl bg-white/40"
-        style={{ backdropFilter: "blur(10px)" as any }}
-      />
-    </div>
-
-    {/* keyboard combo */}
-    <div className="absolute inset-x-0 bottom-3 flex items-center justify-center gap-1.5">
-      {["⌘", "⌃", "B"].map((k, i) => (
-        <motion.div
-          key={k}
-          animate={{
-            y: [0, 0, 2, 0, 0],
-            backgroundColor: ["rgba(255,255,255,0.08)", "rgba(255,255,255,0.08)", "hsl(var(--brand-violet))", "rgba(255,255,255,0.08)", "rgba(255,255,255,0.08)"],
-          }}
-          transition={{ duration: 3.5, times: [0, 0.3, 0.42, 0.55, 1], repeat: Infinity, repeatDelay: 0.4, delay: i * 0.05 }}
-          className="flex h-8 w-8 items-center justify-center rounded-md text-xs font-semibold text-white ring-1 ring-white/15"
-        >
-          {k}
-        </motion.div>
-      ))}
-      <Command className="ml-2 h-4 w-4 text-brand-glow" />
-    </div>
   </FrameShell>
 );
 
