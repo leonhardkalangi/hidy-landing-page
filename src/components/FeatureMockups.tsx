@@ -65,40 +65,51 @@ export const LidMockup = () => (
   <FrameShell>
     <div className="absolute inset-0 bg-gradient-to-b from-slate-900 to-black" />
 
-    {/* MacBook — front-on, simple SVG */}
-    <div className="absolute inset-0 flex items-center justify-center">
-      <div className="relative w-[78%] max-w-[520px]">
-        {/* lid (rotates closed around bottom edge) */}
-        <motion.div
-          initial={{ rotateX: 0 }}
-          animate={{ rotateX: [0, 0, 88, 88, 0] }}
-          transition={{ duration: 4.5, times: [0, 0.2, 0.55, 0.85, 1], repeat: Infinity, repeatDelay: 0.4, ease: "easeInOut" }}
-          style={{ transformOrigin: "bottom center", transformStyle: "preserve-3d" }}
-          className="relative aspect-[16/10] w-full rounded-t-[12px] bg-zinc-800 p-[6px] shadow-[0_25px_50px_-10px_rgba(0,0,0,0.8)] ring-1 ring-white/10"
-        >
-          <div className="relative h-full w-full overflow-hidden rounded-[6px] bg-black">
-            {/* notch */}
-            <div className="absolute left-1/2 top-0 z-10 h-2 w-12 -translate-x-1/2 rounded-b-md bg-black" />
-            {/* wallpaper */}
-            <div className="absolute inset-0 bg-gradient-to-br from-orange-400 via-pink-400 to-purple-500" />
-            <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_40%,rgba(255,255,255,0.45),transparent_55%)]" />
-            {/* frost overlay */}
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: [0, 0, 1, 1, 0] }}
-              transition={{ duration: 4.5, times: [0, 0.25, 0.55, 0.85, 1], repeat: Infinity, repeatDelay: 0.4 }}
-              className="absolute inset-0 bg-white/25"
-              style={{ backdropFilter: "blur(14px)" as any }}
-            />
-          </div>
-        </motion.div>
-
-        {/* base / keyboard deck */}
-        <div className="relative -mt-[2px] h-3 w-full rounded-b-[14px] bg-gradient-to-b from-zinc-500 via-zinc-600 to-zinc-700 shadow-[0_20px_30px_-10px_rgba(0,0,0,0.6)]">
-          <div className="absolute left-1/2 top-0 h-1 w-1/4 -translate-x-1/2 rounded-b-md bg-zinc-800/70" />
-        </div>
-      </div>
-    </div>
+    {/* MacBook — side / 3-quarter profile via SVG */}
+    <svg
+      viewBox="0 0 400 260"
+      className="absolute inset-0 h-full w-full"
+      preserveAspectRatio="xMidYMid meet"
+      aria-hidden
+    >
+      <defs>
+        <linearGradient id="lidScreenGrad" x1="0" x2="1" y1="0" y2="1">
+          <stop offset="0%" stopColor="#fb923c" />
+          <stop offset="55%" stopColor="#f472b6" />
+          <stop offset="100%" stopColor="#a855f7" />
+        </linearGradient>
+        <linearGradient id="lidBaseGrad" x1="0" x2="0" y1="0" y2="1">
+          <stop offset="0%" stopColor="#a1a1aa" />
+          <stop offset="100%" stopColor="#52525b" />
+        </linearGradient>
+      </defs>
+      <ellipse cx="200" cy="218" rx="160" ry="9" fill="rgba(0,0,0,0.55)" />
+      <g>
+        <path d="M 70,205 L 330,205 L 305,196 L 95,196 Z" fill="url(#lidBaseGrad)" />
+        <path d="M 70,205 L 330,205 L 325,213 L 75,213 Z" fill="#3f3f46" />
+        <rect x="125" y="198" width="150" height="3" rx="1" fill="rgba(0,0,0,0.35)" />
+      </g>
+      <motion.g
+        initial={{ rotate: -100 }}
+        animate={{ rotate: [-100, -100, -5, -5, -100] }}
+        transition={{ duration: 4.5, times: [0, 0.2, 0.55, 0.85, 1], repeat: Infinity, repeatDelay: 0.4, ease: "easeInOut" }}
+        style={{ transformOrigin: "200px 196px", transformBox: "view-box" as any }}
+      >
+        <rect x="95" y="196" width="210" height="135" rx="8" fill="#27272a" />
+        <rect x="103" y="201" width="194" height="122" rx="5" fill="#0a0a0a" />
+        <rect x="106" y="204" width="188" height="116" rx="3" fill="url(#lidScreenGrad)" />
+        <ellipse cx="160" cy="240" rx="60" ry="30" fill="rgba(255,255,255,0.32)" />
+        <rect x="190" y="201" width="20" height="3" rx="1.5" fill="#0a0a0a" />
+        <motion.rect
+          x="106" y="204" width="188" height="116" rx="3"
+          fill="rgba(255,255,255,0.55)"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: [0, 0, 0.85, 0.85, 0] }}
+          transition={{ duration: 4.5, times: [0, 0.25, 0.55, 0.85, 1], repeat: Infinity, repeatDelay: 0.4 }}
+          style={{ filter: "blur(2px)" }}
+        />
+      </motion.g>
+    </svg>
 
     {/* status pill */}
     <motion.div
