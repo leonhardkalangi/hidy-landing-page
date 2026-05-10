@@ -7,7 +7,7 @@ import { NotificationMockup, LidMockup, CoughMockup, MarkingMockup } from "@/com
 import Layout from "@/components/layout/Layout";
 import { Section, Reveal } from "@/components/site/Section";
 import PricingSection from "@/components/sections/PricingSection";
-import hidyIcon from "@/assets/hidy-icon.png";
+import hidyIcon from "@/assets/hidy-peek.png";
 
 const Hero = () => (
   <div id="top" className="hero-bg relative overflow-hidden pt-36 md:pt-44">
@@ -19,14 +19,14 @@ const Hero = () => (
         </span>
       </Reveal>
       <Reveal>
-        <div className="relative mt-8 px-4 pt-20 md:pt-28">
-          <div className="pointer-events-none absolute left-1/2 top-0 z-10 flex h-28 w-28 -translate-x-1/2 items-start justify-center md:h-40 md:w-40">
-            <span className="absolute inset-[-32%] rounded-full bg-[radial-gradient(circle,hsl(var(--brand-violet)/0.4),transparent_72%)] blur-3xl" />
+        <div className="relative mt-8 px-4 pt-24 md:pt-32">
+          <div className="pointer-events-none absolute left-1/2 top-0 z-10 flex h-24 w-44 -translate-x-1/2 items-start justify-center md:h-32 md:w-60">
+            <span className="absolute inset-[-30%] rounded-[50%] bg-[radial-gradient(ellipse_at_center,hsl(var(--brand-violet)/0.45),transparent_70%)] blur-3xl" />
             <img
               src={hidyIcon}
               alt=""
               aria-hidden="true"
-              className="h-full w-full animate-float object-contain drop-shadow-[0_20px_45px_hsl(var(--brand-violet)/0.42)]"
+              className="relative h-full w-full object-contain"
             />
           </div>
 
