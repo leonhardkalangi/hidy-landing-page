@@ -19,16 +19,26 @@ const Hero = () => (
         </span>
       </Reveal>
       <Reveal>
-        <div className="relative mt-6 inline-block">
-          <img
-            src={hidyIcon}
-            alt=""
-            aria-hidden="true"
-            className="pointer-events-none absolute left-1/2 top-1/2 z-0 h-24 w-24 md:h-36 md:w-36 -translate-x-1/2 -translate-y-1/2 rounded-[28%] opacity-90 animate-float drop-shadow-[0_20px_40px_hsl(var(--brand-violet)/0.55)]"
-          />
-          <h1 className="relative z-10 text-5xl md:text-7xl font-bold tracking-tight leading-[1.05] text-gradient">
-            Privacy that doesn't<br />watch you back.
-          </h1>
+        <div className="relative mt-6 flex justify-center">
+          <div className="relative inline-flex flex-col items-center">
+            <div className="pointer-events-none absolute left-1/2 top-1/2 h-32 w-32 -translate-x-1/2 -translate-y-1/2 rounded-full bg-[radial-gradient(circle,hsl(var(--brand-violet)/0.32),transparent_72%)] blur-3xl md:h-44 md:w-44" />
+            <h1 className="relative z-10 flex flex-col items-center gap-2 text-center text-5xl font-bold leading-[0.96] tracking-tight text-gradient md:gap-3 md:text-7xl">
+              <span className="block">Privacy that doesn&apos;t</span>
+              <span className="flex items-center justify-center gap-3 md:gap-5">
+                <span>watch</span>
+                <span className="relative inline-flex h-16 w-16 shrink-0 items-center justify-center md:h-24 md:w-24">
+                  <span className="absolute inset-0 rounded-[30%] bg-[radial-gradient(circle,hsl(var(--brand-blue)/0.34),transparent_70%)] blur-2xl" />
+                  <img
+                    src={hidyIcon}
+                    alt=""
+                    aria-hidden="true"
+                    className="relative h-full w-full rounded-[30%] object-cover animate-float shadow-[0_18px_40px_-12px_hsl(var(--brand-violet)/0.8)]"
+                  />
+                </span>
+                <span>you back.</span>
+              </span>
+            </h1>
+          </div>
         </div>
       </Reveal>
       <Reveal>
