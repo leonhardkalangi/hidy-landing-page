@@ -81,42 +81,20 @@ export const LidMockup = () => {
     <FrameShell>
       <div className="absolute inset-0 bg-gradient-to-br from-slate-900 via-[#0b0b14] to-black" />
 
+      {/* side-view diagram */}
       <div className="absolute inset-0 flex items-center justify-center pb-10">
-        <svg viewBox="0 0 300 240" className="h-[78%] w-[78%]" fill="none">
-          <defs>
-            <filter id="lidGlow" x="-50%" y="-50%" width="200%" height="200%">
-              <feGaussianBlur stdDeviation="4" result="b" />
-              <feMerge>
-                <feMergeNode in="b" />
-                <feMergeNode in="SourceGraphic" />
-              </feMerge>
-            </filter>
-            <linearGradient id="lidStroke" x1="0" y1="0" x2="1" y2="0">
-              <stop offset="0%" stopColor="hsl(var(--brand-violet))" />
-              <stop offset="100%" stopColor="hsl(var(--brand-glow))" />
-            </linearGradient>
-          </defs>
-
-          {/* keyboard base */}
-          <line x1="100" y1="200" x2="240" y2="200" stroke="rgba(255,255,255,0.85)" strokeWidth="4" strokeLinecap="round" />
+        <div className="relative h-44 w-64">
+          {/* base */}
+          <div className="absolute bottom-12 left-8 h-1 w-44 rounded-full bg-white/85" />
           {/* hinge */}
-          <circle cx="100" cy="200" r="3.5" fill="rgba(255,255,255,0.7)" />
-
-          {/* lid (drawn horizontal, rotated around hinge) */}
-          <motion.line
-            x1="100"
-            y1="200"
-            x2="240"
-            y2="200"
-            stroke="url(#lidStroke)"
-            strokeWidth="5"
-            strokeLinecap="round"
-            filter="url(#lidGlow)"
-            style={{ transformBox: "fill-box", transformOrigin: "0% 100%" } as any}
+          <div className="absolute bottom-[46px] left-[26px] h-2.5 w-2.5 rounded-full bg-white/70" />
+          {/* lid */}
+          <motion.div
+            className="absolute bottom-[48px] left-8 h-1.5 w-44 origin-left rounded-full bg-gradient-to-r from-brand-violet to-brand-glow shadow-[0_0_22px_hsl(var(--brand-violet)/0.7)]"
             animate={{ rotate: -angle }}
             transition={{ type: "spring", stiffness: 90, damping: 14 }}
           />
-        </svg>
+        </div>
       </div>
 
       {/* preset pills */}
