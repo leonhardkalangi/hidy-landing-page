@@ -25,7 +25,7 @@ const Hero = () => (
               src={hidyIcon}
               alt=""
               aria-hidden="true"
-              className="pointer-events-none absolute left-1/2 top-1/2 -z-10 h-24 w-24 md:h-36 md:w-36 -translate-x-1/2 -translate-y-1/2 rounded-[28%] opacity-95 animate-[float_4s_ease-in-out_infinite] drop-shadow-[0_20px_40px_hsl(var(--brand-violet)/0.55)]"
+              className="pointer-events-none absolute left-1/2 top-1/2 -z-10 h-24 w-24 md:h-36 md:w-36 rounded-[28%] opacity-95 animate-float drop-shadow-[0_20px_40px_hsl(var(--brand-violet)/0.55)]"
             />
             <span className="relative">Privacy that doesn't</span>
             <br />
