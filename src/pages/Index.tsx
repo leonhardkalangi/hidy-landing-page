@@ -33,7 +33,7 @@ const Hero = () => (
             />
           </div>
 
-          <h1 className="mt-3 md:mt-4 mx-auto max-w-[11ch] text-center text-[3.9rem] font-bold leading-[0.9] tracking-tight sm:text-[4.8rem] md:max-w-none md:text-[7.1rem]">
+          <h1 className="-mt-4 md:-mt-6 mx-auto max-w-[11ch] text-center text-[3.9rem] font-bold leading-[0.9] tracking-tight sm:text-[4.8rem] md:max-w-none md:text-[7.1rem]">
             <span className="block text-gradient">Privacy that</span>
             <span className="mt-1 block text-gradient">doesn&apos;t watch</span>
             <span className="mt-2 block text-brand-gradient">you back.</span>
