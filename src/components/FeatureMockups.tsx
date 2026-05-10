@@ -1,6 +1,5 @@
 import { motion } from "framer-motion";
 import { Mail, BellOff, Laptop } from "lucide-react";
-import lidPhoto from "@/assets/feature-lid-photo.jpg";
 import HeroMockup from "@/components/HeroMockup";
 
 const FrameShell = ({ children }: { children: React.ReactNode }) => (
@@ -65,21 +64,89 @@ export const NotificationMockup = () => (
 /* --------- CLOSE TO BLUR (lid angle drops, blur grows) --------- */
 export const LidMockup = () => (
   <FrameShell>
-    <img
-      src="/feature-lid.gif"
-      alt=""
-      loading="lazy"
-      className="absolute inset-0 h-full w-full object-cover"
-    />
+    <div className="absolute inset-0 bg-gradient-to-br from-slate-900 via-[#0b0b14] to-black" />
+
+    {/* glow */}
+    <div className="pointer-events-none absolute left-1/2 top-1/2 h-56 w-56 -translate-x-1/2 -translate-y-1/2 rounded-full bg-brand-violet/25 blur-3xl" />
+
+    {/* laptop stage */}
+    <div className="absolute inset-0 flex items-end justify-center pb-10">
+      <div className="relative" style={{ perspective: "1200px" }}>
+        {/* lid */}
+        <div
+          className="relative origin-bottom animate-[lidClose_5s_ease-in-out_infinite]"
+          style={{ transformStyle: "preserve-3d" }}
+        >
+          <div className="relative h-28 w-48 overflow-hidden rounded-t-md bg-gradient-to-br from-slate-800 to-slate-900 ring-1 ring-white/10 shadow-2xl">
+            {/* fake UI */}
+            <div className="absolute inset-1.5 space-y-1">
+              <div className="flex gap-1">
+                <div className="h-1 w-6 rounded bg-white/20" />
+                <div className="h-1 w-10 rounded bg-white/15" />
+                <div className="h-1 w-4 rounded bg-white/15" />
+              </div>
+              <div className="h-1 w-4/5 rounded bg-white/15" />
+              <div className="h-1 w-3/5 rounded bg-white/10" />
+              <div className="h-1 w-2/3 rounded bg-white/10" />
+              <div className="h-1 w-1/2 rounded bg-white/10" />
+              <div className="h-1 w-3/4 rounded bg-white/10" />
+            </div>
+
+            {/* frost overlay */}
+            <div className="absolute inset-0 bg-white/30 opacity-0 animate-[lidFrost_5s_ease-in-out_infinite]"
+                 style={{ backdropFilter: "blur(10px)" as any }} />
+
+            {/* shimmer */}
+            <div className="absolute -inset-2 overflow-hidden">
+              <div className="absolute top-0 h-full w-8 -translate-x-full rotate-12 bg-gradient-to-r from-transparent via-white/40 to-transparent animate-[lidShimmer_5s_ease-in-out_infinite]" />
+            </div>
+          </div>
+        </div>
+
+        {/* base */}
+        <div className="relative -mt-px h-2 w-52 -translate-x-2 rounded-b-xl bg-gradient-to-b from-slate-600 to-slate-800 ring-1 ring-white/10 shadow-xl" />
+        {/* shadow */}
+        <div className="absolute -bottom-3 left-1/2 h-3 w-56 -translate-x-1/2 rounded-full bg-black/60 blur-md" />
+      </div>
+    </div>
+
+    {/* angle labels */}
+    <div className="absolute bottom-3 left-1/2 flex -translate-x-1/2 gap-2 text-[8px]">
+      <div className="rounded-full bg-white/10 px-2 py-0.5 text-white/70 ring-1 ring-white/10">90° Open</div>
+      <div className="rounded-full bg-brand-violet/30 px-2 py-0.5 text-white ring-1 ring-brand-violet/40">45° Blur</div>
+      <div className="rounded-full bg-white/10 px-2 py-0.5 text-white/70 ring-1 ring-white/10">10° Safe</div>
+    </div>
+
     {/* status pill */}
     <motion.div
       initial={{ opacity: 0, y: 8 }}
       animate={{ opacity: [0, 0, 1, 1, 0], y: [8, 8, 0, 0, 8] }}
-      transition={{ duration: 4.5, times: [0, 0.3, 0.5, 0.85, 1], repeat: Infinity, repeatDelay: 0.4 }}
+      transition={{ duration: 5, times: [0, 0.3, 0.5, 0.85, 1], repeat: Infinity }}
       className="absolute left-1/2 top-3 -translate-x-1/2 rounded-full bg-black/60 px-3 py-1 text-[10px] text-white ring-1 ring-white/10 backdrop-blur"
     >
       <Laptop className="mr-1 inline h-3 w-3" /> Lid closing — frosting screen
     </motion.div>
+
+    <style>{`
+      @keyframes lidClose {
+        0%   { transform: perspective(1200px) rotateX(-8deg); }
+        35%  { transform: perspective(1200px) rotateX(35deg); }
+        60%  { transform: perspective(1200px) rotateX(72deg); }
+        100% { transform: perspective(1200px) rotateX(-8deg); }
+      }
+      @keyframes lidFrost {
+        0%, 20% { opacity: 0; }
+        45%     { opacity: 1; }
+        80%     { opacity: 1; }
+        100%    { opacity: 0; }
+      }
+      @keyframes lidShimmer {
+        0%   { transform: translateX(-200%) rotate(12deg); opacity: 0; }
+        40%  { opacity: 1; }
+        70%  { transform: translateX(500%) rotate(12deg); opacity: 0.8; }
+        100% { transform: translateX(500%) rotate(12deg); opacity: 0; }
+      }
+    `}</style>
   </FrameShell>
 );
 
