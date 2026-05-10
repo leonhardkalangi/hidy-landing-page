@@ -159,68 +159,98 @@ export const CoughMockup = () => (
   </div>
 );
 
-/* --------- MARKING BLUR (drag rectangle then frost area) --------- */
+/* --------- MARKING BLUR (Chrome window — drag a rectangle over bookmarks bar) --------- */
 export const MarkingMockup = () => (
   <FrameShell>
     <div className="absolute inset-0 bg-gradient-to-br from-slate-800 via-slate-900 to-black" />
-    {/* fake browser */}
-    <div className="absolute inset-3 rounded-xl bg-white/95 ring-1 ring-white/10 overflow-hidden">
-      <div className="flex h-5 items-center gap-1 bg-slate-100 px-2">
-        <span className="h-1.5 w-1.5 rounded-full bg-red-400" />
-        <span className="h-1.5 w-1.5 rounded-full bg-yellow-400" />
-        <span className="h-1.5 w-1.5 rounded-full bg-green-400" />
+    {/* Chrome window */}
+    <div className="absolute inset-3 rounded-xl bg-white ring-1 ring-white/10 overflow-hidden shadow-2xl">
+      {/* title bar with tabs */}
+      <div className="flex h-6 items-end gap-1 bg-[#dee1e6] px-2 pt-1">
+        <span className="ml-0 mr-1 flex items-center gap-1">
+          <span className="h-1.5 w-1.5 rounded-full bg-red-400" />
+          <span className="h-1.5 w-1.5 rounded-full bg-yellow-400" />
+          <span className="h-1.5 w-1.5 rounded-full bg-green-400" />
+        </span>
+        <div className="flex h-4 w-24 items-center gap-1 rounded-t-md bg-white px-1.5">
+          <span className="h-1.5 w-1.5 rounded-full bg-emerald-500" />
+          <span className="text-[7px] text-slate-700 truncate">Gmail — Inbox</span>
+        </div>
+        <div className="flex h-4 w-20 items-center gap-1 rounded-t-md bg-[#cdd1d7] px-1.5">
+          <span className="h-1.5 w-1.5 rounded-full bg-blue-500" />
+          <span className="text-[7px] text-slate-600 truncate">Bank</span>
+        </div>
+        <div className="flex h-4 w-16 items-center gap-1 rounded-t-md bg-[#cdd1d7] px-1.5">
+          <span className="text-[7px] text-slate-600 truncate">Docs</span>
+        </div>
       </div>
-      <div className="grid grid-cols-3 gap-2 p-3">
-        <div className="col-span-2 space-y-1.5">
-          <div className="h-1.5 w-3/4 rounded bg-slate-300" />
-          <div className="h-1.5 w-1/2 rounded bg-slate-200" />
-          <div className="h-1.5 w-2/3 rounded bg-slate-200" />
-          <div className="h-1.5 w-3/5 rounded bg-slate-200" />
-          <div className="h-1.5 w-4/5 rounded bg-slate-200" />
+      {/* address bar */}
+      <div className="flex h-5 items-center gap-1.5 bg-white px-2">
+        <span className="text-[8px] text-slate-400">←</span>
+        <span className="text-[8px] text-slate-400">→</span>
+        <span className="text-[8px] text-slate-400">⟳</span>
+        <div className="flex h-3 flex-1 items-center rounded-full bg-slate-100 px-2 text-[7px] text-slate-500">
+          🔒 mail.google.com/inbox
         </div>
-        {/* sidebar that gets marked */}
-        <div className="relative h-24 rounded-md bg-slate-100 p-2">
-          <div className="space-y-1">
-            <div className="h-1.5 w-full rounded bg-slate-300" />
-            <div className="h-1.5 w-2/3 rounded bg-slate-200" />
-            <div className="h-1.5 w-3/4 rounded bg-slate-200" />
-            <div className="h-1.5 w-1/2 rounded bg-slate-200" />
+        <div className="h-3 w-3 rounded-full bg-gradient-to-br from-amber-400 to-rose-500" />
+      </div>
+      {/* bookmarks bar (the target) */}
+      <div className="relative flex h-4 items-center gap-2 bg-[#f1f3f4] px-2 border-b border-slate-200">
+        {[
+          { c: "bg-red-500", t: "Gmail" },
+          { c: "bg-blue-500", t: "Chase" },
+          { c: "bg-green-500", t: "Drive" },
+          { c: "bg-amber-500", t: "Calendar" },
+          { c: "bg-violet-500", t: "Notion" },
+          { c: "bg-pink-500", t: "Figma" },
+        ].map((b) => (
+          <div key={b.t} className="flex items-center gap-1">
+            <span className={`h-1.5 w-1.5 rounded-sm ${b.c}`} />
+            <span className="text-[6.5px] text-slate-700">{b.t}</span>
           </div>
+        ))}
 
-          {/* dashed marking rectangle: draws then locks + frosts */}
+        {/* dashed marking rectangle over bookmarks */}
+        <motion.div
+          initial={{ opacity: 0, scaleX: 0.1 }}
+          animate={{
+            opacity: [0, 1, 1, 1, 0],
+            scaleX: [0.1, 1, 1, 1, 1],
+          }}
+          transition={{ duration: 4, times: [0, 0.35, 0.5, 0.9, 1], repeat: Infinity, repeatDelay: 0.4 }}
+          className="absolute inset-x-1 inset-y-0.5 rounded-sm border-2 border-dashed border-brand-glow"
+          style={{ transformOrigin: "left center" }}
+        >
           <motion.div
-            initial={{ opacity: 0, scale: 0.6 }}
-            animate={{
-              opacity: [0, 1, 1, 1, 0],
-              scale: [0.6, 1, 1, 1, 0.6],
-            }}
-            transition={{ duration: 4, times: [0, 0.35, 0.5, 0.9, 1], repeat: Infinity, repeatDelay: 0.4 }}
-            className="absolute inset-1 rounded-md border-2 border-dashed border-brand-glow"
-            style={{ transformOrigin: "top left" }}
-          >
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: [0, 0, 1, 1, 0] }}
-              transition={{ duration: 4, times: [0, 0.45, 0.55, 0.9, 1], repeat: Infinity, repeatDelay: 0.4 }}
-              className="absolute inset-0 rounded-md bg-white/40"
-              style={{ backdropFilter: "blur(8px)" as any }}
-            />
-          </motion.div>
+            initial={{ opacity: 0 }}
+            animate={{ opacity: [0, 0, 1, 1, 0] }}
+            transition={{ duration: 4, times: [0, 0.45, 0.55, 0.9, 1], repeat: Infinity, repeatDelay: 0.4 }}
+            className="absolute inset-0 rounded-sm bg-white/60"
+            style={{ backdropFilter: "blur(6px)" as any }}
+          />
+        </motion.div>
 
-          {/* cursor */}
-          <motion.div
-            initial={{ x: 0, y: 0, opacity: 0 }}
-            animate={{
-              opacity: [0, 1, 1, 0, 0],
-              x: [0, 60, 60, 60, 0],
-              y: [0, 60, 60, 60, 0],
-            }}
-            transition={{ duration: 4, times: [0, 0.35, 0.5, 0.7, 1], repeat: Infinity, repeatDelay: 0.4 }}
-            className="absolute -left-1 -top-1 h-3 w-3"
-          >
-            <div className="h-0 w-0 border-l-[6px] border-l-transparent border-t-[10px] border-t-white border-r-[6px] border-r-transparent rotate-[-30deg]" />
-          </motion.div>
-        </div>
+        {/* cursor */}
+        <motion.div
+          initial={{ x: 0, opacity: 0 }}
+          animate={{
+            opacity: [0, 1, 1, 0, 0],
+            x: [0, 180, 180, 180, 0],
+          }}
+          transition={{ duration: 4, times: [0, 0.35, 0.5, 0.7, 1], repeat: Infinity, repeatDelay: 0.4 }}
+          className="absolute left-1 top-0 h-3 w-3"
+        >
+          <div className="h-0 w-0 border-l-[5px] border-l-transparent border-t-[8px] border-t-slate-900 border-r-[5px] border-r-transparent rotate-[-30deg]" />
+        </motion.div>
+      </div>
+      {/* page content */}
+      <div className="space-y-1.5 p-3">
+        <div className="h-1.5 w-3/4 rounded bg-slate-200" />
+        <div className="h-1.5 w-1/2 rounded bg-slate-200" />
+        <div className="h-1.5 w-2/3 rounded bg-slate-200" />
+        <div className="h-1.5 w-3/5 rounded bg-slate-200" />
+        <div className="h-1.5 w-4/5 rounded bg-slate-200" />
+        <div className="h-1.5 w-2/5 rounded bg-slate-200" />
       </div>
     </div>
   </FrameShell>
