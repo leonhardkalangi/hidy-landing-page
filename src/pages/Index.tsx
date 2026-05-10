@@ -20,15 +20,16 @@ const Hero = () => (
       </Reveal>
       <Reveal>
         <h1 className="mt-6 text-5xl md:text-7xl font-bold tracking-tight leading-[1.05] text-gradient">
-          <span className="inline-flex items-baseline flex-wrap justify-center gap-x-4">
-            <span>Privacy that doesn't</span>
+          <span className="relative inline-block">
             <img
               src={hidyIcon}
               alt=""
               aria-hidden="true"
-              className="hidden md:inline-block h-12 w-12 md:h-16 md:w-16 rounded-2xl shadow-[0_8px_30px_-8px_hsl(var(--brand-violet)/0.6)] opacity-90 -translate-y-1 self-center"
+              className="pointer-events-none absolute left-1/2 top-1/2 -z-10 h-24 w-24 md:h-36 md:w-36 -translate-x-1/2 -translate-y-1/2 rounded-[28%] opacity-95 animate-[float_4s_ease-in-out_infinite] drop-shadow-[0_20px_40px_hsl(var(--brand-violet)/0.55)]"
             />
-            <span>watch you back.</span>
+            <span className="relative">Privacy that doesn't</span>
+            <br />
+            <span className="relative">watch you back.</span>
           </span>
         </h1>
       </Reveal>
