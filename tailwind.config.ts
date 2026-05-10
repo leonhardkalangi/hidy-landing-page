@@ -85,10 +85,15 @@ export default {
             height: "0",
           },
         },
+        float: {
+          "0%, 100%": { transform: "translate(-50%, -50%) rotate(-4deg)" },
+          "50%": { transform: "translate(-50%, calc(-50% - 10px)) rotate(4deg)" },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
+        float: "float 5s ease-in-out infinite",
       },
     },
   },
