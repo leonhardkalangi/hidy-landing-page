@@ -77,32 +77,24 @@ export const LidMockup = () => (
         <div
           className="absolute bottom-[40px] left-6 h-40 w-1.5 origin-bottom rounded-full bg-brand-violet shadow-[0_0_18px_hsl(var(--brand-violet)/0.6)] animate-[lidCloseSide_5s_ease-in-out_infinite]"
         />
-        {/* live angle readout */}
-        <div className="absolute -top-2 left-1/2 -translate-x-1/2 text-sm font-semibold tracking-tight">
-          <span className="absolute inset-0 text-center text-white animate-[angle90_5s_ease-in-out_infinite]">90°</span>
-          <span className="absolute inset-0 text-center text-brand-violet animate-[angle45_5s_ease-in-out_infinite] opacity-0">45°</span>
-          <span className="absolute inset-0 text-center text-brand-glow animate-[angle10_5s_ease-in-out_infinite] opacity-0">10°</span>
-          <span className="invisible">000°</span>
-        </div>
       </div>
     </div>
 
-    {/* angle labels */}
-    <div className="absolute bottom-3 left-1/2 flex -translate-x-1/2 gap-2 text-[8px]">
-      <div className="rounded-full bg-white/10 px-2 py-0.5 text-white/70 ring-1 ring-white/10">90° Open</div>
-      <div className="rounded-full bg-brand-violet/30 px-2 py-0.5 text-white ring-1 ring-brand-violet/40">45° Blur</div>
-      <div className="rounded-full bg-white/10 px-2 py-0.5 text-white/70 ring-1 ring-white/10">10° Safe</div>
+    {/* angle pills — active one syncs with the lid animation */}
+    <div className="absolute bottom-4 left-1/2 flex -translate-x-1/2 gap-2 text-[10px] font-medium">
+      <div className="relative rounded-full bg-white/5 px-2.5 py-1 text-white/60 ring-1 ring-white/10">
+        90° Open
+        <span className="absolute inset-0 rounded-full bg-brand-violet/30 text-white ring-1 ring-brand-violet/50 px-2.5 py-1 opacity-0 animate-[pill90_5s_ease-in-out_infinite] flex items-center justify-center">90° Open</span>
+      </div>
+      <div className="relative rounded-full bg-white/5 px-2.5 py-1 text-white/60 ring-1 ring-white/10">
+        45° Blur
+        <span className="absolute inset-0 rounded-full bg-brand-violet/30 text-white ring-1 ring-brand-violet/50 px-2.5 py-1 opacity-0 animate-[pill45_5s_ease-in-out_infinite] flex items-center justify-center">45° Blur</span>
+      </div>
+      <div className="relative rounded-full bg-white/5 px-2.5 py-1 text-white/60 ring-1 ring-white/10">
+        10° Safe
+        <span className="absolute inset-0 rounded-full bg-brand-violet/30 text-white ring-1 ring-brand-violet/50 px-2.5 py-1 opacity-0 animate-[pill10_5s_ease-in-out_infinite] flex items-center justify-center">10° Safe</span>
+      </div>
     </div>
-
-    {/* status pill */}
-    <motion.div
-      initial={{ opacity: 0, y: 8 }}
-      animate={{ opacity: [0, 0, 1, 1, 0], y: [8, 8, 0, 0, 8] }}
-      transition={{ duration: 5, times: [0, 0.3, 0.5, 0.85, 1], repeat: Infinity }}
-      className="absolute left-1/2 top-3 -translate-x-1/2 rounded-full bg-black/60 px-3 py-1 text-[10px] text-white ring-1 ring-white/10 backdrop-blur"
-    >
-      <Laptop className="mr-1 inline h-3 w-3" /> Lid closing — frosting screen
-    </motion.div>
 
     <style>{`
       @keyframes lidCloseSide {
@@ -111,15 +103,15 @@ export const LidMockup = () => (
         65%  { transform: rotate(80deg); }
         100% { transform: rotate(0deg); }
       }
-      @keyframes angle90 {
+      @keyframes pill90 {
         0%, 15%, 90%, 100% { opacity: 1; }
         25%, 85% { opacity: 0; }
       }
-      @keyframes angle45 {
+      @keyframes pill45 {
         0%, 25%, 55%, 100% { opacity: 0; }
         35%, 45% { opacity: 1; }
       }
-      @keyframes angle10 {
+      @keyframes pill10 {
         0%, 55%, 85%, 100% { opacity: 0; }
         65%, 78% { opacity: 1; }
       }
