@@ -1,5 +1,6 @@
 import { Github, Twitter, Apple } from "lucide-react";
 import { Link } from "react-router-dom";
+import { toast } from "sonner";
 import hidyIcon from "@/assets/hidy-icon.png";
 
 const legalLinks = [
@@ -9,6 +10,15 @@ const legalLinks = [
   { to: "/legal/cookies", label: "Cookies" },
   { to: "/legal/refunds", label: "Refunds" },
 ];
+
+const openCookieSettings = () => {
+  // Placeholder until the analytics opt-out toggle ships. Wired to a toast
+  // so the footer entry is real and clickable now; the cookie-prefs modal
+  // lands when PostHog gets self-proxied.
+  toast("Cookie preferences coming soon", {
+    description: "We'll wire the analytics opt-out toggle here once the self-hosted PostHog instance is live.",
+  });
+};
 
 const Footer = () => (
   <footer className="border-t border-border/60 mt-12">
@@ -58,6 +68,15 @@ const Footer = () => (
               </Link>
             </li>
           ))}
+          <li>
+            <button
+              type="button"
+              onClick={openCookieSettings}
+              className="text-left hover:text-foreground transition-colors"
+            >
+              Cookie Settings
+            </button>
+          </li>
         </ul>
       </div>
     </div>

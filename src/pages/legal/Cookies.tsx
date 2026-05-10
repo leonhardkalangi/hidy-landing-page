@@ -3,30 +3,55 @@ import LegalLayout from "./LegalLayout";
 const Cookies = () => (
   <LegalLayout title="Cookie Policy" effectiveDate="TBD">
     <p>
-      Hidy.app uses a small set of cookies to keep you signed in and to understand how the site is being used. The macOS
-      app sets no cookies of any kind. Headings define what this policy must cover — bodies are placeholders pending
-      counsel review.
+      Hidy.app uses a small set of cookies to keep you signed in and to understand how the site is being used. The
+      Hidy macOS app does not set any cookies of any kind. Plain-English draft below; counsel will tighten the wording
+      before launch.
     </p>
 
     <h2>1. What are cookies</h2>
-    <p>[Plain-language explainer.]</p>
+    <p>
+      Cookies are tiny text files a site stores in your browser. Some keep you signed in across pages. Some help the
+      site remember your preferences. Some count visits. They aren't programs and they can't read other sites' data.
+    </p>
 
     <h2>2. Cookies we use</h2>
     <h3>2.1 Essential</h3>
-    <p>[Session cookie set by Supabase Auth so you stay signed in. Required for the site to function.]</p>
+    <p>
+      A session cookie set by Supabase Auth keeps you signed in. Without it the account portal can't function. We
+      can't ship the site without these and they don't require your consent.
+    </p>
     <h3>2.2 Analytics</h3>
-    <p>[Self-hosted PostHog cookie, proxied through our own domain. Used to understand which pages help and which don't. Never shared.]</p>
-    <h3>2.3 Third-party</h3>
-    <p>[None. We do not embed ad pixels, social trackers, or marketing tags.]</p>
+    <p>
+      One cookie set by our self-hosted PostHog instance — proxied through hidy.app, never a third-party domain — helps
+      us understand which pages convert and which ones don't. The data sits on our infrastructure and is never sold or
+      shared. You can switch it off any time from{" "}
+      <button type="button" data-cookie-settings className="underline-offset-4 hover:underline text-foreground">
+        Cookie Settings
+      </button>{" "}
+      in the footer.
+    </p>
+    <h3>2.3 Third-party cookies</h3>
+    <p>
+      None. We do not embed advertising pixels, social-network trackers, or marketing tags of any kind. The browser's
+      network panel should show only hidy.app and our own /ingest/ subpath.
+    </p>
 
     <h2>3. Your choices</h2>
-    <p>[Browser-level cookie controls. Disabling essential cookies will sign you out and disable account features.]</p>
+    <p>
+      Use the Cookie Settings button in the footer to turn analytics off. Browser-level cookie controls also work; if
+      you block essential cookies, the account portal will sign you out and account features will stop working.
+    </p>
 
-    <h2>4. Changes</h2>
-    <p>[We will post material changes here with a new effective date.]</p>
+    <h2>4. Changes to this policy</h2>
+    <p>
+      Material changes get a banner on the site. The current version is always the one posted here with the effective
+      date at the top.
+    </p>
 
     <h2>5. Contact</h2>
-    <p>support@hidy.app</p>
+    <p>
+      <a href="mailto:support@hidy.app">support@hidy.app</a>
+    </p>
   </LegalLayout>
 );
 
