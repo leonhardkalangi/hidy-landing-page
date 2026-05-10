@@ -11,7 +11,7 @@ const Terms = () => (
     <h2>1. About Hidy</h2>
     <p>
       Hidy is operated by LiveSync, Inc. The product is a macOS app that frosts your screen on demand, plus a small
-      website to manage your license. You can reach us at <a href="mailto:support@hidy.app">support@hidy.app</a>.
+      website to manage your license. You can reach us at <a href="mailto:support@hidyapp.com">support@hidyapp.com</a>.
     </p>
 
     <h2>2. Who can use Hidy</h2>
@@ -86,7 +86,7 @@ const Terms = () => (
     <h2>9. Support and communications</h2>
     <h3>9.1 Support</h3>
     <p>
-      We answer email at <a href="mailto:support@hidy.app">support@hidy.app</a>, usually within one business day. There's
+      We answer email at <a href="mailto:support@hidyapp.com">support@hidyapp.com</a>, usually within one business day. There's
       no phone line.
     </p>
     <h3>9.2 Electronic communications</h3>
@@ -143,7 +143,7 @@ const Terms = () => (
 
     <h2>18. Contact</h2>
     <p>
-      <a href="mailto:support@hidy.app">support@hidy.app</a>
+      <a href="mailto:support@hidyapp.com">support@hidyapp.com</a>
     </p>
   </LegalLayout>
 );

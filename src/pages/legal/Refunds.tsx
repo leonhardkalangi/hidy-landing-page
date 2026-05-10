@@ -12,7 +12,7 @@ const Refunds = () => (
       <li>7-day free trial. No card required to start.</li>
       <li>One-time charge if you decide to buy. No subscription, no auto-renewal.</li>
       <li>30-day no-questions-asked refund window after purchase.</li>
-      <li>To request a refund, email <a href="mailto:support@hidy.app">support@hidy.app</a> from the address on your account.</li>
+      <li>To request a refund, email <a href="mailto:support@hidyapp.com">support@hidyapp.com</a> from the address on your account.</li>
     </ul>
 
     <h2>2. The free trial</h2>
@@ -44,7 +44,7 @@ const Refunds = () => (
 
     <h2>4. The 30-day refund window</h2>
     <p>
-      Email us at <a href="mailto:support@hidy.app">support@hidy.app</a> within thirty days of your purchase and we'll
+      Email us at <a href="mailto:support@hidyapp.com">support@hidyapp.com</a> within thirty days of your purchase and we'll
       refund the full amount, no questions asked. We typically process refunds within a few business days; the funds
       take longer to land back in your account, depending on your bank.
     </p>
@@ -77,7 +77,7 @@ const Refunds = () => (
 
     <h2>9. Contact</h2>
     <p>
-      <a href="mailto:support@hidy.app">support@hidy.app</a>
+      <a href="mailto:support@hidyapp.com">support@hidyapp.com</a>
     </p>
   </LegalLayout>
 );

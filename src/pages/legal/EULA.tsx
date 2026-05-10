@@ -75,7 +75,7 @@ const EULA = () => (
     </p>
     <h3>6.5 Network use</h3>
     <p>
-      The app makes network calls only to verify your license and to fetch software updates. Both go to hidy.app. The
+      The app makes network calls only to verify your license and to fetch software updates. Both go to hidyapp.com. The
       app works fully offline once your license is verified.
     </p>
 
@@ -114,7 +114,7 @@ const EULA = () => (
 
     <h2>13. Contact</h2>
     <p>
-      <a href="mailto:support@hidy.app">support@hidy.app</a>
+      <a href="mailto:support@hidyapp.com">support@hidyapp.com</a>
     </p>
   </LegalLayout>
 );

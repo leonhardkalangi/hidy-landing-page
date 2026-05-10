@@ -17,8 +17,8 @@ const channels: Channel[] = [
     icon: Mail,
     title: "Email Support",
     body: "Send us a note about anything — bugs, billing, license trouble. We typically reply within 24 hours.",
-    cta: "support@hidy.app",
-    href: "mailto:support@hidy.app",
+    cta: "support@hidyapp.com",
+    href: "mailto:support@hidyapp.com",
   },
   {
     icon: Twitter,

@@ -12,7 +12,7 @@ const Privacy = () => (
     <h2>1. Who we are</h2>
     <p>
       Hidy is operated by LiveSync, Inc. We are the data controller for the personal information described below. You
-      can reach us at <a href="mailto:support@hidy.app">support@hidy.app</a>.
+      can reach us at <a href="mailto:support@hidyapp.com">support@hidyapp.com</a>.
     </p>
 
     <h2>2. What we collect</h2>
@@ -24,7 +24,7 @@ const Privacy = () => (
     <h3>2.2 Website usage</h3>
     <p>
       We run a self-hosted PostHog instance to understand which pages help and which ones don't. The script is
-      proxied through hidy.app — there is no third-party domain in the page network panel and no ad-network pixel.
+      proxied through hidyapp.com — there is no third-party domain in the page network panel and no ad-network pixel.
       Usage data is stored on our infrastructure and never sold or shared.
     </p>
     <h3>2.3 Payment information</h3>
@@ -89,14 +89,14 @@ const Privacy = () => (
 
     <h2>8. Security</h2>
     <p>
-      Connections to hidy.app use TLS. Account passwords are hashed by Supabase. Device verification tokens are
+      Connections to hidyapp.com use TLS. Account passwords are hashed by Supabase. Device verification tokens are
       stored as hashes, not raw tokens. We use scoped service keys for our backend services.
     </p>
 
     <h2>9. Your rights</h2>
     <p>
       You can ask us to access, correct, delete, port, or stop processing your personal information. Email{" "}
-      <a href="mailto:support@hidy.app">support@hidy.app</a> from the address on your account and we'll respond within
+      <a href="mailto:support@hidyapp.com">support@hidyapp.com</a> from the address on your account and we'll respond within
       a reasonable time. You also have the right to lodge a complaint with your local data protection authority.
     </p>
 
@@ -121,7 +121,7 @@ const Privacy = () => (
 
     <h2>13. Contact</h2>
     <p>
-      <a href="mailto:support@hidy.app">support@hidy.app</a>
+      <a href="mailto:support@hidyapp.com">support@hidyapp.com</a>
     </p>
   </LegalLayout>
 );

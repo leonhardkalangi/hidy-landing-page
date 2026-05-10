@@ -51,8 +51,8 @@ const Footer = () => (
         <ul className="mt-4 space-y-2 text-sm text-muted-foreground">
           <li><Link to="/contact" className="hover:text-foreground transition-colors">Contact</Link></li>
           <li>
-            <a href="mailto:support@hidy.app" className="hover:text-foreground transition-colors">
-              support@hidy.app
+            <a href="mailto:support@hidyapp.com" className="hover:text-foreground transition-colors">
+              support@hidyapp.com
             </a>
           </li>
         </ul>

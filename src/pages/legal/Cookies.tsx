@@ -22,7 +22,7 @@ const Cookies = () => (
     </p>
     <h3>2.2 Analytics</h3>
     <p>
-      One cookie set by our self-hosted PostHog instance — proxied through hidy.app, never a third-party domain — helps
+      One cookie set by our self-hosted PostHog instance — proxied through hidyapp.com, never a third-party domain — helps
       us understand which pages convert and which ones don't. The data sits on our infrastructure and is never sold or
       shared. You can switch it off any time from{" "}
       <button type="button" data-cookie-settings className="underline-offset-4 hover:underline text-foreground">
@@ -33,7 +33,7 @@ const Cookies = () => (
     <h3>2.3 Third-party cookies</h3>
     <p>
       None. We do not embed advertising pixels, social-network trackers, or marketing tags of any kind. The browser's
-      network panel should show only hidy.app and our own /ingest/ subpath.
+      network panel should show only hidyapp.com and our own /ingest/ subpath.
     </p>
 
     <h2>3. Your choices</h2>
@@ -50,7 +50,7 @@ const Cookies = () => (
 
     <h2>5. Contact</h2>
     <p>
-      <a href="mailto:support@hidy.app">support@hidy.app</a>
+      <a href="mailto:support@hidyapp.com">support@hidyapp.com</a>
     </p>
   </LegalLayout>
 );

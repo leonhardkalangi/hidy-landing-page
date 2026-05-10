@@ -217,7 +217,7 @@ const FAQ = () => {
     ["How is Hidy different from camera-based privacy apps?", "Camera-based apps stare at your face all day to decide whether to blur. Hidy uses gestures and a hardware lid sensor instead, so there's no webcam stream, no battery drain, and nothing watching you."],
     ["Does it need an internet connection?", "Only for the first license check and for app updates. Day to day, every gesture and every blur happens entirely on your Mac, offline."],
     ["What permissions does Hidy ask for?", "Microphone (for the cough trigger), Accessibility (so it can frost protected app windows), and HID access for the lid sensor. Each is requested only when you turn the matching feature on."],
-    ["Refund policy?", "30-day no-questions-asked refund. Email support@hidy.app and we'll handle it."],
+    ["Refund policy?", "30-day no-questions-asked refund. Email support@hidyapp.com and we'll handle it."],
   ];
   return (
     <Section id="faq">
