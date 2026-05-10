@@ -102,7 +102,7 @@ export const LidMockup = () => (
       <g
         style={{
           transformOrigin: "338px 208px",
-          transformBox: "fill-box" as any,
+          transformBox: "view-box" as any,
           animation: "hidy-lid-close 4.5s ease-in-out infinite",
         }}
       >
