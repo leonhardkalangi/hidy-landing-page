@@ -69,44 +69,28 @@ export const LidMockup = () => (
     {/* glow */}
     <div className="pointer-events-none absolute left-1/2 top-1/2 h-56 w-56 -translate-x-1/2 -translate-y-1/2 rounded-full bg-brand-violet/25 blur-3xl" />
 
-    {/* laptop stage */}
-    <div className="absolute inset-0 flex items-end justify-center pb-10">
-      <div className="relative" style={{ perspective: "1200px" }}>
-        {/* lid */}
+    {/* laptop side view stage */}
+    <div className="absolute inset-0 flex items-end justify-center pb-12">
+      <div className="relative h-40 w-64">
+        {/* keyboard base (side profile) */}
+        <div className="absolute bottom-4 left-1/2 h-1.5 w-52 -translate-x-1/2 rounded-sm bg-gradient-to-b from-slate-500 to-slate-800 ring-1 ring-white/10 shadow-lg" />
+        {/* hinge dot */}
+        <div className="absolute bottom-[18px] left-[calc(50%+96px)] h-1.5 w-1.5 rounded-full bg-slate-400" />
+
+        {/* lid (thin side slab) hinged at bottom-right */}
         <div
-          className="relative origin-bottom animate-[lidClose_5s_ease-in-out_infinite]"
-          style={{ transformStyle: "preserve-3d" }}
+          className="absolute bottom-[18px] left-[calc(50%+96px)] h-24 w-1.5 origin-bottom-left animate-[lidCloseSide_5s_ease-in-out_infinite]"
         >
-          <div className="relative h-28 w-48 overflow-hidden rounded-t-md bg-gradient-to-br from-slate-800 to-slate-900 ring-1 ring-white/10 shadow-2xl">
-            {/* fake UI */}
-            <div className="absolute inset-1.5 space-y-1">
-              <div className="flex gap-1">
-                <div className="h-1 w-6 rounded bg-white/20" />
-                <div className="h-1 w-10 rounded bg-white/15" />
-                <div className="h-1 w-4 rounded bg-white/15" />
-              </div>
-              <div className="h-1 w-4/5 rounded bg-white/15" />
-              <div className="h-1 w-3/5 rounded bg-white/10" />
-              <div className="h-1 w-2/3 rounded bg-white/10" />
-              <div className="h-1 w-1/2 rounded bg-white/10" />
-              <div className="h-1 w-3/4 rounded bg-white/10" />
-            </div>
-
-            {/* frost overlay */}
-            <div className="absolute inset-0 bg-white/30 opacity-0 animate-[lidFrost_5s_ease-in-out_infinite]"
-                 style={{ backdropFilter: "blur(10px)" as any }} />
-
-            {/* shimmer */}
-            <div className="absolute -inset-2 overflow-hidden">
-              <div className="absolute top-0 h-full w-8 -translate-x-full rotate-12 bg-gradient-to-r from-transparent via-white/40 to-transparent animate-[lidShimmer_5s_ease-in-out_infinite]" />
-            </div>
+          <div className="relative h-full w-full rounded-sm bg-gradient-to-r from-slate-400 to-slate-700 ring-1 ring-white/10 shadow-lg">
+            {/* screen face — peeking out as colored edge */}
+            <div className="absolute inset-y-0 left-0 w-[3px] rounded-l-sm bg-gradient-to-b from-brand-violet via-brand-pink to-brand-glow opacity-80 animate-[lidFadeSide_5s_ease-in-out_infinite]" />
+            {/* frost edge */}
+            <div className="absolute inset-0 rounded-sm bg-white/40 opacity-0 animate-[lidFrostSide_5s_ease-in-out_infinite]" />
           </div>
         </div>
 
-        {/* base */}
-        <div className="relative -mt-px h-2 w-52 -translate-x-2 rounded-b-xl bg-gradient-to-b from-slate-600 to-slate-800 ring-1 ring-white/10 shadow-xl" />
-        {/* shadow */}
-        <div className="absolute -bottom-3 left-1/2 h-3 w-56 -translate-x-1/2 rounded-full bg-black/60 blur-md" />
+        {/* shadow under laptop */}
+        <div className="absolute bottom-2 left-1/2 h-2 w-56 -translate-x-1/2 rounded-full bg-black/60 blur-md" />
       </div>
     </div>
 
@@ -128,23 +112,23 @@ export const LidMockup = () => (
     </motion.div>
 
     <style>{`
-      @keyframes lidClose {
-        0%   { transform: perspective(1200px) rotateX(-8deg); }
-        35%  { transform: perspective(1200px) rotateX(35deg); }
-        60%  { transform: perspective(1200px) rotateX(72deg); }
-        100% { transform: perspective(1200px) rotateX(-8deg); }
+      @keyframes lidCloseSide {
+        0%   { transform: rotate(-88deg); }
+        35%  { transform: rotate(-55deg); }
+        65%  { transform: rotate(-18deg); }
+        100% { transform: rotate(-88deg); }
       }
-      @keyframes lidFrost {
-        0%, 20% { opacity: 0; }
-        45%     { opacity: 1; }
-        80%     { opacity: 1; }
+      @keyframes lidFrostSide {
+        0%, 25% { opacity: 0; }
+        40%     { opacity: 0.6; }
+        70%     { opacity: 1; }
         100%    { opacity: 0; }
       }
-      @keyframes lidShimmer {
-        0%   { transform: translateX(-200%) rotate(12deg); opacity: 0; }
-        40%  { opacity: 1; }
-        70%  { transform: translateX(500%) rotate(12deg); opacity: 0.8; }
-        100% { transform: translateX(500%) rotate(12deg); opacity: 0; }
+      @keyframes lidFadeSide {
+        0%, 20% { opacity: 0.8; filter: blur(0px); }
+        45%     { opacity: 0.5; filter: blur(2px); }
+        70%     { opacity: 0.1; filter: blur(4px); }
+        100%    { opacity: 0.8; filter: blur(0px); }
       }
     `}</style>
   </FrameShell>
