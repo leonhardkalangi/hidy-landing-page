@@ -65,62 +65,12 @@ export const NotificationMockup = () => (
 /* --------- CLOSE TO BLUR (lid angle drops, blur grows) --------- */
 export const LidMockup = () => (
   <FrameShell>
-    <div className="absolute inset-0 bg-gradient-to-b from-slate-900 to-black" />
-    {/* SVG side-profile MacBook with SMIL lid animation */}
-    <svg
-      viewBox="0 0 400 260"
-      className="absolute inset-0 h-full w-full"
-      preserveAspectRatio="xMidYMid meet"
-      aria-hidden
-    >
-      <defs>
-        <linearGradient id="lidScreen2" x1="0" x2="0" y1="0" y2="1">
-          <stop offset="0%" stopColor="#fb923c" />
-          <stop offset="55%" stopColor="#f472b6" />
-          <stop offset="100%" stopColor="#a855f7" />
-        </linearGradient>
-        <linearGradient id="lidBack2" x1="0" x2="0" y1="0" y2="1">
-          <stop offset="0%" stopColor="#52525b" />
-          <stop offset="100%" stopColor="#27272a" />
-        </linearGradient>
-      </defs>
-
-      {/* desk shadow */}
-      <ellipse cx="200" cy="218" rx="170" ry="7" fill="rgba(0,0,0,0.6)" />
-
-      {/* base — true side profile (long thin slab) */}
-      <rect x="60" y="208" width="280" height="8" rx="2" fill="#3f3f46" />
-      <rect x="60" y="208" width="280" height="3" rx="1.5" fill="#71717a" />
-      <rect x="335" y="206" width="6" height="10" rx="1.5" fill="#27272a" />
-
-      {/* hinge dot */}
-      <circle cx="338" cy="208" r="2" fill="#18181b" />
-
-      {/* lid — pivots at hinge (right side, x=338 y=208).
-          Rotation axis goes from 0deg (closed, lying on base) to -110deg (open, standing up).
-          We draw it in the CLOSED position (extending LEFT from hinge along the base) and animate. */}
-      <g
-        style={{
-          transformOrigin: "338px 208px",
-          transformBox: "view-box" as any,
-          animation: "hidy-lid-close 4.5s ease-in-out infinite",
-        }}
-      >
-        {/* lid body */}
-        <rect x="60" y="200" width="278" height="8" rx="2" fill="url(#lidBack2)" />
-        {/* screen face (visible underside when open) */}
-        <rect x="64" y="201" width="270" height="6" rx="1.5" fill="url(#lidScreen2)" />
-      </g>
-
-      <style>{`
-        @keyframes hidy-lid-close {
-          0%, 18% { transform: rotate(-110deg); }
-          55%, 82% { transform: rotate(-2deg); }
-          100% { transform: rotate(-110deg); }
-        }
-      `}</style>
-    </svg>
-
+    <img
+      src="/feature-lid.gif"
+      alt=""
+      loading="lazy"
+      className="absolute inset-0 h-full w-full object-cover"
+    />
     {/* status pill */}
     <motion.div
       initial={{ opacity: 0, y: 8 }}
