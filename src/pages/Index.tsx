@@ -19,19 +19,21 @@ const Hero = () => (
         </span>
       </Reveal>
       <Reveal>
-        <div className="relative mt-6 px-4">
-          <h1 className="relative mx-auto flex max-w-5xl flex-col items-center text-center text-5xl font-bold leading-[0.94] tracking-tight text-gradient md:text-7xl">
-            <span className="block">Privacy that doesn&apos;t watch</span>
-            <span className="relative my-2 inline-flex h-20 w-20 items-center justify-center md:my-3 md:h-28 md:w-28">
-              <span className="pointer-events-none absolute inset-[-40%] rounded-full bg-[radial-gradient(circle,hsl(var(--brand-violet)/0.45),transparent_70%)] blur-2xl" />
-              <img
-                src={hidyIcon}
-                alt=""
-                aria-hidden="true"
-                className="relative h-full w-full rounded-[30%] object-cover animate-float shadow-[0_18px_40px_-12px_hsl(var(--brand-violet)/0.8)]"
-              />
-            </span>
-            <span className="block">you back.</span>
+        <div className="relative mt-8 px-4 pt-16 md:pt-24">
+          <div className="pointer-events-none absolute left-1/2 top-0 z-10 h-24 w-24 -translate-x-1/2 md:h-32 md:w-32 animate-float">
+            <span className="absolute inset-[-45%] rounded-full bg-[radial-gradient(circle,hsl(var(--brand-violet)/0.42),transparent_72%)] blur-3xl" />
+            <img
+              src={hidyIcon}
+              alt=""
+              aria-hidden="true"
+              className="relative h-full w-full rounded-[30%] object-cover shadow-[0_18px_40px_-12px_hsl(var(--brand-violet)/0.78)]"
+            />
+          </div>
+
+          <h1 className="mx-auto max-w-5xl text-center text-5xl font-bold leading-[0.9] tracking-tight md:text-7xl">
+            <span className="block text-gradient">Privacy that</span>
+            <span className="mt-1 block text-gradient md:mt-2">doesn&apos;t watch</span>
+            <span className="mt-2 block text-brand-gradient md:mt-3">you back.</span>
           </h1>
         </div>
       </Reveal>
