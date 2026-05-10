@@ -314,11 +314,11 @@ const HeroMockup = () => {
                     pulse={scene === "coughPopup" || scene === "coughBlur"}
                   />
                   <TriggerCard
-                    icon={<Laptop className="h-3.5 w-3.5 text-emerald-800" />}
+                    icon={<Laptop className="h-3.5 w-3.5 text-zinc-700" />}
                     label="LID"
-                    pillLabel="ON"
-                    pillClass="bg-emerald-500 text-white"
-                    tile="bg-emerald-50 ring-1 ring-emerald-300"
+                    pillLabel="OFF"
+                    pillClass="bg-zinc-300 text-zinc-700"
+                    tile="bg-zinc-50"
                   />
                   <TriggerCard
                     icon={<Command className="h-3.5 w-3.5 text-zinc-700" />}
