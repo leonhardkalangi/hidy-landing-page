@@ -19,21 +19,21 @@ const Hero = () => (
         </span>
       </Reveal>
       <Reveal>
-        <div className="relative mt-8 px-4 pt-16 md:pt-24">
-          <div className="pointer-events-none absolute left-1/2 top-0 z-10 h-24 w-24 -translate-x-1/2 md:h-32 md:w-32 animate-float">
-            <span className="absolute inset-[-45%] rounded-full bg-[radial-gradient(circle,hsl(var(--brand-violet)/0.42),transparent_72%)] blur-3xl" />
+        <div className="relative mt-8 px-4 pt-20 md:pt-28">
+          <div className="pointer-events-none absolute left-1/2 top-0 z-10 flex h-28 w-28 -translate-x-1/2 items-start justify-center md:h-40 md:w-40">
+            <span className="absolute inset-[-32%] rounded-full bg-[radial-gradient(circle,hsl(var(--brand-violet)/0.4),transparent_72%)] blur-3xl" />
             <img
               src={hidyIcon}
               alt=""
               aria-hidden="true"
-              className="relative h-full w-full rounded-[30%] object-cover shadow-[0_18px_40px_-12px_hsl(var(--brand-violet)/0.78)]"
+              className="h-full w-full animate-float object-contain drop-shadow-[0_20px_45px_hsl(var(--brand-violet)/0.42)]"
             />
           </div>
 
-          <h1 className="mx-auto max-w-5xl text-center text-5xl font-bold leading-[0.9] tracking-tight md:text-7xl">
+          <h1 className="mx-auto max-w-[11ch] text-center text-[3.9rem] font-bold leading-[0.9] tracking-tight sm:text-[4.8rem] md:max-w-none md:text-[7.1rem]">
             <span className="block text-gradient">Privacy that</span>
-            <span className="mt-1 block text-gradient md:mt-2">doesn&apos;t watch</span>
-            <span className="mt-2 block text-brand-gradient md:mt-3">you back.</span>
+            <span className="mt-1 block text-gradient">doesn&apos;t watch</span>
+            <span className="mt-2 block text-brand-gradient">you back.</span>
           </h1>
         </div>
       </Reveal>
