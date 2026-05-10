@@ -66,64 +66,20 @@ export const LidMockup = () => (
   <FrameShell>
     <div className="absolute inset-0 bg-gradient-to-br from-slate-900 via-[#0b0b14] to-black" />
 
-    {/* glow */}
-    <div className="pointer-events-none absolute left-1/2 top-1/2 h-56 w-56 -translate-x-1/2 -translate-y-1/2 rounded-full bg-brand-violet/25 blur-3xl" />
-
-    {/* laptop 3/4 side view stage */}
-    <div className="absolute inset-0 flex items-end justify-center pb-14" style={{ perspective: "900px" }}>
-      <div className="relative h-44 w-72" style={{ transformStyle: "preserve-3d" }}>
-        {/* keyboard base */}
+    {/* simple side-view diagram */}
+    <div className="absolute inset-0 flex items-center justify-center">
+      <div className="relative h-40 w-56">
+        {/* base (keyboard) */}
+        <div className="absolute bottom-10 left-6 h-1 w-40 rounded-full bg-white/80" />
+        {/* hinge */}
+        <div className="absolute bottom-[38px] left-6 h-2 w-2 -translate-x-1 rounded-full bg-white/60" />
+        {/* lid — pivots from hinge */}
         <div
-          className="absolute bottom-4 left-1/2 h-2 w-60 -translate-x-1/2 rounded-sm bg-gradient-to-b from-slate-400 to-slate-700 ring-1 ring-white/10 shadow-lg"
-          style={{ transform: "rotateX(70deg)", transformOrigin: "center bottom" }}
+          className="absolute bottom-[40px] left-6 h-24 w-1.5 origin-bottom rounded-full bg-brand-violet shadow-[0_0_18px_hsl(var(--brand-violet)/0.6)] animate-[lidCloseSide_5s_ease-in-out_infinite]"
         />
-
-        {/* lid — hinged at bottom, tilts back (open) then forward (closed) */}
-        <div
-          className="absolute bottom-[22px] left-1/2 h-28 w-56 -translate-x-1/2 origin-bottom animate-[lidCloseSide_5s_ease-in-out_infinite]"
-        >
-          {/* screen */}
-          <div className="relative h-full w-full overflow-hidden rounded-md bg-gradient-to-br from-slate-800 to-slate-950 ring-1 ring-white/10 shadow-2xl">
-            {/* desktop wallpaper hint */}
-            <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_30%_30%,hsl(var(--brand-violet)/0.35),transparent_60%)]" />
-
-            {/* notification card */}
-            <div className="absolute right-2 top-2 w-[58%] rounded-lg bg-white/95 p-1.5 shadow-lg animate-[lidFadeSide_5s_ease-in-out_infinite]">
-              <div className="flex items-start gap-1.5">
-                <div className="flex h-5 w-5 shrink-0 items-center justify-center rounded bg-blue-500">
-                  <Mail className="h-3 w-3 text-white" />
-                </div>
-                <div className="min-w-0 flex-1">
-                  <div className="flex items-center justify-between">
-                    <p className="text-[7px] font-semibold text-slate-900">Sarah Chen</p>
-                    <span className="text-[6px] text-slate-500">now</span>
-                  </div>
-                  <p className="text-[6px] font-medium leading-tight text-slate-800">Re: Q4 financials</p>
-                  <p className="text-[6px] leading-tight text-slate-500">Sending the updated deck…</p>
-                </div>
-              </div>
-            </div>
-
-            {/* dock lines */}
-            <div className="absolute inset-x-3 bottom-2 flex items-center gap-1">
-              <div className="h-1 flex-1 rounded bg-white/15" />
-              <div className="h-1 flex-1 rounded bg-white/10" />
-              <div className="h-1 flex-1 rounded bg-white/10" />
-            </div>
-
-            {/* frost overlay */}
-            <div
-              className="absolute inset-0 rounded-md bg-white/20 opacity-0 animate-[lidFrostSide_5s_ease-in-out_infinite]"
-              style={{ backdropFilter: "blur(10px)" as any }}
-            />
-          </div>
-
-          {/* lid back-edge bevel */}
-          <div className="absolute -bottom-[3px] left-0 right-0 h-1 rounded-b-md bg-slate-700" />
-        </div>
-
-        {/* shadow under laptop */}
-        <div className="absolute bottom-2 left-1/2 h-2 w-60 -translate-x-1/2 rounded-full bg-black/60 blur-md" />
+        {/* angle labels */}
+        <div className="absolute bottom-2 left-2 text-xs font-medium text-white/70">30°</div>
+        <div className="absolute bottom-2 right-2 text-xs font-medium text-white/70">120°</div>
       </div>
     </div>
 
@@ -146,22 +102,10 @@ export const LidMockup = () => (
 
     <style>{`
       @keyframes lidCloseSide {
-        0%   { transform: rotateX(-5deg); }
-        35%  { transform: rotateX(35deg); }
-        65%  { transform: rotateX(72deg); }
-        100% { transform: rotateX(-5deg); }
-      }
-      @keyframes lidFrostSide {
-        0%, 25% { opacity: 0; }
-        45%     { opacity: 0.7; }
-        75%     { opacity: 1; }
-        100%    { opacity: 0; }
-      }
-      @keyframes lidFadeSide {
-        0%, 20% { opacity: 1; filter: blur(0px); }
-        45%     { opacity: 0.9; filter: blur(3px); }
-        75%     { opacity: 0.7; filter: blur(7px); }
-        100%    { opacity: 1; filter: blur(0px); }
+        0%   { transform: rotate(0deg); }
+        35%  { transform: rotate(30deg); }
+        65%  { transform: rotate(60deg); }
+        100% { transform: rotate(0deg); }
       }
     `}</style>
   </FrameShell>
