@@ -3,12 +3,12 @@ import { Apple, Eye, Wind, Laptop, Command, AppWindow, SquareDashed, ShieldCheck
 import { Button } from "@/components/ui/button";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import hidyIcon from "@/assets/hidy-icon.png";
-import heroMac from "@/assets/hero-mac.jpg";
 import featBlow from "@/assets/feature-blow.jpg";
 import featLid from "@/assets/feature-lid.jpg";
 import featHotkey from "@/assets/feature-hotkey.jpg";
 import featApps from "@/assets/feature-apps.jpg";
 import featMark from "@/assets/feature-mark.jpg";
+import HeroMockup from "@/components/HeroMockup";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 24 },
@@ -77,8 +77,8 @@ const Hero = () => (
       </Reveal>
 
       <Reveal className="mt-16 md:mt-20">
-        <div id="demo" className="glass relative mx-auto rounded-3xl p-2 brand-glow">
-          <img src={heroMac} alt="Hidy blurring a Mac window in real time" width={1920} height={1080} className="rounded-2xl w-full h-auto" />
+        <div id="demo" className="relative mx-auto max-w-5xl">
+          <HeroMockup />
         </div>
       </Reveal>
     </Section>
