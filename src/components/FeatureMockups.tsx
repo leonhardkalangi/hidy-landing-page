@@ -81,37 +81,42 @@ export const LidMockup = () => {
     <FrameShell>
       <div className="absolute inset-0 bg-gradient-to-br from-slate-900 via-[#0b0b14] to-black" />
 
-      {/* side-view diagram */}
-      <div className="absolute inset-0 flex items-center justify-center">
-        <div className="relative h-40 w-40 -translate-x-20 translate-y-14">
-          {/* base — anchored at bottom, hinge at left */}
-          <div className="absolute bottom-0 left-0 h-1 w-44 rounded-full bg-white/85" />
-          {/* hinge */}
-          <div className="absolute -bottom-1 -left-1 h-2.5 w-2.5 rounded-full bg-white/70" />
-          {/* lid */}
+      {/* layout: diagram centered, pills below */}
+      <div className="absolute inset-0 flex flex-col items-center justify-center gap-8 px-6 py-8">
+        {/* diagram — sized so visual bbox is centered horizontally */}
+        <div className="relative h-32 w-64">
+          {/* base anchored at bottom-center */}
+          <div className="absolute bottom-0 left-1/2 h-1 w-40 -translate-x-1/2 rounded-full bg-white/85" />
+          {/* hinge at base left edge */}
+          <div
+            className="absolute bottom-[-3px] h-2.5 w-2.5 rounded-full bg-white/70"
+            style={{ left: "calc(50% - 80px - 5px)" }}
+          />
+          {/* lid pivots from hinge */}
           <motion.div
-            className="absolute bottom-0 left-0 h-1.5 w-44 origin-left rounded-full bg-gradient-to-r from-brand-violet to-brand-glow shadow-[0_0_22px_hsl(var(--brand-violet)/0.7)]"
+            className="absolute bottom-0 h-1.5 w-40 origin-left rounded-full bg-gradient-to-r from-brand-violet to-brand-glow shadow-[0_0_22px_hsl(var(--brand-violet)/0.7)]"
+            style={{ left: "calc(50% - 80px)" }}
             animate={{ rotate: -angle }}
             transition={{ type: "spring", stiffness: 90, damping: 14 }}
           />
         </div>
-      </div>
 
-      {/* preset pills */}
-      <div className="absolute bottom-6 left-1/2 flex -translate-x-1/2 gap-2 text-[10px] font-medium">
-        {LID_PRESETS.map((p, idx) => (
-          <div
-            key={p.label}
-            className={[
-              "rounded-full px-2.5 py-1 ring-1 transition-all",
-              idx === i
-                ? "bg-brand-violet text-white ring-brand-violet/60 shadow-[0_0_18px_hsl(var(--brand-violet)/0.5)]"
-                : "bg-white/5 text-white/60 ring-white/10",
-            ].join(" ")}
-          >
-            {p.label}
-          </div>
-        ))}
+        {/* preset pills */}
+        <div className="flex gap-2 text-[10px] font-medium">
+          {LID_PRESETS.map((p, idx) => (
+            <div
+              key={p.label}
+              className={[
+                "rounded-full px-3 py-1.5 ring-1 transition-all",
+                idx === i
+                  ? "bg-brand-violet text-white ring-brand-violet/60 shadow-[0_0_18px_hsl(var(--brand-violet)/0.5)]"
+                  : "bg-white/5 text-white/60 ring-white/10",
+              ].join(" ")}
+            >
+              {p.label}
+            </div>
+          ))}
+        </div>
       </div>
     </FrameShell>
   );
