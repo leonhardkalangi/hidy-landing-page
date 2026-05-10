@@ -3,12 +3,8 @@ import { Apple, Eye, Wind, Laptop, Command, BellOff, SquareDashed, ShieldCheck, 
 import { Button } from "@/components/ui/button";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import hidyIcon from "@/assets/hidy-icon.png";
-import featBlow from "@/assets/feature-blow.jpg";
-import featLid from "@/assets/feature-lid.jpg";
-import featHotkey from "@/assets/feature-hotkey.jpg";
-import featNotification from "@/assets/feature-notification.jpg";
-import featMark from "@/assets/feature-mark.jpg";
 import HeroMockup from "@/components/HeroMockup";
+import { NotificationMockup, LidMockup, BlowMockup, HotkeyMockup, MarkingMockup } from "@/components/FeatureMockups";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 24 },
@@ -116,11 +112,11 @@ const Wedge = () => {
 };
 
 const features = [
-  { icon: Wind, title: "Blow to blur", body: "Blow gently into your mic. Hidy detects the air pressure and frosts your screen instantly. Speech and music ignored — only your blow.", img: featBlow },
-  { icon: Laptop, title: "Close to blur", body: "Start closing your laptop lid. Hidy senses the angle drop and blurs everything before it touches the keyboard. Open back up, you're protected.", img: featLid },
-  { icon: Command, title: "Hotkey to blur", body: "⌘⌃B from anywhere. Instant frost. Hit it again to clear. Nothing fancy — just always there.", img: featHotkey },
-  { icon: BellOff, title: "Notification pop-ups, frosted", body: "Mail, Messages, Slack pings — incoming notification banners get frosted the moment they appear, so a stranger over your shoulder never sees the preview. Perfect for screen shares and coffee shops.", img: featNotification },
-  { icon: SquareDashed, title: "Marking Blur for any spot", body: "Drag a rectangle anywhere on your screen. That area stays frosted forever. Perfect for the WhatsApp Web sidebar or your bank tab corner.", img: featMark },
+  { icon: Wind, title: "Blow to blur", body: "Blow gently into your mic. Hidy detects the air pressure and frosts your screen instantly. Speech and music ignored — only your blow.", Mockup: BlowMockup },
+  { icon: Laptop, title: "Close to blur", body: "Start closing your laptop lid. Hidy senses the angle drop and blurs everything before it touches the keyboard. Open back up, you're protected.", Mockup: LidMockup },
+  { icon: Command, title: "Hotkey to blur", body: "⌘⌃B from anywhere. Instant frost. Hit it again to clear. Nothing fancy — just always there.", Mockup: HotkeyMockup },
+  { icon: BellOff, title: "Notification pop-ups, frosted", body: "Mail, Messages, Slack pings — incoming notification banners get frosted the moment they appear, so a stranger over your shoulder never sees the preview. Perfect for screen shares and coffee shops.", Mockup: NotificationMockup },
+  { icon: SquareDashed, title: "Marking Blur for any spot", body: "Drag a rectangle anywhere on your screen. That area stays frosted forever. Perfect for the WhatsApp Web sidebar or your bank tab corner.", Mockup: MarkingMockup },
 ];
 
 const Features = () => (
@@ -133,12 +129,13 @@ const Features = () => (
     <div className="mt-20 space-y-24 md:space-y-32">
       {features.map((f, i) => {
         const Icon = f.icon;
+        const Mockup = f.Mockup;
         const reverse = i % 2 === 1;
         return (
           <Reveal key={f.title}>
             <div className={`grid items-center gap-10 md:grid-cols-2 ${reverse ? "md:[&>*:first-child]:order-2" : ""}`}>
               <div className="glass overflow-hidden rounded-3xl p-2">
-                <img src={f.img} alt={f.title} width={1200} height={900} loading="lazy" className="rounded-2xl w-full h-auto aspect-[4/3] object-cover" />
+                <Mockup />
               </div>
               <div className="md:px-4">
                 <div className="inline-flex h-10 w-10 items-center justify-center rounded-xl bg-brand-violet/15 text-brand-glow">
