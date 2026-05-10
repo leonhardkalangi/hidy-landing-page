@@ -83,7 +83,7 @@ export const LidMockup = () => {
 
       {/* side-view diagram */}
       <div className="absolute inset-0 flex items-center justify-center">
-        <div className="relative h-40 w-40 -translate-x-20 translate-y-20">
+        <div className="relative h-40 w-40 -translate-x-20 translate-y-14">
           {/* base — anchored at bottom, hinge at left */}
           <div className="absolute bottom-0 left-0 h-1 w-44 rounded-full bg-white/85" />
           {/* hinge */}
