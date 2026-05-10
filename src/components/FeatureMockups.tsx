@@ -69,28 +69,61 @@ export const LidMockup = () => (
     {/* glow */}
     <div className="pointer-events-none absolute left-1/2 top-1/2 h-56 w-56 -translate-x-1/2 -translate-y-1/2 rounded-full bg-brand-violet/25 blur-3xl" />
 
-    {/* laptop side view stage */}
-    <div className="absolute inset-0 flex items-end justify-center pb-12">
-      <div className="relative h-40 w-64">
-        {/* keyboard base (side profile) */}
-        <div className="absolute bottom-4 left-1/2 h-1.5 w-52 -translate-x-1/2 rounded-sm bg-gradient-to-b from-slate-500 to-slate-800 ring-1 ring-white/10 shadow-lg" />
-        {/* hinge dot */}
-        <div className="absolute bottom-[18px] left-[calc(50%+96px)] h-1.5 w-1.5 rounded-full bg-slate-400" />
-
-        {/* lid (thin side slab) hinged at bottom-right */}
+    {/* laptop 3/4 side view stage */}
+    <div className="absolute inset-0 flex items-end justify-center pb-14" style={{ perspective: "900px" }}>
+      <div className="relative h-44 w-72" style={{ transformStyle: "preserve-3d" }}>
+        {/* keyboard base */}
         <div
-          className="absolute bottom-[18px] left-[calc(50%+96px)] h-24 w-1.5 origin-bottom-left animate-[lidCloseSide_5s_ease-in-out_infinite]"
+          className="absolute bottom-4 left-1/2 h-2 w-60 -translate-x-1/2 rounded-sm bg-gradient-to-b from-slate-400 to-slate-700 ring-1 ring-white/10 shadow-lg"
+          style={{ transform: "rotateX(70deg)", transformOrigin: "center bottom" }}
+        />
+
+        {/* lid — hinged at bottom, tilts back (open) then forward (closed) */}
+        <div
+          className="absolute bottom-[22px] left-1/2 h-28 w-56 -translate-x-1/2 origin-bottom animate-[lidCloseSide_5s_ease-in-out_infinite]"
         >
-          <div className="relative h-full w-full rounded-sm bg-gradient-to-r from-slate-400 to-slate-700 ring-1 ring-white/10 shadow-lg">
-            {/* screen face — peeking out as colored edge */}
-            <div className="absolute inset-y-0 left-0 w-[3px] rounded-l-sm bg-gradient-to-b from-brand-violet via-brand-pink to-brand-glow opacity-80 animate-[lidFadeSide_5s_ease-in-out_infinite]" />
-            {/* frost edge */}
-            <div className="absolute inset-0 rounded-sm bg-white/40 opacity-0 animate-[lidFrostSide_5s_ease-in-out_infinite]" />
+          {/* screen */}
+          <div className="relative h-full w-full overflow-hidden rounded-md bg-gradient-to-br from-slate-800 to-slate-950 ring-1 ring-white/10 shadow-2xl">
+            {/* desktop wallpaper hint */}
+            <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_30%_30%,hsl(var(--brand-violet)/0.35),transparent_60%)]" />
+
+            {/* notification card */}
+            <div className="absolute right-2 top-2 w-[58%] rounded-lg bg-white/95 p-1.5 shadow-lg animate-[lidFadeSide_5s_ease-in-out_infinite]">
+              <div className="flex items-start gap-1.5">
+                <div className="flex h-5 w-5 shrink-0 items-center justify-center rounded bg-blue-500">
+                  <Mail className="h-3 w-3 text-white" />
+                </div>
+                <div className="min-w-0 flex-1">
+                  <div className="flex items-center justify-between">
+                    <p className="text-[7px] font-semibold text-slate-900">Sarah Chen</p>
+                    <span className="text-[6px] text-slate-500">now</span>
+                  </div>
+                  <p className="text-[6px] font-medium leading-tight text-slate-800">Re: Q4 financials</p>
+                  <p className="text-[6px] leading-tight text-slate-500">Sending the updated deck…</p>
+                </div>
+              </div>
+            </div>
+
+            {/* dock lines */}
+            <div className="absolute inset-x-3 bottom-2 flex items-center gap-1">
+              <div className="h-1 flex-1 rounded bg-white/15" />
+              <div className="h-1 flex-1 rounded bg-white/10" />
+              <div className="h-1 flex-1 rounded bg-white/10" />
+            </div>
+
+            {/* frost overlay */}
+            <div
+              className="absolute inset-0 rounded-md bg-white/20 opacity-0 animate-[lidFrostSide_5s_ease-in-out_infinite]"
+              style={{ backdropFilter: "blur(10px)" as any }}
+            />
           </div>
+
+          {/* lid back-edge bevel */}
+          <div className="absolute -bottom-[3px] left-0 right-0 h-1 rounded-b-md bg-slate-700" />
         </div>
 
         {/* shadow under laptop */}
-        <div className="absolute bottom-2 left-1/2 h-2 w-56 -translate-x-1/2 rounded-full bg-black/60 blur-md" />
+        <div className="absolute bottom-2 left-1/2 h-2 w-60 -translate-x-1/2 rounded-full bg-black/60 blur-md" />
       </div>
     </div>
 
@@ -113,22 +146,22 @@ export const LidMockup = () => (
 
     <style>{`
       @keyframes lidCloseSide {
-        0%   { transform: rotate(-88deg); }
-        35%  { transform: rotate(-55deg); }
-        65%  { transform: rotate(-18deg); }
-        100% { transform: rotate(-88deg); }
+        0%   { transform: rotateX(-5deg); }
+        35%  { transform: rotateX(35deg); }
+        65%  { transform: rotateX(72deg); }
+        100% { transform: rotateX(-5deg); }
       }
       @keyframes lidFrostSide {
         0%, 25% { opacity: 0; }
-        40%     { opacity: 0.6; }
-        70%     { opacity: 1; }
+        45%     { opacity: 0.7; }
+        75%     { opacity: 1; }
         100%    { opacity: 0; }
       }
       @keyframes lidFadeSide {
-        0%, 20% { opacity: 0.8; filter: blur(0px); }
-        45%     { opacity: 0.5; filter: blur(2px); }
-        70%     { opacity: 0.1; filter: blur(4px); }
-        100%    { opacity: 0.8; filter: blur(0px); }
+        0%, 20% { opacity: 1; filter: blur(0px); }
+        45%     { opacity: 0.9; filter: blur(3px); }
+        75%     { opacity: 0.7; filter: blur(7px); }
+        100%    { opacity: 1; filter: blur(0px); }
       }
     `}</style>
   </FrameShell>
