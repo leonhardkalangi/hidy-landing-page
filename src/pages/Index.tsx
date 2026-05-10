@@ -1,12 +1,12 @@
 import { motion } from "framer-motion";
-import { Apple, Eye, Wind, Laptop, Command, AppWindow, SquareDashed, ShieldCheck, Github, Twitter, Check, X } from "lucide-react";
+import { Apple, Eye, Wind, Laptop, Command, BellOff, SquareDashed, ShieldCheck, Github, Twitter, Check, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import hidyIcon from "@/assets/hidy-icon.png";
 import featBlow from "@/assets/feature-blow.jpg";
 import featLid from "@/assets/feature-lid.jpg";
 import featHotkey from "@/assets/feature-hotkey.jpg";
-import featApps from "@/assets/feature-apps.jpg";
+import featNotification from "@/assets/feature-notification.jpg";
 import featMark from "@/assets/feature-mark.jpg";
 import HeroMockup from "@/components/HeroMockup";
 
@@ -119,7 +119,7 @@ const features = [
   { icon: Wind, title: "Blow to blur", body: "Blow gently into your mic. Hidy detects the air pressure and frosts your screen instantly. Speech and music ignored — only your blow.", img: featBlow },
   { icon: Laptop, title: "Close to blur", body: "Start closing your laptop lid. Hidy senses the angle drop and blurs everything before it touches the keyboard. Open back up, you're protected.", img: featLid },
   { icon: Command, title: "Hotkey to blur", body: "⌘⌃B from anywhere. Instant frost. Hit it again to clear. Nothing fancy — just always there.", img: featHotkey },
-  { icon: AppWindow, title: "Auto Blur for your private apps", body: "WhatsApp, Slack, Mail, Notes — the apps you don't want strangers reading. They blur automatically when you switch away. Click them to unfrost.", img: featApps },
+  { icon: BellOff, title: "Notification pop-ups, frosted", body: "Mail, Messages, Slack pings — incoming notification banners get frosted the moment they appear, so a stranger over your shoulder never sees the preview. Perfect for screen shares and coffee shops.", img: featNotification },
   { icon: SquareDashed, title: "Marking Blur for any spot", body: "Drag a rectangle anywhere on your screen. That area stays frosted forever. Perfect for the WhatsApp Web sidebar or your bank tab corner.", img: featMark },
 ];
 
