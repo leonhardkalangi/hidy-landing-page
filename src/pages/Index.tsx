@@ -20,11 +20,11 @@ const Hero = () => (
       </Reveal>
       <Reveal>
         <div className="relative mt-6 flex justify-center">
-          <div className="relative inline-flex flex-col items-center">
-            <div className="pointer-events-none absolute left-1/2 top-1/2 h-32 w-32 -translate-x-1/2 -translate-y-1/2 rounded-full bg-[radial-gradient(circle,hsl(var(--brand-violet)/0.32),transparent_72%)] blur-3xl md:h-44 md:w-44" />
-            <h1 className="relative z-10 flex flex-col items-center gap-2 text-center text-5xl font-bold leading-[0.96] tracking-tight text-gradient md:gap-3 md:text-7xl">
+          <div className="relative inline-flex flex-col items-center px-4">
+            <div className="pointer-events-none absolute left-1/2 top-[62%] h-36 w-36 -translate-x-1/2 -translate-y-1/2 rounded-full bg-[radial-gradient(circle,hsl(var(--brand-violet)/0.3),transparent_72%)] blur-3xl md:h-52 md:w-52" />
+            <h1 className="relative z-10 flex max-w-5xl flex-col items-center gap-3 text-center text-5xl font-bold leading-[0.94] tracking-tight text-gradient md:gap-4 md:text-7xl">
               <span className="block">Privacy that doesn&apos;t</span>
-              <span className="flex items-center justify-center gap-3 md:gap-5">
+              <span className="flex flex-wrap items-center justify-center gap-x-3 gap-y-2 md:gap-x-5">
                 <span>watch</span>
                 <span className="relative inline-flex h-16 w-16 shrink-0 items-center justify-center md:h-24 md:w-24">
                   <span className="absolute inset-0 rounded-[30%] bg-[radial-gradient(circle,hsl(var(--brand-blue)/0.34),transparent_70%)] blur-2xl" />
