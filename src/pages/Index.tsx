@@ -7,6 +7,7 @@ import { NotificationMockup, LidMockup, CoughMockup, MarkingMockup } from "@/com
 import Layout from "@/components/layout/Layout";
 import { Section, Reveal } from "@/components/site/Section";
 import PricingSection from "@/components/sections/PricingSection";
+import hidyIcon from "@/assets/hidy-icon.png";
 
 const Hero = () => (
   <div id="top" className="hero-bg relative overflow-hidden pt-36 md:pt-44">
@@ -19,7 +20,16 @@ const Hero = () => (
       </Reveal>
       <Reveal>
         <h1 className="mt-6 text-5xl md:text-7xl font-bold tracking-tight leading-[1.05] text-gradient">
-          Privacy that doesn't<br />watch you back.
+          <span className="inline-flex items-baseline flex-wrap justify-center gap-x-4">
+            <span>Privacy that doesn't</span>
+            <img
+              src={hidyIcon}
+              alt=""
+              aria-hidden="true"
+              className="hidden md:inline-block h-12 w-12 md:h-16 md:w-16 rounded-2xl shadow-[0_8px_30px_-8px_hsl(var(--brand-violet)/0.6)] opacity-90 -translate-y-1 self-center"
+            />
+            <span>watch you back.</span>
+          </span>
         </h1>
       </Reveal>
       <Reveal>
