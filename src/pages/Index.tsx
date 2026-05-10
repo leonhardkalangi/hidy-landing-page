@@ -19,14 +19,14 @@ const Hero = () => (
         </span>
       </Reveal>
       <Reveal>
-        <div className="relative mt-8 px-4 pt-24 md:pt-32">
-          <div className="pointer-events-none absolute left-1/2 top-0 z-10 flex h-24 w-44 -translate-x-1/2 items-start justify-center md:h-32 md:w-60">
-            <span className="absolute inset-[-30%] rounded-[50%] bg-[radial-gradient(ellipse_at_center,hsl(var(--brand-violet)/0.45),transparent_70%)] blur-3xl" />
+        <div className="relative mt-8 px-4 pt-[88px] md:pt-[120px]">
+          <div className="pointer-events-none absolute left-1/2 top-0 z-10 flex h-[110px] w-[200px] -translate-x-1/2 items-end justify-center md:h-[150px] md:w-[280px]">
+            <span className="absolute inset-x-[-10%] bottom-[-20%] top-[10%] rounded-[50%] bg-[radial-gradient(ellipse_at_center,hsl(var(--brand-violet)/0.55),transparent_70%)] blur-3xl" />
             <img
               src={hidyIcon}
               alt=""
               aria-hidden="true"
-              className="relative h-full w-full object-contain"
+              className="relative h-full w-full object-contain object-bottom"
             />
           </div>
 
