@@ -8,6 +8,7 @@ import Layout from "@/components/layout/Layout";
 import { Section, Reveal } from "@/components/site/Section";
 import PricingSection from "@/components/sections/PricingSection";
 import hidyIcon from "@/assets/hidy-peek.png";
+import { POLAR_CHECKOUT_URL } from "@/lib/polar";
 
 const Hero = () => (
   <div id="top" className="hero-bg relative overflow-hidden pt-36 md:pt-44">
@@ -48,13 +49,15 @@ const Hero = () => (
       <Reveal>
         <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-3">
           <Button asChild variant="hero" size="lg">
-            <Link to="/download"><Apple className="h-5 w-5" /> Download for Mac</Link>
+            <a href={POLAR_CHECKOUT_URL} target="_blank" rel="noopener noreferrer">
+              <Apple className="h-5 w-5" /> Buy Hidy &mdash; $19.90
+            </a>
           </Button>
           <Button asChild variant="ghost-soft" size="lg">
             <a href="#demo">See how it works</a>
           </Button>
         </div>
-        <p className="mt-4 text-xs text-muted-foreground">macOS 13+ · One-time payment · 7-day trial</p>
+        <p className="mt-4 text-xs text-muted-foreground">macOS 13+ &middot; One-time payment &middot; Instant license email</p>
       </Reveal>
 
       <Reveal className="mt-16 md:mt-20">
@@ -268,9 +271,11 @@ const CTA = () => (
         </h2>
         <p className="mt-4 text-lg md:text-xl text-muted-foreground">Start hiding what matters.</p>
         <Button asChild variant="hero" size="lg" className="mt-8">
-          <Link to="/download"><Apple className="h-5 w-5" /> Download Hidy for Mac</Link>
+          <a href={POLAR_CHECKOUT_URL} target="_blank" rel="noopener noreferrer">
+            <Apple className="h-5 w-5" /> Buy Hidy &mdash; $19.90
+          </a>
         </Button>
-        <p className="mt-4 text-xs text-muted-foreground">macOS 13+ · 7-day trial · $19.90 lifetime (founding price)</p>
+        <p className="mt-4 text-xs text-muted-foreground">macOS 13+ &middot; One-time payment &middot; Lifetime updates</p>
       </div>
     </Reveal>
   </Section>

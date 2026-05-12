@@ -2,6 +2,7 @@ import { Apple } from "lucide-react";
 import { Link, NavLink } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import hidyIcon from "@/assets/hidy-icon.png";
+import { POLAR_CHECKOUT_URL } from "@/lib/polar";
 
 const navItems = [
   { to: "/pricing", label: "Pricing" },
@@ -38,9 +39,9 @@ const Header = () => (
           Account
         </a>
         <Button asChild variant="hero" size="sm">
-          <Link to="/download">
-            <Apple className="h-4 w-4" /> Download
-          </Link>
+          <a href={POLAR_CHECKOUT_URL} target="_blank" rel="noopener noreferrer">
+            <Apple className="h-4 w-4" /> Buy Hidy
+          </a>
         </Button>
       </div>
     </nav>
