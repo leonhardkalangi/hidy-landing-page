@@ -15,19 +15,19 @@ type Release = {
 
 const releases: Release[] = [
   {
-    version: "v0.1",
-    tag: "Beta · Founding cohort",
-    date: "Coming soon",
-    url: "#",
+    version: "v1.0.0",
+    tag: "Public launch",
+    date: "2026-05-13",
+    url: "https://github.com/leonhardkalangi/hidy-landing-page/releases/download/v1.0.0-app/Hidy-1.0.0.dmg",
     summary:
-      "First beta build for the founding cohort. Panic blur, Notification Blur, Area Blur, lid pre-close, cough trigger, and the ⌘⌃B hotkey are all wired up.",
+      "First public Hidy build. Panic blur, Notification Blur, Area Blur, lid pre-close, cough trigger, and the ⌘⌃B hotkey are all wired up.",
     highlights: [
       "Panic blur with whole-screen frost (lid · cough · ⌘⌃B · menubar)",
       "Notification Blur for incoming banners — auto-arms when a known screen-share app is running",
       "Area Blur for any rectangle on screen, persisted across sessions",
       "Lid pre-close trigger using the hardware hinge sensor — fires before the lid touches the keyboard",
       "Cough detection (microphone) with on-device audio only — never uploads",
-      "Sparkle-based automatic updates, signed with our Developer ID",
+      "Polar.sh license activation, up to 3 Macs per license",
       "Requires macOS 13.0 or later, Apple Silicon",
     ],
   },

@@ -7,6 +7,9 @@ export const POLAR_CHECKOUT_URL =
 
 export const POLAR_CUSTOMER_PORTAL_URL = "https://polar.sh/hidy/portal";
 
-// Placeholder until the actual DMG download URL is wired up
-// (Cloudflare R2 / GitHub Release). The /thanks page uses this for now.
-export const HIDY_DMG_DOWNLOAD_URL = "/download/Hidy.dmg";
+// Direct DMG download hosted as a release asset on the landing repo. Bump
+// the tag (v1.0.0-app, v1.1.0-app, ...) and update this URL when shipping
+// a new build. The DMG itself is built via scripts/build-dmg.sh in the
+// hidy app repo and uploaded with `gh release create`.
+export const HIDY_DMG_DOWNLOAD_URL =
+  "https://github.com/leonhardkalangi/hidy-landing-page/releases/download/v1.0.0-app/Hidy-1.0.0.dmg";

@@ -24,8 +24,8 @@ const Terms = () => (
     <h2>3. Your account</h2>
     <h3>3.1 Account required</h3>
     <p>
-      You'll need a Hidy account to manage which Macs your license covers and to receive software updates after the
-      trial. Account creation only asks for an email and a password.
+      You&rsquo;ll need a Hidy account at <a href="https://polar.sh/hidy/portal">polar.sh/hidy/portal</a> to manage which Macs
+      your license covers and to retrieve your license key if you lose it. Account creation only asks for an email.
     </p>
     <h3>3.2 Accurate information</h3>
     <p>Keep your email current. We'll use it for receipts, security notices, and the occasional release note.</p>
@@ -42,16 +42,11 @@ const Terms = () => (
       itself.
     </p>
 
-    <h2>5. Plans, trials, and purchases</h2>
+    <h2>5. Plans and purchases</h2>
     <h3>5.1 Available plans</h3>
     <p>
-      Hidy is sold as a one-time lifetime purchase. There is no recurring subscription. The first 100 buyers get the
-      founding price; everyone after pays the standard lifetime price.
-    </p>
-    <h3>5.2 Free trial</h3>
-    <p>
-      A 7-day free trial is available before you buy. We don't ask for a card to start the trial. When it ends, the
-      gestures stop arming until you purchase a license.
+      Hidy is sold as a one-time lifetime purchase at a single price. There is no recurring subscription and no
+      separate tiers. One license unlocks Hidy on up to three Macs.
     </p>
 
     <h2>6. Billing and taxes</h2>
