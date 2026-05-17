@@ -8,8 +8,9 @@ export const POLAR_CHECKOUT_URL =
 export const POLAR_CUSTOMER_PORTAL_URL = "https://polar.sh/hidy/portal";
 
 // Direct DMG download hosted as a release asset on the landing repo. Bump
-// the tag (v1.0.0-app, v1.1.0-app, ...) and update this URL when shipping
-// a new build. The DMG itself is built via scripts/build-dmg.sh in the
-// hidy app repo and uploaded with `gh release create`.
+// the tag (v1.0.0-app, v1.0.1-app, ...) and update this URL when shipping
+// a new build. The DMG is built via scripts/build-dmg-signed.sh in the
+// hidy app repo (Developer ID signed + notarized) and uploaded with
+// `gh release create`.
 export const HIDY_DMG_DOWNLOAD_URL =
-  "https://github.com/leonhardkalangi/hidy-landing-page/releases/download/v1.0.0-app/Hidy-1.0.0.dmg";
+  "https://github.com/leonhardkalangi/hidy-landing-page/releases/download/v1.0.1-app/Hidy-1.0.1.dmg";

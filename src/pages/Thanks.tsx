@@ -1,4 +1,5 @@
-import { Apple, Mail, KeyRound, Sparkles, Shield } from "lucide-react";
+import { Apple, Mail, KeyRound, Sparkles, Shield, UserCircle } from "lucide-react";
+import { Link } from "react-router-dom";
 import { useSearchParams } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import Layout from "@/components/layout/Layout";
@@ -40,7 +41,7 @@ const Thanks = () => {
             </h2>
           </Reveal>
 
-          <div className="mt-12 grid gap-5 md:grid-cols-3">
+          <div className="mt-12 grid gap-5 md:grid-cols-2 lg:grid-cols-4">
             <Reveal>
               <div className="glass h-full rounded-2xl p-7">
                 <div className="inline-flex h-9 w-9 items-center justify-center rounded-lg bg-brand-violet/15 text-brand-glow">
@@ -77,8 +78,23 @@ const Thanks = () => {
                 </div>
                 <h3 className="mt-5 text-lg font-semibold">3. Activate</h3>
                 <p className="mt-2 text-sm text-muted-foreground leading-relaxed">
-                  Open Hidy, paste your license key, you&rsquo;re done. One license works on up to 3 Macs.
+                  Open Hidy, paste your license key. One license works on up to 3 Macs.
                 </p>
+              </div>
+            </Reveal>
+
+            <Reveal>
+              <div className="glass h-full rounded-2xl p-7">
+                <div className="inline-flex h-9 w-9 items-center justify-center rounded-lg bg-brand-violet/15 text-brand-glow">
+                  <UserCircle className="h-5 w-5" />
+                </div>
+                <h3 className="mt-5 text-lg font-semibold">4. Set up profile</h3>
+                <p className="mt-2 text-sm text-muted-foreground leading-relaxed">
+                  Tell Hidy your nickname so it greets you by name. 30 seconds.
+                </p>
+                <Button asChild variant="outline" size="sm" className="mt-5 w-full">
+                  <Link to="/register">Set up profile</Link>
+                </Button>
               </div>
             </Reveal>
           </div>
@@ -92,17 +108,12 @@ const Thanks = () => {
                   <Shield className="h-5 w-5" />
                 </div>
                 <div>
-                  <h3 className="text-xl font-semibold">First launch on macOS</h3>
+                  <h3 className="text-xl font-semibold">Opening Hidy</h3>
                   <p className="mt-3 text-sm text-muted-foreground leading-relaxed">
-                    The first launch shows a security warning because Hidy isn&rsquo;t yet code-signed with Apple. To open:
+                    Hidy is signed with an Apple Developer ID and notarized by Apple, so it opens with a single click &mdash; drag it into Applications and launch.
                   </p>
-                  <ol className="mt-3 space-y-1.5 text-sm text-muted-foreground leading-relaxed list-decimal list-inside">
-                    <li>Right-click <span className="text-foreground">Hidy.app</span> &rarr; <span className="text-foreground">Open</span></li>
-                    <li>Click <span className="text-foreground">Open</span> in the dialog</li>
-                    <li>macOS remembers your choice for future launches</li>
-                  </ol>
-                  <p className="mt-3 text-xs text-muted-foreground">
-                    One-time step. We&rsquo;re working on Apple Developer code signing for a future release.
+                  <p className="mt-3 text-sm text-muted-foreground leading-relaxed">
+                    On older macOS versions or with stricter security settings you may still see a one-time prompt. If so, right-click <span className="text-foreground">Hidy.app</span> &rarr; <span className="text-foreground">Open</span>, then click <span className="text-foreground">Open</span> in the dialog &mdash; macOS remembers it after that.
                   </p>
                 </div>
               </div>
