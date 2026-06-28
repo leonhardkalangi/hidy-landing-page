@@ -15,10 +15,10 @@ type Release = {
 
 const releases: Release[] = [
   {
-    version: "v1.0.0",
+    version: "v1.0.1",
     tag: "Public launch",
-    date: "2026-05-13",
-    url: "https://github.com/leonhardkalangi/hidy-landing-page/releases/download/v1.0.0-app/Hidy-1.0.0.dmg",
+    date: "2026-05-17",
+    url: "https://github.com/leonhardkalangi/hidy-landing-page/releases/download/v1.0.1-app/Hidy-1.0.1.dmg",
     summary:
       "First public Hidy build. Panic blur, Notification Blur, Area Blur, lid pre-close, cough trigger, and the ⌘⌃B hotkey are all wired up.",
     highlights: [

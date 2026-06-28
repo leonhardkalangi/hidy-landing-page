@@ -7,6 +7,7 @@ import { NotificationMockup, LidMockup, CoughMockup, MarkingMockup } from "@/com
 import Layout from "@/components/layout/Layout";
 import { Section, Reveal } from "@/components/site/Section";
 import PricingSection from "@/components/sections/PricingSection";
+import TestimonialsSection from "@/components/sections/TestimonialsSection";
 import hidyIcon from "@/assets/hidy-peek.png";
 import { POLAR_CHECKOUT_URL } from "@/lib/polar";
 
@@ -231,12 +232,12 @@ const TrustBlock = () => {
 const FAQ = () => {
   const items: [string, string][] = [
     ["Does Hidy use my camera?", "Never. Hidy does not request camera permission. The triggers are a microphone listening for cough-shaped bursts, a hardware lid-angle sensor, a global hotkey, and the menubar."],
-    ["Will it work on Apple Silicon?", "Yes — Hidy is built for Apple Silicon and tested on M1, M2, M3, and M4 Macs."],
+    ["Will it work on Apple Silicon?", "Yes — Hidy is built and optimized natively for Apple Silicon (M1 through M4). Every Apple Silicon MacBook uses the same lid-angle sensor and microphone architecture Hidy relies on."],
     ["What macOS version do I need?", "macOS 13 Ventura or later."],
     ["Can I use it on multiple Macs?", "Yes. One license covers up to three Macs. Deactivate any Mac from Settings → License (or from polar.sh/hidy/portal) to free a slot."],
     ["How is Hidy different from camera-based privacy apps?", "Camera-based apps stare at your face all day to decide whether to blur. Hidy uses gestures and a hardware lid sensor instead, so there's no webcam stream, no battery drain, and nothing watching you."],
     ["Does it need an internet connection?", "Only for the first license check and for app updates. Day to day, every gesture and every blur happens entirely on your Mac, offline."],
-    ["What permissions does Hidy ask for?", "Microphone (for the cough trigger), Accessibility (so it can frost protected app windows), and HID access for the lid sensor. Each is requested only when you turn the matching feature on."],
+    ["What permissions does Hidy ask for?", "Just the microphone, and only if you turn on the cough trigger. The lid sensor needs no permission prompt, and the hotkey and menubar work with no permissions at all. No camera, no Accessibility access in v1."],
     ["Refund policy?", "30-day no-questions-asked refund. Email support@hidyapp.com and we'll handle it."],
   ];
   return (
@@ -288,6 +289,7 @@ const Index = () => (
     <UseCases />
     <TrustBlock />
     <PricingSection />
+    <TestimonialsSection />
     <FAQ />
     <CTA />
   </Layout>
