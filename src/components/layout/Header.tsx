@@ -32,9 +32,8 @@ const Header = () => (
       </div>
       <div className="flex items-center gap-2 md:gap-3">
         <a
-          href="#"
+          href="/register"
           className="hidden sm:inline text-sm text-muted-foreground hover:text-foreground transition-colors"
-          aria-label="Account (coming soon)"
         >
           Account
         </a>

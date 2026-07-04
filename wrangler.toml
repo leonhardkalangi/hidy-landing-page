@@ -1,0 +1,9 @@
+name = "hidy-landing-page"
+compatibility_date = "2025-01-01"
+pages_build_output_dir = "dist"
+
+# KV namespace bound for the /api/register and /api/feedback Functions.
+# Created via: npx wrangler kv namespace create HIDY_KV
+[[kv_namespaces]]
+binding = "HIDY_KV"
+id = "41ad028c688e4a938d88ce399f297c44"

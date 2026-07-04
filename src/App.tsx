@@ -9,6 +9,8 @@ import Pricing from "./pages/Pricing.tsx";
 import Download from "./pages/Download.tsx";
 import Contact from "./pages/Contact.tsx";
 import Thanks from "./pages/Thanks.tsx";
+import Register from "./pages/Register.tsx";
+import Testimonials from "./pages/Testimonials.tsx";
 import Terms from "./pages/legal/Terms.tsx";
 import EULA from "./pages/legal/EULA.tsx";
 import Privacy from "./pages/legal/Privacy.tsx";
@@ -29,6 +31,8 @@ const App = () => (
           <Route path="/download" element={<Download />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/thanks" element={<Thanks />} />
+          <Route path="/register" element={<Register />} />
+          <Route path="/testimonials" element={<Testimonials />} />
           <Route path="/legal/terms" element={<Terms />} />
           <Route path="/legal/eula" element={<EULA />} />
           <Route path="/legal/privacy" element={<Privacy />} />
