@@ -272,14 +272,14 @@ for (let round = 1; ; round++) {
   const bad = await review(page);
   run.notes.push(`review round ${round}: ${bad.length} unsupported`, ...bad.map((b) => `  - ${b.quote} | ${b.why}`.slice(0, 220)));
   if (!bad.length) break;
-  if (round === 3) {
+  if (round >= 3 && round <= 6) {
     // Last resort that can only shrink the page: cut each flagged sentence/item ourselves.
     page = cutClaims(page, bad);
     errs = await gate(page, all);
     if (errs.length) done("rejected", { reason: errs });
     continue;
   }
-  if (round > 3) done("rejected", { reason: bad.map((b) => `unsupported: ${b.quote} (${b.why})`) });
+  if (round > 6) done("rejected", { reason: bad.map((b) => `unsupported: ${b.quote} (${b.why})`) });
   messages.push(
     { role: "assistant", content: JSON.stringify(page) },
     { role: "user", content: `A fact-checker found claims not supported by the allowed facts. Remove or reword ONLY these, so each says no more than HIDY FACTS / APPLE FACTS / RESEARCH support (it is fine to say less). Do NOT add any new sentences, steps, tips or claims anywhere else while fixing. Return the full JSON again.\n${bad.map((b) => `- "${b.quote}": ${b.why}`).join("\n")}` }

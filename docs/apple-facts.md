@@ -5,7 +5,8 @@ support.apple.com citation. Cite the URL in "sources".
 
 - Hidden album (https://support.apple.com/en-us/104987): hiding moves photos out of Library,
   other albums and the Photos widget. iOS 16+ the Hidden album is locked by default. Hide:
-  touch and hold > Hide. View: Collections > Utilities > Hidden > View Album > Face ID/Touch ID.
+  touch and hold the photo or video > Hide, then confirm. Unhide: in the Hidden album, touch and
+  hold > Unhide. NEVER write "share button" or "share sheet" for Hide/Unhide — not in these facts. View: Collections > Utilities > Hidden > View Album > Face ID/Touch ID.
   Settings > Apps > Photos > Show Hidden Album off removes the album. With iCloud Photos, hidden
   on one device = hidden on others.
 - Delete/hide (https://support.apple.com/guide/iphone/delete-or-hide-photos-and-videos-iphb4defbde9/ios):
