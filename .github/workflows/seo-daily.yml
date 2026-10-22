@@ -29,6 +29,9 @@ jobs:
       - run: npm ci
       - run: pip install --quiet pillow
 
+      - name: Competitor topic watch (sitemaps only — topic ideas, never their text)
+        run: node scripts/competitor-watch.mjs
+
       - name: Write today's page
         run: node scripts/seo-loop.mjs
         env:
@@ -64,8 +67,16 @@ jobs:
         run: |
           git config user.name "hidy-seo-bot"
           git config user.email "actions@github.com"
-          git add content public/sitemap.xml public/llms.txt public/assets/cards public/features public/compare public/scenarios public/guides public/tools index.html public/security public/support public/privacy docs/seo-backlog.md docs/SEO-LOG.md
+          git add content public/sitemap.xml public/llms.txt public/assets/cards public/features public/compare public/scenarios public/guides public/tools index.html public/security public/support public/privacy docs/seo-backlog.md docs/SEO-LOG.md docs/competitor-topics.json
           git commit -m "seo(loop): $(node -p "require('./.seo-run.json').url")" && git push
+
+      - name: Save topic watch state (also on days nothing is published)
+        if: steps.s.outputs.status != 'published'
+        run: |
+          git config user.name "hidy-seo-bot"
+          git config user.email "actions@github.com"
+          git add docs/competitor-topics.json docs/seo-backlog.md
+          git diff --cached --quiet || { git commit -m "seo(loop): competitor topic watch $(date -u +%F)" && git push; }
 
       - name: Email summary
         if: always()

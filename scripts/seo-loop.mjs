@@ -92,7 +92,8 @@ function pick(all, rows) {
   if (i < 0) return null;
   const m = backlog[i].slice(6).match(/^([a-z]+)\/([a-z0-9-]+)\s*(.*)$/);
   if (!m) return null;
-  return { kind: "backlog", line: i, section: m[1], slug: m[2], hint: m[3], topic: m[2].replace(/-/g, " ") };
+  const hint = m[3].replace(/\(topic signal:[^)]*\)/, "").trim(); // competitor name stays out of the prompt
+  return { kind: "backlog", line: i, section: m[1], slug: m[2], hint, topic: m[2].replace(/-/g, " ") };
 }
 
 // ---------- RESEARCH (optional, Perplexity Sonar) ----------
