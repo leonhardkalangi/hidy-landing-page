@@ -1,0 +1,94 @@
+name: Supervisor — self-heal + alert (no mailbox access)
+
+# Watches this repo's own workflow runs and the services they depend on, so nobody has to be
+# online or keep a Mac on. It re-runs a failed run once, and emails ONLY when something still
+# needs a human. Security: it never reads Gmail (no mailbox credentials exist anywhere in the
+# cloud); the job token can only read/re-run Actions in this repo; scheduled/manual triggers only.
+
+on:
+  schedule:
+    - cron: "17 */6 * * *"
+  workflow_dispatch: {}
+
+permissions:
+  actions: write   # re-run failed runs in THIS repo only
+  contents: read
+
+concurrency:
+  group: supervisor
+  cancel-in-progress: true
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Check and heal
+        env:
+          GH_TOKEN: ${{ github.token }}
+          REPO: ${{ github.repository }}
+          DEEPSEEK_API_KEY: ${{ secrets.DEEPSEEK_API_KEY }}
+          PERPLEXITY_API_KEY: ${{ secrets.PERPLEXITY_API_KEY }}
+          SITE_URL: ${{ vars.SITE_URL || 'https://hidyapp.com/' }}
+        run: |
+          set -u
+          problems=()
+          healed=()
+
+          # 1) Failed runs in the last 24h: re-run once (attempt 1 only), otherwise report.
+          since=$(date -u -d '24 hours ago' +%FT%TZ)
+          gh run list -R "$REPO" -L 50 --json databaseId,workflowName,conclusion,createdAt,attempt \
+            -q ".[] | select(.createdAt > \"$since\") | select(.conclusion==\"failure\" or .conclusion==\"timed_out\") | select(.workflowName | test(\"Supervisor\") | not) | [.databaseId, .attempt, .workflowName] | @tsv" > failed.tsv || true
+          while IFS=$'\t' read -r id attempt name; do
+            [ -z "$id" ] && continue
+            if [ "$attempt" = "1" ] && gh run rerun "$id" -R "$REPO" --failed >/dev/null 2>&1; then
+              healed+=("re-ran failed run of '$name' (#$id)")
+            else
+              problems+=("'$name' failed again after a retry: https://github.com/$REPO/actions/runs/$id")
+            fi
+          done < failed.tsv
+
+          # 2) Paid APIs: balance and key health.
+          if [ -n "${DEEPSEEK_API_KEY:-}" ]; then
+            bal=$(curl -s -m 20 https://api.deepseek.com/user/balance -H "Authorization: Bearer $DEEPSEEK_API_KEY" | node -e 'let s="";process.stdin.on("data",d=>s+=d).on("end",()=>{try{const b=JSON.parse(s).balance_infos.find(x=>x.currency==="USD");console.log(b?b.total_balance:"?")}catch{console.log("?")}})')
+            case "$bal" in "?") problems+=("DeepSeek balance check failed (key revoked?)");; *) awk "BEGIN{exit !($bal < 1)}" && problems+=("DeepSeek balance low: \$$bal — top up at platform.deepseek.com");; esac
+          fi
+          if [ -n "${PERPLEXITY_API_KEY:-}" ]; then
+            code=$(curl -s -m 30 -o /dev/null -w "%{http_code}" https://api.perplexity.ai/chat/completions -H "Authorization: Bearer $PERPLEXITY_API_KEY" -H "Content-Type: application/json" -d '{"model":"sonar","max_tokens":16,"messages":[{"role":"user","content":"hi"}]}')
+            [ "$code" = 200 ] || problems+=("Perplexity API returned HTTP $code (401/402 = out of credit) — console.perplexity.ai")
+          fi
+
+          # 3) Site up.
+          code=$(curl -s -m 30 -o /dev/null -w "%{http_code}" -A "Mozilla/5.0" "$SITE_URL")
+          [ "$code" = 200 ] || problems+=("$SITE_URL returned HTTP $code")
+
+          # 4) Hidy only: three rejected/skipped SEO days in a row.
+          if [ -f docs/SEO-LOG.md ] && gh run list -R "$REPO" --workflow seo-daily.yml -L 1 >/dev/null 2>&1; then
+            last=$(git log --since="3 days ago" --oneline -- content | wc -l)
+            [ "$last" -eq 0 ] && problems+=("No new SEO page in 3 days — check the last Hidy SEO loop emails/runs")
+          fi
+
+          printf '%s\n' "${healed[@]:-}" > healed.txt
+          printf '%s\n' "${problems[@]:-}" > problems.txt
+          echo "healed:"; cat healed.txt; echo "problems:"; cat problems.txt
+
+      - name: Alert (only when a human is needed)
+        if: always()
+        env:
+          RESEND_API_KEY: ${{ secrets.RESEND_API_KEY }}
+          MAIL_FROM: ${{ secrets.MAIL_FROM }}
+          REPO: ${{ github.repository }}
+        run: |
+          [ -s problems.txt ] && grep -q . problems.txt || { echo "all good"; exit 0; }
+          node -e '
+            const fs = require("fs");
+            const problems = fs.readFileSync("problems.txt", "utf8").trim();
+            const healed = fs.existsSync("healed.txt") ? fs.readFileSync("healed.txt", "utf8").trim() : "";
+            const text = `NEEDS ATTENTION (${process.env.REPO})\n\n${problems}\n\n${healed ? "Fixed automatically:\n" + healed + "\n\n" : ""}Supervisor runs every 6 hours.`;
+            fetch("https://api.resend.com/emails", { method: "POST",
+              headers: { Authorization: "Bearer " + process.env.RESEND_API_KEY, "Content-Type": "application/json" },
+              body: JSON.stringify({ from: process.env.MAIL_FROM, to: ["leonhardkalangi@gmail.com"], subject: `PERLU PERHATIAN: ${process.env.REPO.split("/")[1]}`, text })
+            }).then(r => r.text()).then(console.log);'
