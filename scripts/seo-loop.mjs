@@ -244,6 +244,70 @@ function cutClaims(page, bad) {
   return page;
 }
 
+// ---------- STYLE (ehmo/slopkit "slopbeth", by the Vaultaire founder; pinned in the workflow) ----------
+// Deterministic linters score AI-writing tells; a rewrite may only change style, and must pass the
+// fact-check again. "unlock"/"key" are real terms in a security niche, so they are neutralised for
+// scoring only.
+const SLOP_TARGET = 60, ORWELL_TARGET = 60, SLOP_FLOOR = 45, ORWELL_FLOOR = 50;
+function slopScore(page) {
+  const dir = process.env.SLOPBETH_DIR;
+  if (!dir || !fs.existsSync(path.join(dir, "scripts/deslop_lint.py"))) return null;
+  const text = [page.body, ...(page.meta.faq || []).map(([q, a]) => `${q} ${a}`)]
+    .join("\n")
+    .replace(/<\/(p|li|h2|h3|tr)>/g, "\n")
+    .replace(/<[^>]+>/g, " ")
+    .replace(/\{\{app\}\}/g, "")
+    .replace(/\bunlock(s|ed|ing)?\b/gi, "open$1")
+    .replace(/\bkeys?\b/gi, "code")
+    .replace(/[ \t]+/g, " ");
+  const tmp = path.join(ROOT, ".slop.txt");
+  fs.writeFileSync(tmp, text);
+  const lint = (script) => JSON.parse(execFileSync("python3", ["-I", path.join(dir, "scripts", script), "--format", "json", tmp], { encoding: "utf8" }));
+  const d = lint("deslop_lint.py"), o = lint("orwell_lint.py");
+  fs.rmSync(tmp, { force: true });
+  return {
+    slop: d.slop_score,
+    orwell: o.orwell_score,
+    findings: {
+      passive: (o.passive_sentences || []).slice(0, 12),
+      repeated_openers: Object.entries(d.repeated_sentence_starts || {}).filter(([, n]) => n > 1).map(([k, n]) => `${k} (${n}x)`),
+      filler: Object.keys(d.phrase_hits || {}).filter((k) => !/unlock/.test(k)),
+      abstract: Object.keys(d.abstract_hits || {}).filter((k) => !/^key$/.test(k)),
+      triads: d.triad_count,
+    },
+  };
+}
+
+async function styleGate(page, all) {
+  let best = page, score = slopScore(page);
+  if (!score) {
+    run.notes.push("style gate: slopbeth not available, skipped");
+    return page;
+  }
+  run.notes.push(`style: slop ${score.slop}, orwell ${score.orwell}`);
+  for (let round = 1; round <= 2 && (score.slop < SLOP_TARGET || score.orwell < ORWELL_TARGET); round++) {
+    const candidate = await deepseek([
+      { role: "system", content: `You edit prose for hidyapp.com using the slopbeth standard: dense, specific writing where every sentence carries a claim, step, number, constraint or consequence.
+Rules: keep EVERY fact, number, date, URL, link, heading, list item meaning, table, and the {{app}} placeholder exactly. Do not add any new claim, step, tip, example or feature. Prefer active voice with a clear actor ("Apple keeps…", "you open…"). Vary sentence openers. Cut filler and abstract inflation. No em dashes, no title-case hype, no summary closers, no tidy triads or forced contrasts. Over-editing good sentences is a failure.
+Return the same JSON shape {"section","slug","meta","body","link_from"} with only wording changed (meta.faq answers and quick bullets may be tightened too).` },
+      { role: "user", content: `Linter findings to fix:\n${JSON.stringify(score.findings, null, 1)}\n\nPAGE JSON:\n${JSON.stringify(best)}` },
+    ]);
+    candidate.section = best.section;
+    candidate.slug = best.slug;
+    const errs = await gate(candidate, all);
+    const bad = errs.length ? [] : await review(candidate);
+    const cs = errs.length || bad.length ? null : slopScore(candidate);
+    run.notes.push(`style round ${round}: ${errs.length ? "gate " + errs.join("; ") : bad.length ? bad.length + " new unsupported claims, discarded" : `slop ${cs.slop}, orwell ${cs.orwell}`}`);
+    if (cs && cs.slop + cs.orwell > score.slop + score.orwell) {
+      best = candidate;
+      score = cs;
+    }
+  }
+  run.style = { slop: score.slop, orwell: score.orwell };
+  if (score.slop < SLOP_FLOOR || score.orwell < ORWELL_FLOOR) throw new Rejected([`style below floor: slop ${score.slop} (min ${SLOP_FLOOR}), orwell ${score.orwell} (min ${ORWELL_FLOOR})`]);
+  return best;
+}
+
 // ---------- MAIN ----------
 const all = pages();
 const measured = await gsc().catch((e) => ({ rows: [], note: `GSC error: ${e.message}` }));
@@ -313,7 +377,8 @@ const user = `TOPIC: ${choice.topic}
     if (errs.length) (() => { throw new Rejected(errs); })();
   }
   delete run.research;
-    return { page, messages };
+    page = await styleGate(page, all);
+  return { page, messages };
   
   
 }
@@ -357,6 +422,6 @@ if (choice.kind === "backlog") {
 }
 fs.appendFileSync(
   rel("docs/SEO-LOG.md"),
-  `| ${today} | ${choice.topic} | ${url} | ${measured.rows.length} GSC rows${choice.kind === "gsc" ? `; ${choice.evidence.impressions} impr` : ""} | ${(page.link_from || []).map((l) => l.url).join(", ")} | cloud loop (DeepSeek); ${res.note} |\n`
+  `| ${today} | ${choice.topic} | ${url} | ${measured.rows.length} GSC rows${choice.kind === "gsc" ? `; ${choice.evidence.impressions} impr` : ""} | ${(page.link_from || []).map((l) => l.url).join(", ")} | cloud loop (DeepSeek); ${res.note}; style slop ${run.style?.slop ?? "n/a"} / orwell ${run.style?.orwell ?? "n/a"} |\n`
 );
 done("published", { url, title: meta.title, links_from: (page.link_from || []).map((l) => l.url), touched: touched.map((t) => path.relative(ROOT, t)) });

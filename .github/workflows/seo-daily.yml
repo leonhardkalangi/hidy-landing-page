@@ -29,6 +29,13 @@ jobs:
       - run: npm ci
       - run: pip install --quiet pillow
 
+      - name: Fetch slopbeth (ehmo/slopkit, pinned commit — changes upstream can't reach us unreviewed)
+        run: |
+          git clone --quiet https://github.com/ehmo/slopkit /tmp/slopkit
+          git -C /tmp/slopkit checkout --quiet b33718bb9283c11b09567dc714f92d90ffb7bd16
+          test "$(git -C /tmp/slopkit rev-parse HEAD)" = b33718bb9283c11b09567dc714f92d90ffb7bd16
+          echo "SLOPBETH_DIR=/tmp/slopkit/skills/slopbeth" >> "$GITHUB_ENV"
+
       - name: Competitor topic watch (sitemaps only — topic ideas, never their text)
         run: node scripts/competitor-watch.mjs
 
