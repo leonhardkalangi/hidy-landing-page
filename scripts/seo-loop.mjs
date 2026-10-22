@@ -219,6 +219,27 @@ ${run.research || "(none)"}`,
   return (verdict.unsupported || []).filter((u) => u && u.quote && !/no issue|^supported|is supported|reasonable restatement|opinion|not a new fact|— omit/i.test(u.why || ""));
 }
 
+// Remove flagged claims mechanically: the <li>/<p> sentence that contains the quote, and any
+// quick bullet or FAQ entry that contains it. Never adds text.
+function cutClaims(page, bad) {
+  const norm = (t) => t.replace(/<[^>]+>/g, "").replace(/\s+/g, " ").toLowerCase();
+  let body = page.body;
+  for (const { quote } of bad) {
+    const q = norm(quote).slice(0, 80);
+    if (!q) continue;
+    body = body.replace(/<li>[\s\S]*?<\/li>/g, (li) => (norm(li).includes(q) ? "" : li));
+    body = body.replace(/<p>[\s\S]*?<\/p>/g, (para) => {
+      if (!norm(para).includes(q)) return para;
+      const kept = para.replace(/^<p>|<\/p>$/g, "").split(/(?<=[.!?])\s+/).filter((sent) => !norm(sent).includes(q.slice(0, 40)));
+      return kept.length ? `<p>${kept.join(" ")}</p>` : "";
+    });
+    page.meta.quick = (page.meta.quick || []).filter((b) => !norm(b).includes(q));
+    page.meta.faq = (page.meta.faq || []).filter(([fq, fa]) => !norm(fq + " " + fa).includes(q));
+  }
+  page.body = body.replace(/<ul>\s*<\/ul>|<ol>\s*<\/ol>/g, "");
+  return page;
+}
+
 // ---------- MAIN ----------
 const all = pages();
 const measured = await gsc().catch((e) => ({ rows: [], note: `GSC error: ${e.message}` }));
@@ -251,10 +272,17 @@ for (let round = 1; ; round++) {
   const bad = await review(page);
   run.notes.push(`review round ${round}: ${bad.length} unsupported`, ...bad.map((b) => `  - ${b.quote} | ${b.why}`.slice(0, 220)));
   if (!bad.length) break;
-  if (round > 2) done("rejected", { reason: bad.map((b) => `unsupported: ${b.quote} (${b.why})`) });
+  if (round === 3) {
+    // Last resort that can only shrink the page: cut each flagged sentence/item ourselves.
+    page = cutClaims(page, bad);
+    errs = await gate(page, all);
+    if (errs.length) done("rejected", { reason: errs });
+    continue;
+  }
+  if (round > 3) done("rejected", { reason: bad.map((b) => `unsupported: ${b.quote} (${b.why})`) });
   messages.push(
     { role: "assistant", content: JSON.stringify(page) },
-    { role: "user", content: `A fact-checker found claims not supported by the allowed facts. Remove or reword each one so it only says what HIDY FACTS / APPLE FACTS / RESEARCH support (it is fine to say less). Return the full JSON again.\n${bad.map((b) => `- "${b.quote}": ${b.why}`).join("\n")}` }
+    { role: "user", content: `A fact-checker found claims not supported by the allowed facts. Remove or reword ONLY these, so each says no more than HIDY FACTS / APPLE FACTS / RESEARCH support (it is fine to say less). Do NOT add any new sentences, steps, tips or claims anywhere else while fixing. Return the full JSON again.\n${bad.map((b) => `- "${b.quote}": ${b.why}`).join("\n")}` }
   );
   page = await deepseek(messages);
   errs = await gate(page, all);
