@@ -1,0 +1,75 @@
+---
+{
+ "title": "Pattern Encryption: A Vault Key From a Pattern You Draw | Hidy",
+ "description": "How Hidy Vault turns a pattern on a 5×5 grid into the key for an encrypted vault: AES-256-GCM, a Keychain secret, and why there is no reset.",
+ "h1": "Pattern encryption: your pattern is the key, not a password screen",
+ "short": "Pattern encryption",
+ "order": 1,
+ "lead": "In Hidy Vault, the pattern you draw is part of the key that decrypts your vault. It isn't a lock screen in front of readable files. Without the pattern (or the vault's recovery phrase), the files stay encrypted.",
+ "card": "How a pattern on a 5×5 grid becomes the key to an encrypted vault, and why there is no reset.",
+ "quick": [
+  "Draw at least <strong>6 dots on a 5×5 grid</strong>. That pattern opens one vault.",
+  "Your pattern plus a secret in the iPhone Keychain derive the key. Files, names, thumbnails, folders and notes are encrypted with <strong>AES-256-GCM</strong>.",
+  "Hidy can't reset a pattern. Your way back in is the vault's <a href=\"/features/recovery-phrase/\">12-word recovery phrase</a>."
+ ],
+ "faq": [
+  [
+   "Is a pattern less secure than a PIN?",
+   "It depends on length. A 4-digit PIN has 10,000 combinations. Hidy requires at least 6 different dots on a 25-dot grid, which allows far more paths. Longer patterns that change direction are harder to guess or watch over your shoulder."
+  ],
+  [
+   "Does Hidy store my pattern?",
+   "Hidy does not keep a readable copy of your pattern. The pattern is combined with a device secret from the Keychain to derive the key that unlocks the vault."
+  ],
+  [
+   "What if I draw the wrong pattern?",
+   "A different valid pattern opens a different, empty space. Hidy doesn't show a wrong-pattern error, so nobody watching can tell whether a vault exists for that pattern."
+  ],
+  [
+   "Can I change my pattern?",
+   "Yes. Open the vault, then change its pattern in Settings. If you forgot it, use the vault's recovery phrase, which lets you choose a new pattern."
+  ]
+ ],
+ "related": [
+  "/features/hidden-vaults/",
+  "/features/recovery-phrase/",
+  "/compare/hidy-vs-apple-hidden-album/",
+  "/guides/get-started/"
+ ],
+ "published": "2026-10-22",
+ "updated": "2026-10-22"
+}
+---
+<h2>What pattern encryption means</h2>
+<p>Most "locked" apps work like a door in front of an open room. The files sit on the phone in a readable form, and the app shows a PIN screen before it lets you look. Anyone who gets past the screen, or reads the app's storage directly, sees the files.</p>
+<p>Hidy works the other way. Every file you import is encrypted on your iPhone before it is stored. The key that decrypts it is derived from the pattern you draw. Drawing the pattern doesn't open a door. It recreates the key.</p>
+
+<h2>How it works in Hidy Vault</h2>
+<ol>
+<li><strong>You draw a pattern</strong> on a 5×5 grid, connecting at least six different dots. Tap controls are there if drawing is hard.</li>
+<li><strong>Hidy combines it with a device secret.</strong> A random secret stored in the iPhone Keychain is mixed with your pattern through PBKDF2 and HKDF key derivation.</li>
+<li><strong>That unlocks the vault key.</strong> A random vault key protects the stored data. File contents, file names, thumbnails, folders and notes are encrypted with AES-256-GCM. Large videos are encrypted in authenticated chunks, so a damaged or swapped chunk is detected.</li>
+<li><strong>Locking drops the key.</strong> Tap Lock or leave the app, and the active vault session ends. Hidy also covers its screen in the app switcher.</li>
+</ol>
+
+<h2>One pattern, one vault</h2>
+<p>Each valid pattern opens its own space. A pattern you have never used opens a new, empty vault. That means you can keep separate vaults for separate things, and the lock screen never lists which ones exist. See <a href="/features/hidden-vaults/">separate hidden vaults</a> for how that works and where its limits are.</p>
+
+<h2>What it does not protect</h2>
+<ul>
+<li><strong>An open vault is readable.</strong> While a vault is unlocked, its files are decrypted on screen, including for tools that someone has authorized to inspect the device.</li>
+<li><strong>Someone who watches you draw.</strong> Draw out of sight. A longer pattern with several direction changes is harder to remember from a glance.</li>
+<li><strong>Metadata on disk.</strong> Someone who can examine the app's storage can see approximate file sizes and how many vault folders exist. The contents and names stay encrypted.</li>
+<li><strong>No independent audit yet.</strong> Hidy has functional regression tests, but it has not had an independent cryptographic audit. The <a href="/security/">security page</a> lists every boundary.</li>
+</ul>
+
+<h2>Why there is no "forgot pattern" button</h2>
+<p>Because the pattern is part of the key, nobody else holds a copy. There's no account and no Hidy server, so there's nothing to reset. That's the point, and also the risk. Create the vault's <a href="/features/recovery-phrase/">recovery phrase</a> on day one and keep it on paper, outside the phone.</p>
+
+<h2>Set it up</h2>
+<ol>
+<li>Install <a href="{{app}}">Hidy Vault</a> and confirm that you understand Hidy can't reset your pattern.</li>
+<li>Draw a pattern of at least six dots. Make it one you can repeat without looking at notes.</li>
+<li>Import a few photos, then lock and reopen once to be sure you remember it.</li>
+<li>In Settings, create the recovery phrase and write the 12 words down.</li>
+</ol>

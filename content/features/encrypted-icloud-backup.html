@@ -1,0 +1,87 @@
+---
+{
+ "title": "Encrypted iCloud Backup for a Photo Vault on iPhone | Hidy",
+ "description": "Hidy Vault backs up each vault to your own iCloud account, encrypted on your iPhone first. Only the vault's recovery phrase opens it. Free, plus backup files.",
+ "h1": "Encrypted iCloud backup: a copy only your recovery phrase opens",
+ "short": "Encrypted iCloud backup",
+ "order": 5,
+ "lead": "Turn on iCloud backup for a vault and Hidy keeps an encrypted copy in your own iCloud account, updated after every change. The copy is encrypted on your iPhone before upload, so it opens only with that vault's recovery phrase.",
+ "card": "An encrypted copy of a vault in your own iCloud, readable only with its recovery phrase. Free.",
+ "quick": [
+  "Per vault: <strong>Settings &gt; iCloud backup</strong>. It needs the vault's recovery phrase first.",
+  "The copy is <strong>encrypted on your iPhone before upload</strong> and updated after every change.",
+  "Prefer to hold it yourself? <strong>Export a backup file</strong> to Files, iCloud Drive or AirDrop. Both are included in the free plan."
+ ],
+ "faq": [
+  [
+   "Can Apple read my Hidy backup?",
+   "The vault's contents are encrypted on your iPhone before they're uploaded to CloudKit. Apple runs the iCloud account and service, but the backup opens only with the vault's recovery phrase."
+  ],
+  [
+   "Does the backup count against my iCloud storage?",
+   "Yes. It's stored in your own iCloud account, so it uses your iCloud storage like other app data."
+  ],
+  [
+   "Is iCloud backup free in Hidy?",
+   "Yes. iCloud backup and backup files are included in the free plan. Keeping vaults in sync across devices is part of Pro."
+  ],
+  [
+   "How do I restore on a new iPhone?",
+   "Install Hidy Vault, choose Restore from iCloud or Restore from a backup file on the lock screen, and enter the vault's recovery phrase."
+  ]
+ ],
+ "related": [
+  "/guides/backup-and-recovery/",
+  "/features/recovery-phrase/",
+  "/features/device-sync/",
+  "/guides/transfer-vault-new-iphone/"
+ ],
+ "sources": [
+  [
+   "Apple: iCloud data security overview",
+   "https://support.apple.com/en-us/102651"
+  ]
+ ],
+ "published": "2026-10-22",
+ "updated": "2026-10-22"
+}
+---
+<h2>Why a vault needs its own backup</h2>
+<p>A vault lives inside Hidy's encrypted storage on your iPhone. If the phone is lost, broken or reset, that storage goes with it. A backup is the only way back, and it has to stay as private as the vault itself.</p>
+
+<h2>Two kinds of backup</h2>
+<div class="table-wrap">
+<table class="compare">
+<thead><tr><th></th><th>iCloud backup</th><th>Backup file</th></tr></thead>
+<tbody>
+<tr><th>Where it lives</th><td>Your own iCloud account</td><td>Wherever you save it: Files, iCloud Drive, a Mac, AirDrop</td></tr>
+<tr><th>Updates</td><td>After every change</td><td>One-off copy when you export it</td></tr>
+<tr><th>Opens with</td><td>The vault's recovery phrase</td><td>The vault's recovery phrase</td></tr>
+<tr><th>Plan</th><td>Free</td><td>Free</td></tr>
+</tbody>
+</table>
+</div>
+
+<h2>How it works</h2>
+<ol>
+<li><strong>The vault needs a recovery phrase.</strong> The phrase names and unlocks the cloud copy, so Hidy asks you to create one first.</li>
+<li><strong>Everything is encrypted before upload.</strong> Files, names, thumbnails, folders and notes leave the phone already encrypted. Hidy uses Apple's CloudKit to store them in your iCloud account.</li>
+<li><strong>It stays current.</strong> Each change in the vault updates the backup.</li>
+<li><strong>Restore needs both.</strong> Access to the iCloud account that holds the backup, and the vault's recovery phrase.</li>
+</ol>
+
+<h2>Turn it on</h2>
+<ol>
+<li>Open the vault and go to Settings.</li>
+<li>If you haven't yet, create the <a href="/features/recovery-phrase/">recovery phrase</a> and write the words down.</li>
+<li>Turn on iCloud backup. To keep a copy you hold yourself, also export a backup file.</li>
+<li>Repeat for each vault you want backed up. Each vault is separate.</li>
+</ol>
+
+<h2>Limits to know</h2>
+<ul>
+<li><strong>Phrase plus backup opens the vault.</strong> Keep the phrase away from anyone who could get into your iCloud account.</li>
+<li><strong>Old phrases still open old backups.</strong> If you create a new phrase, delete earlier backups and make a fresh one.</li>
+<li><strong>iOS device backups are separate.</strong> Apple's own iPhone backup follows your Apple settings, not Hidy's switch.</li>
+<li><strong>The decoy doesn't delete backups.</strong> That's useful: a backup is how you get a vault back after the <a href="/features/decoy-vault/">decoy vault</a> is used.</li>
+</ul>

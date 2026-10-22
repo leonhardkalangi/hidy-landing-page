@@ -1,0 +1,66 @@
+---
+{
+ "title": "Sync a Private Photo Vault Across Your Devices | Hidy Vault",
+ "description": "With Hidy Vault Pro, a vault stays in sync across your devices through your own iCloud, encrypted before upload. How sync works and how it differs from backup.",
+ "h1": "Device sync: the same vault on your other devices",
+ "short": "Device sync",
+ "order": 6,
+ "lead": "With Pro, a vault can stay in sync across your devices. Changes travel through your own iCloud account, encrypted on the device before upload, and each device keeps its own encrypted copy.",
+ "card": "Keep one vault up to date on your other devices through your own iCloud. Pro.",
+ "quick": [
+  "Pro feature: <strong>Settings &gt; Sync with my other devices</strong>, on top of iCloud backup.",
+  "Sync uses <strong>your own iCloud account</strong>. Content is encrypted before upload.",
+  "Each device keeps <strong>its own copy</strong>. Turning sync off on one device doesn't erase the others."
+ ],
+ "faq": [
+  [
+   "Is sync the same as backup?",
+   "No. Backup keeps one encrypted copy in iCloud. Sync keeps the vault current on several devices. Sync builds on iCloud backup, so backup is turned on too."
+  ],
+  [
+   "Do I need the recovery phrase on the other device?",
+   "Yes. The vault's recovery phrase is what opens its encrypted iCloud copy on another device."
+  ],
+  [
+   "Is sync free?",
+   "No, sync across devices is part of Pro. iCloud backup on one device is free."
+  ],
+  [
+   "What happens if I stop syncing?",
+   "Other devices that were syncing keep their own copy of the vault."
+  ]
+ ],
+ "related": [
+  "/features/encrypted-icloud-backup/",
+  "/features/secure-sharing/",
+  "/features/recovery-phrase/",
+  "/guides/transfer-vault-new-iphone/"
+ ],
+ "published": "2026-10-22",
+ "updated": "2026-10-22"
+}
+---
+<h2>Why sync, not just backup</h2>
+<p>A backup is for getting a vault back. Sync is for using it in more than one place: adding a photo on one device and finding it on the other. Both use the same encrypted iCloud copy. Sync just keeps every device reading from and writing to it.</p>
+
+<h2>How it works</h2>
+<ol>
+<li>Sync needs <a href="/features/encrypted-icloud-backup/">iCloud backup</a> and the vault's <a href="/features/recovery-phrase/">recovery phrase</a>.</li>
+<li>Changes are encrypted on the device that makes them, then uploaded to your iCloud through Apple's CloudKit.</li>
+<li>Your other devices download the encrypted changes and merge them into their own encrypted copy.</li>
+<li>Items that aren't downloaded yet are fetched on a later sync, so a slow connection doesn't break the vault.</li>
+</ol>
+
+<h2>Set it up</h2>
+<ol>
+<li>On the first device, open the vault, go to Settings and turn on iCloud backup, then <strong>Sync with my other devices</strong>.</li>
+<li>On the other device, install <a href="{{app}}">Hidy Vault</a>, choose Restore from iCloud on the lock screen, and enter the vault's recovery phrase.</li>
+<li>Choose a pattern for the vault on that device.</li>
+</ol>
+
+<h2>Limits to know</h2>
+<ul>
+<li><strong>Not instant.</strong> Sync depends on iCloud and the network. Give it a moment before assuming something is missing.</li>
+<li><strong>Every synced device is a copy.</strong> Lose one, and its copy stays encrypted, but treat its pattern and the phrase as exposed if the device was unlocked.</li>
+<li><strong>For other people, use sharing.</strong> Sync is for your own devices. To give someone else access, use <a href="/features/secure-sharing/">vault sharing</a>.</li>
+</ul>

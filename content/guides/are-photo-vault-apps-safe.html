@@ -1,0 +1,72 @@
+---
+{
+ "title": "Are Photo Vault Apps Safe? 7 Checks Before You Trust One",
+ "order": 9,
+ "description": "How to tell whether a photo vault app is safe: on-device encryption, who holds the key, backups, ads and trackers, account requirements and honest limits.",
+ "h1": "Are photo vault apps safe? 7 checks before you trust one",
+ "lead": "Some photo vault apps encrypt your files with a key only you hold. Others put a PIN screen in front of readable files, show ads, or keep a way to reset your access. Seven questions, answered from the App Store page and the app's own documentation, tell them apart.",
+ "card": "Encryption, keys, backups, ads, accounts and honesty: seven checks for any vault app.",
+ "quick": [
+  "Does it say files are <strong>encrypted on the device</strong>, not only in its cloud?",
+  "Can the company <strong>reset your code</strong>? If yes, it can reach your data.",
+  "Check the App Store's <strong>App Privacy</strong> section for tracking and data linked to you."
+ ],
+ "faq": [
+  [
+   "Is \"military-grade encryption\" a meaningful claim?",
+   "It usually means AES, which is good, but says nothing about where the key comes from or who can reset it. Look for those details."
+  ],
+  [
+   "Are free vault apps unsafe?",
+   "Not necessarily. Check how the free version is paid for: ads and trackers in a privacy app are a trade-off worth knowing about."
+  ],
+  [
+   "Has Hidy Vault been audited?",
+   "Not yet. Hidy has functional regression tests but no independent cryptographic audit. Our security page says so."
+  ]
+ ],
+ "related": [
+  "/compare/hidy-vs-calculator-vault-apps/",
+  "/compare/hidy-vs-keepsafe/",
+  "/compare/hidy-vs-private-photo-vault/",
+  "/features/pattern-encryption/"
+ ],
+ "published": "2026-10-22",
+ "updated": "2026-10-22"
+}
+---
+<h2>The 7 checks</h2>
+<ol>
+<li><strong>Encrypted on the device?</strong> Look for a clear statement that files are encrypted on the phone. "Password protected" alone often means a lock screen in front of readable files.</li>
+<li><strong>Where does the key come from?</strong> The best answer: from something only you know, like your code or pattern, combined with a device secret.</li>
+<li><strong>Can the company reset your access?</strong> An email reset is convenient, and it means someone other than you can get in.</li>
+<li><strong>How do backups work?</strong> Are they encrypted with a key only you hold? Are they in the free version? What happens if you lose the phone?</li>
+<li><strong>Ads and trackers?</strong> Read the App Privacy section on the App Store page: "Data Used to Track You" and "Data Linked to You".</li>
+<li><strong>Account required?</strong> An account isn't bad by itself, but it is one more place your data and identity are linked.</li>
+<li><strong>Does it admit limits?</strong> Trustworthy apps say what they don't protect. Be wary of "unhackable" and "100% secure".</li>
+</ol>
+
+<h2>How Hidy Vault answers them</h2>
+<div class="table-wrap">
+<table class="compare">
+<thead><tr><th>Check</th><th>Hidy Vault</th></tr></thead>
+<tbody>
+<tr><td>On-device encryption</td><td>AES-256-GCM for files, names, thumbnails, folders and notes</td></tr>
+<tr><td>Key source</td><td>Your pattern plus a Keychain device secret</td></tr>
+<tr><td>Company reset</td><td>None; a 12-word recovery phrase you hold</td></tr>
+<tr><td>Backups</td><td>Encrypted iCloud backup or backup file, free</td></tr>
+<tr><td>Ads and analytics</td><td>None</td></tr>
+<tr><td>Account</td><td>None</td></tr>
+<tr><td>Stated limits</td><td>No independent audit yet; see the <a href="/security/">security page</a></td></tr>
+</tbody>
+</table>
+</div>
+
+<h2>Common red flags</h2>
+<ul>
+<li>A free vault full of ads.</li>
+<li>No mention of encryption, or encryption only for a paid cloud.</li>
+<li>"Forgot your PIN? We'll email you a reset."</li>
+<li>Claims nobody can verify, like "military-grade" with no details.</li>
+</ul>
+<p>Compare specific apps: <a href="/compare/hidy-vs-keepsafe/">Keepsafe</a>, <a href="/compare/hidy-vs-private-photo-vault/">Private Photo Vault</a>, <a href="/compare/hidy-vs-calculator-vault-apps/">calculator vaults</a>. Or try <a href="{{app}}">Hidy Vault</a>, free for 3 vaults.</p>

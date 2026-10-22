@@ -1,0 +1,70 @@
+# Hidy Vault
+
+> Hidy Vault is an encrypted vault for iPhone (iOS 16+). Photos, videos, documents and notes are encrypted on the device with AES-256-GCM and opened by a pattern you draw. Each pattern opens its own vault. No account and no Hidy server. Free plan: 3 vaults, 100 photos and 10 videos each. Publisher: PT Mirai Kreasi Negeri.
+
+## Core pages
+
+- [Hidy Vault | Encrypted photo and document vault for iPhone](https://hidyapp.com/): Keep photos, videos, documents and notes in encrypted iPhone vaults. Pattern access, recovery phrases, optional iCloud backups and private sharing.
+- [How Hidy Vault protects your files | Hidy Vault](https://hidyapp.com/security/): Understand Hidy Vault encryption, Keychain storage, optional iCloud copies and the limits of sharing.
+- [Support | Hidy Vault](https://hidyapp.com/support/): Help and information for Hidy Vault on iPhone.
+- [Privacy policy | Hidy Vault](https://hidyapp.com/privacy/): Hidy Vault privacy policy: what the app stores on your iPhone, what optional iCloud features send to Apple, and why there are no accounts or analytics.
+
+## Features
+
+- [Everything Hidy Vault does, and how](https://hidyapp.com/features/): Every Hidy Vault feature explained: pattern encryption, separate vaults, decoy vault, disguised icons, encrypted iCloud backup, sharing and more.
+- [Disguised app icons: Calculator, Notes, Weather or Tasks](https://hidyapp.com/features/app-icons/): Hidy Vault Pro can change its Home Screen icon to look like Calculator, Notes, Weather or Tasks. What a disguised icon hides, and what it doesn't.
+- [Decoy vault: what to draw if someone makes you unlock](https://hidyapp.com/features/decoy-vault/): Hidy Vault's decoy vault (Pro): its pattern permanently deletes every other vault on the iPhone, then opens as normal. How it works and the risks.
+- [Device sync: the same vault on your other devices](https://hidyapp.com/features/device-sync/): With Hidy Vault Pro, a vault stays in sync across your devices through your own iCloud, encrypted before upload. How sync works and how it differs from backup.
+- [Documents, notes and folders, all encrypted](https://hidyapp.com/features/documents-and-notes/): Keep PDFs, ID scans, any file from Files, and private notes in an encrypted Hidy Vault. Organise them in encrypted folders. Free on iPhone.
+- [Encrypted iCloud backup: a copy only your recovery phrase opens](https://hidyapp.com/features/encrypted-icloud-backup/): Hidy Vault backs up each vault to your own iCloud account, encrypted on your iPhone first. Only the vault's recovery phrase opens it. Free, plus backup files.
+- [Hidden vaults: a separate space for every pattern](https://hidyapp.com/features/hidden-vaults/): Hidy Vault opens a different encrypted vault for each pattern and never lists them. How separate vaults work, the free limit, and what they can't hide.
+- [Location removal: photos stored without where they were taken](https://hidyapp.com/features/location-removal/): Hidy Vault's Optimized import removes location data from photos and videos as it stores them, and saves space. When to keep originals instead.
+- [Pattern encryption: your pattern is the key, not a password screen](https://hidyapp.com/features/pattern-encryption/): How Hidy Vault turns a pattern on a 5×5 grid into the key for an encrypted vault: AES-256-GCM, a Keychain secret, and why there is no reset.
+- [Auto-lock and privacy screen: nothing left open behind you](https://hidyapp.com/features/privacy-screen/): Hidy Vault locks as soon as it goes to the background and covers its screen in the app switcher and over open viewers. What that protects and where it stops.
+- [Recovery phrase: 12 words that get you back in](https://hidyapp.com/features/recovery-phrase/): Each Hidy Vault has a 12-word recovery phrase. It reopens the vault if you forget the pattern and opens its encrypted backups on any iPhone.
+- [Secure camera: photos that never touch your camera roll](https://hidyapp.com/features/secure-camera/): Take photos and videos inside Hidy Vault and they go straight into the encrypted vault. They never reach your Photos library or iCloud Photos. Free.
+- [Secure sharing: one vault, shared with one person at a time](https://hidyapp.com/features/secure-sharing/): Share one Hidy Vault with another person using a 12-word invite that expires in 48 hours. End-to-end encrypted through iCloud. What revoking can and can't undo.
+
+## Compare
+
+- [How Hidy Vault compares](https://hidyapp.com/compare/): Hidy Vault compared with the iPhone Hidden album, Notes lock, calculator vault apps and other photo vaults: what each one encrypts and what it doesn't.
+- [Hidy Vault vs the iPhone Hidden album](https://hidyapp.com/compare/hidy-vs-apple-hidden-album/): The iPhone Hidden album hides photos behind Face ID or your passcode. Hidy Vault encrypts them behind a separate pattern. Which one you need, and when.
+- [Hidy Vault vs locked notes in Apple Notes](https://hidyapp.com/compare/hidy-vs-apple-notes-lock/): Apple Notes can lock notes with your passcode or a notes password, but not notes with PDFs, video or audio. How that compares with a Hidy Vault.
+- [Hidy Vault vs calculator vault apps](https://hidyapp.com/compare/hidy-vs-calculator-vault-apps/): Calculator vault apps hide photos behind a fake calculator. Hidy Vault encrypts them behind a pattern. What to check before trusting a disguised vault app.
+- [Hidy Vault vs Keepsafe](https://hidyapp.com/compare/hidy-vs-keepsafe/): Keepsafe vs Hidy Vault compared from Keepsafe's App Store listing: locks, cloud, ads, sync and pricing model, and what Hidy does differently.
+- [Hidy Vault vs Private Photo Vault](https://hidyapp.com/compare/hidy-vs-private-photo-vault/): Private Photo Vault vs Hidy Vault from its App Store listing: break-in reports, decoy password, Cloud Vault, private browser, and how Hidy's encryption differs.
+
+## Scenarios
+
+- [Privacy for the moments that actually happen](https://hidyapp.com/scenarios/): What to do when someone scrolls your camera roll, borrows your phone, shares your Apple Account or asks you to unlock. Practical setups for real situations.
+- [Phone searches at the border: protecting private photos](https://hidyapp.com/scenarios/border-phone-search-photos/): Travelling with private photos on an iPhone: what a phone search can reach, what to leave at home, and how vaults and backups help. Not legal advice.
+- [They scrolled too far in my camera roll](https://hidyapp.com/scenarios/date-scrolled-camera-roll/): You showed one photo and they kept swiping. How to make your camera roll safe to hand over: what to hide, what to move into a vault, and a 10-minute setup.
+- [If someone forces you to unlock your phone](https://hidyapp.com/scenarios/forced-to-unlock-phone/): Being made to unlock your iPhone is a safety situation first. How to prepare a vault setup in advance, including a decoy vault, and what it can't do.
+- [Keeping passport and ID scans on your iPhone](https://hidyapp.com/scenarios/id-documents-on-iphone/): Passport, ID card and insurance scans sit in Photos and Files where anyone with your passcode can open them. How to keep ID documents encrypted on iPhone.
+- [My partner knows my iPhone passcode](https://hidyapp.com/scenarios/partner-knows-iphone-passcode/): Someone with your iPhone passcode can open the Hidden album and locked apps. How to keep some photos and files private without changing the passcode.
+- [Sending your iPhone for repair with private photos on it](https://hidyapp.com/scenarios/phone-repair-private-photos/): Before an iPhone repair: back up, protect private photos, and know that the device may come back erased. How to make sure your Hidy vaults survive.
+- [Before you sell or trade in your iPhone](https://hidyapp.com/scenarios/selling-old-iphone/): Before selling or trading in an iPhone: move private photos and vaults to the new phone, then erase all content. What erasing does and doesn't remove.
+- [A shared Apple Account or family iPad](https://hidyapp.com/scenarios/shared-apple-account-family-ipad/): With iCloud Photos, every device on your Apple Account shows your library, hidden photos included. How to fix a shared account or family iPad.
+- [How to show one photo without letting someone swipe](https://hidyapp.com/scenarios/show-one-photo-without-swiping/): iPhone has no single-photo mode. Ways to show one photo without exposing the rest: share it, use a vault that holds only that photo, or lock Photos to one app.
+- [Someone wants to borrow your phone](https://hidyapp.com/scenarios/someone-borrows-your-phone/): A friend needs to make a call, a child wants a game, a colleague needs a map. How to lend your iPhone without exposing photos, messages and files.
+
+## Guides
+
+- [Guides](https://hidyapp.com/guides/): Step-by-step guides to hiding and locking photos on iPhone, the Hidden album, backups, recovery and using Hidy Vault.
+- [Are photo vault apps safe? 7 checks before you trust one](https://hidyapp.com/guides/are-photo-vault-apps-safe/): How to tell whether a photo vault app is safe: on-device encryption, who holds the key, backups, ads and trackers, account requirements and honest limits.
+- [Back up and recover a Hidy Vault](https://hidyapp.com/guides/backup-and-recovery/): How Hidy Vault recovery phrases, encrypted backup files and iCloud backup work together.
+- [Forgot your vault pattern? What you can still do](https://hidyapp.com/guides/forgot-vault-pattern/): Forgot a Hidy Vault pattern? Check the grid size and exact pattern first, then reopen the vault with its 12-word recovery phrase. What happens without one.
+- [Your first encrypted vault in Hidy](https://hidyapp.com/guides/get-started/): A guide to Hidy Vault patterns, photo imports, folders and locking on iPhone.
+- [How to hide photos on iPhone in 2026: the complete guide](https://hidyapp.com/guides/hide-photos-iphone/): How to hide photos on iPhone: the Hidden album, hiding the album itself, locking Photos, and moving photos into an encrypted vault. Step by step for iOS 18+.
+- [How to hide a vault app on iPhone](https://hidyapp.com/guides/hide-vault-app-iphone/): Hide a vault app on iPhone with iOS 18's Hide and Require Face ID, move it off the Home Screen, or give Hidy Vault a disguised icon. What each one hides.
+- [How to lock photos on iPhone in 2026: 3 ways compared](https://hidyapp.com/guides/lock-photos-iphone/): How to lock photos on iPhone and how to lock the Photos app: the Hidden album, Face ID app lock, or an encrypted vault, and what your passcode still opens.
+- [How to move photos into a vault app on iPhone](https://hidyapp.com/guides/move-photos-to-vault-app/): Move photos and videos from your iPhone library into an encrypted vault, delete the originals, and empty Recently Deleted so no copy is left behind.
+- [How to remove location from iPhone photos](https://hidyapp.com/guides/remove-location-from-iphone-photos/): Remove location data from iPhone photos: per photo with Adjust Location, when sharing with Options, or stop the Camera recording it. Plus a free browser tool.
+- [Share a vault with Hidy Vault Pro](https://hidyapp.com/guides/share-a-vault/): Create private vault invitations and understand what revoking access does in Hidy Vault.
+- [How to share private photos from iPhone securely](https://hidyapp.com/guides/share-private-photos-iphone/): Share private photos from iPhone with fewer copies left behind: remove location, avoid shared albums, use AirDrop, or share an encrypted vault.
+- [How to transfer a photo vault to a new iPhone](https://hidyapp.com/guides/transfer-vault-new-iphone/): Move each Hidy Vault to a new iPhone with an encrypted iCloud backup or a backup file and its recovery phrase. Step by step, plus what to check before erasing.
+
+## Tools
+
+- [Free tools that run on your device](https://hidyapp.com/tools/): Free tools that run on your device: see and remove location and metadata from photos before you share them. No upload, no account.
+- [Photo metadata viewer and remover](https://hidyapp.com/tools/photo-metadata-remover/): See a photo's hidden location, camera and time data, then save a clean copy without it. Runs in your browser; the photo is never uploaded. Free, no sign-up.

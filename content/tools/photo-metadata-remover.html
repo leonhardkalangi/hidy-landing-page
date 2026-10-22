@@ -1,0 +1,72 @@
+---
+{
+ "title": "Free Photo Metadata Remover: See and Remove EXIF and GPS",
+ "order": 1,
+ "description": "See a photo's hidden location, camera and time data, then save a clean copy without it. Runs in your browser; the photo is never uploaded. Free, no sign-up.",
+ "h1": "Photo metadata viewer and remover",
+ "lead": "Open a photo to see the location, camera and time data hidden inside it. Then save a clean copy with all of it removed. Everything runs in your browser: the photo never leaves your device.",
+ "card": "See a photo's hidden GPS, camera and time data, and save a clean copy. No upload.",
+ "scripts": [
+  "/tools/metadata-remover.js"
+ ],
+ "faq": [
+  [
+   "Is my photo uploaded?",
+   "No. The page reads the file with your browser and makes the clean copy on your device. You can turn off Wi-Fi after the page loads and it still works."
+  ],
+  [
+   "What does the clean copy remove?",
+   "All embedded metadata: GPS location, camera make and model, lens, timestamps, software, and XMP or IPTC blocks. The copy is re-encoded from the pixels."
+  ],
+  [
+   "Does it work with iPhone HEIC photos?",
+   "The metadata is read from JPEG files. Safari can open HEIC photos to make a clean copy; other browsers may not. In the iPhone share sheet, Options > Location off also removes location."
+  ],
+  [
+   "Does re-encoding reduce quality?",
+   "JPEG copies are saved at high quality (92%). PNG and WebP keep their format. For most sharing, the difference isn't visible."
+  ]
+ ],
+ "related": [
+  "/guides/remove-location-from-iphone-photos/",
+  "/features/location-removal/",
+  "/guides/share-private-photos-iphone/",
+  "/scenarios/id-documents-on-iphone/"
+ ],
+ "published": "2026-10-22",
+ "updated": "2026-10-22"
+}
+---
+<div class="tool-panel">
+<label class="drop" id="mr-drop" for="mr-file">
+<strong>Choose a photo</strong> or drop it here
+<input id="mr-file" type="file" accept="image/*" class="visually-hidden">
+</label>
+<div id="mr-out" hidden>
+<table class="compare" id="mr-table"></table>
+<img class="preview" id="mr-preview" alt="Clean copy preview">
+<div class="row"><a class="btn" id="mr-save" hidden>Save clean copy</a></div>
+<p class="status" id="mr-status" role="status"></p>
+</div>
+</div>
+
+<h2>What photos hide</h2>
+<ul>
+<li><strong>Location:</strong> GPS coordinates, often accurate to a few metres, and sometimes altitude.</li>
+<li><strong>Time:</strong> when the photo was taken and last edited.</li>
+<li><strong>Device:</strong> camera make and model, lens, and the software that saved it.</li>
+<li><strong>Extra blocks:</strong> XMP and IPTC data from editing apps.</li>
+</ul>
+
+<h2>How it works</h2>
+<ol>
+<li>Your browser reads the file. For JPEGs, the page parses the EXIF block and shows what it finds.</li>
+<li>The image is drawn onto a canvas, which keeps only the pixels.</li>
+<li>The canvas is saved as a new file. No metadata is copied across.</li>
+</ol>
+
+<h2>On iPhone, without this tool</h2>
+<p>In the share sheet, tap Options and turn off Location before you send. Or open the photo, tap More, Adjust Info, Adjust Location, No Location. See <a href="/guides/remove-location-from-iphone-photos/">how to remove location from iPhone photos</a>.</p>
+
+<h2>For photos you keep</h2>
+<p><a href="{{app}}">Hidy Vault</a> removes location from photos and videos as it imports them, and keeps them encrypted behind a pattern.</p>

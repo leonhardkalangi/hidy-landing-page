@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="color-scheme" content="light dark">
+<title>Free Photo Metadata Remover: See and Remove EXIF and GPS</title>
+<meta name="description" content="See a photo's hidden location, camera and time data, then save a clean copy without it. Runs in your browser; the photo is never uploaded. Free, no sign-up.">
+<link rel="canonical" href="https://hidyapp.com/tools/photo-metadata-remover/">
+<link rel="icon" href="/favicon.png">
+<link rel="apple-touch-icon" href="/brand/hidy-icon.png">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Hidy Vault">
+<meta property="og:title" content="Free Photo Metadata Remover: See and Remove EXIF and GPS">
+<meta property="og:description" content="See a photo's hidden location, camera and time data, then save a clean copy without it. Runs in your browser; the photo is never uploaded. Free, no sign-up.">
+<meta property="og:url" content="https://hidyapp.com/tools/photo-metadata-remover/">
+<meta property="og:image" content="https://hidyapp.com/assets/cards/tools-photo-metadata-remover-og.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebApplication","name":"Photo metadata viewer and remover","applicationCategory":"UtilitiesApplication","operatingSystem":"Any","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"url":"https://hidyapp.com/tools/photo-metadata-remover/"},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Hidy Vault","item":"https://hidyapp.com/"},{"@type":"ListItem","position":2,"name":"Tools","item":"https://hidyapp.com/tools/"},{"@type":"ListItem","position":3,"name":"Photo metadata viewer and remover","item":"https://hidyapp.com/tools/photo-metadata-remover/"}]},{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Is my photo uploaded?","acceptedAnswer":{"@type":"Answer","text":"No. The page reads the file with your browser and makes the clean copy on your device. You can turn off Wi-Fi after the page loads and it still works."}},{"@type":"Question","name":"What does the clean copy remove?","acceptedAnswer":{"@type":"Answer","text":"All embedded metadata: GPS location, camera make and model, lens, timestamps, software, and XMP or IPTC blocks. The copy is re-encoded from the pixels."}},{"@type":"Question","name":"Does it work with iPhone HEIC photos?","acceptedAnswer":{"@type":"Answer","text":"The metadata is read from JPEG files. Safari can open HEIC photos to make a clean copy; other browsers may not. In the iPhone share sheet, Options > Location off also removes location."}},{"@type":"Question","name":"Does re-encoding reduce quality?","acceptedAnswer":{"@type":"Answer","text":"JPEG copies are saved at high quality (92%). PNG and WebP keep their format. For most sharing, the difference isn't visible."}}]}]}</script>
+<script src="/vault-theme.js"></script>
+<link rel="stylesheet" href="/vault.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header>
+<div class="nav">
+<a class="brand" href="/">
+<img src="/brand/hidy-icon.webp" width="42" height="42" alt="">Hidy Vault</a>
+<nav aria-label="Main navigation">
+<a href="/features/">Features</a>
+<a href="/#how-it-works">How it works</a>
+<a href="/security/">Security</a>
+<a href="/compare/">Compare</a>
+<a href="/guides/">Guides</a>
+<a href="/tools/">Tools</a>
+</nav>
+<button class="theme-toggle" id="theme-toggle" type="button" aria-label="Switch appearance">Appearance</button>
+<a class="btn nav-cta" href="/go/app-store?ct=web_header_nav&amp;src=/tools/photo-metadata-remover/">Get App</a>
+</div>
+</header>
+<main id="main">
+<article class="article tool">
+<nav class="crumb" aria-label="Breadcrumb"><a href="/">Hidy Vault</a> <span>›</span> <a href="/tools/">Tools</a></nav>
+<h1>Photo metadata viewer and remover</h1>
+<p class="meta">Updated 22 October 2026 · By Hidy</p>
+<p class="lead">Open a photo to see the location, camera and time data hidden inside it. Then save a clean copy with all of it removed. Everything runs in your browser: the photo never leaves your device.</p>
+
+<div class="tool-panel">
+<label class="drop" id="mr-drop" for="mr-file">
+<strong>Choose a photo</strong> or drop it here
+<input id="mr-file" type="file" accept="image/*" class="visually-hidden">
+</label>
+<div id="mr-out" hidden>
+<table class="compare" id="mr-table"></table>
+<img class="preview" id="mr-preview" alt="Clean copy preview">
+<div class="row"><a class="btn" id="mr-save" hidden>Save clean copy</a></div>
+<p class="status" id="mr-status" role="status"></p>
+</div>
+</div>
+
+<h2>What photos hide</h2>
+<ul>
+<li><strong>Location:</strong> GPS coordinates, often accurate to a few metres, and sometimes altitude.</li>
+<li><strong>Time:</strong> when the photo was taken and last edited.</li>
+<li><strong>Device:</strong> camera make and model, lens, and the software that saved it.</li>
+<li><strong>Extra blocks:</strong> XMP and IPTC data from editing apps.</li>
+</ul>
+
+<h2>How it works</h2>
+<ol>
+<li>Your browser reads the file. For JPEGs, the page parses the EXIF block and shows what it finds.</li>
+<li>The image is drawn onto a canvas, which keeps only the pixels.</li>
+<li>The canvas is saved as a new file. No metadata is copied across.</li>
+</ol>
+
+<h2>On iPhone, without this tool</h2>
+<p>In the share sheet, tap Options and turn off Location before you send. Or open the photo, tap More, Adjust Info, Adjust Location, No Location. See <a href="/guides/remove-location-from-iphone-photos/">how to remove location from iPhone photos</a>.</p>
+
+<h2>For photos you keep</h2>
+<p><a href="/go/app-store?ct=web_g_photo_metadata_remover&amp;src=/tools/photo-metadata-remover/">Hidy Vault</a> removes location from photos and videos as it imports them, and keeps them encrypted behind a pattern.</p>
+<h2>Frequently asked questions</h2>
+<h3>Is my photo uploaded?</h3>
+<p>No. The page reads the file with your browser and makes the clean copy on your device. You can turn off Wi-Fi after the page loads and it still works.</p>
+<h3>What does the clean copy remove?</h3>
+<p>All embedded metadata: GPS location, camera make and model, lens, timestamps, software, and XMP or IPTC blocks. The copy is re-encoded from the pixels.</p>
+<h3>Does it work with iPhone HEIC photos?</h3>
+<p>The metadata is read from JPEG files. Safari can open HEIC photos to make a clean copy; other browsers may not. In the iPhone share sheet, Options > Location off also removes location.</p>
+<h3>Does re-encoding reduce quality?</h3>
+<p>JPEG copies are saved at high quality (92%). PNG and WebP keep their format. For most sharing, the difference isn't visible.</p>
+
+<h2>Related pages</h2>
+<div class="guide-grid related">
+<a class="guide" href="/guides/remove-location-from-iphone-photos/"><h3>How to remove location from iPhone photos</h3><p>Per photo, while sharing, or for good: three ways to strip location from iPhone photos.</p><span>Read more →</span></a>
+<a class="guide" href="/features/location-removal/"><h3>Location removal: photos stored without where they were taken</h3><p>Optimized import strips location data from photos and videos and saves space. On by default.</p><span>Read more →</span></a>
+<a class="guide" href="/guides/share-private-photos-iphone/"><h3>How to share private photos from iPhone securely</h3><p>Fewer copies, no location, and a way to stop: how to share private photos from iPhone.</p><span>Read more →</span></a>
+<a class="guide" href="/scenarios/id-documents-on-iphone/"><h3>Keeping passport and ID scans on your iPhone</h3><p>Passport and ID scans in Photos or Files are open to your passcode. Keep them encrypted.</p><span>Read more →</span></a>
+</div>
+
+<aside class="app-banner">
+<img src="/brand/hidy-icon.webp" width="56" height="56" alt="">
+<div><strong>Hidy Vault</strong><span>Encrypted vault for iPhone. Free to start. Coming to the App Store.</span></div>
+<a class="btn" href="/go/app-store?ct=web_gb_photo_metadata_remover&amp;src=/tools/photo-metadata-remover/">Get Hidy Vault</a>
+</aside>
+</article>
+</main>
+<footer>
+<div class="foot-grid">
+<div class="foot-brand">
+<a class="brand" href="/"><img src="/brand/hidy-icon.webp" width="32" height="32" alt="">Hidy Vault</a>
+<p>Encrypted vault for iPhone. No account, no analytics, no Hidy server.</p>
+<a class="btn" href="/go/app-store?ct=web_footer&amp;src=/tools/photo-metadata-remover/">Get Hidy Vault</a>
+</div>
+<div><h3>Features</h3>
+<a href="/features/pattern-encryption/">Pattern encryption</a>
+<a href="/features/hidden-vaults/">Hidden vaults</a>
+<a href="/features/decoy-vault/">Decoy vault</a>
+<a href="/features/recovery-phrase/">Recovery phrase</a>
+<a href="/features/encrypted-icloud-backup/">Encrypted iCloud backup</a>
+<a href="/features/device-sync/">Device sync</a>
+<a href="/features/secure-sharing/">Secure sharing</a>
+<a href="/features/secure-camera/">Secure camera</a>
+<a href="/features/app-icons/">Disguised app icons</a>
+<a href="/features/documents-and-notes/">Documents and notes</a>
+<a href="/features/privacy-screen/">Auto-lock and privacy screen</a>
+<a href="/features/location-removal/">Location removal</a>
+</div>
+<div><h3>Compare</h3>
+<a href="/compare/hidy-vs-apple-hidden-album/">Hidy vs Hidden album</a>
+<a href="/compare/hidy-vs-calculator-vault-apps/">Hidy vs calculator vaults</a>
+<a href="/compare/hidy-vs-apple-notes-lock/">Hidy vs Notes lock</a>
+<a href="/compare/hidy-vs-keepsafe/">Hidy vs Keepsafe</a>
+<a href="/compare/hidy-vs-private-photo-vault/">Hidy vs Private Photo Vault</a>
+</div>
+<div><h3>Resources</h3>
+<a href="/guides/">Guides</a>
+<a href="/scenarios/">Scenarios</a>
+<a href="/tools/">Tools</a>
+<a href="/security/">Security</a>
+<a href="/support/">Support</a>
+<a href="/privacy/">Privacy policy</a>
+<a href="https://www.apple.com/legal/internet-services/itunes/dev/stdeula/">App Store EULA</a>
+<a href="mailto:support@hidyapp.com">Contact</a>
+</div>
+</div>
+<p class="foot-legal">© 2026 PT Mirai Kreasi Negeri</p>
+</footer>
+<script src="/tools/metadata-remover.js" defer></script>
+</body>
+</html>
