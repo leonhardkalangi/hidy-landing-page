@@ -1,9 +1,9 @@
 # Hidy Vault backlog (one per run, top first; GSC opportunities override)
 - [x] 2026-10-22 guides/hidden-album-vs-vault-app — skipped (covered by compare/hidy-vs-apple-hidden-album); published guides/secret-folder-iphone instead
 - [x] 2026-10-22 guides/hide-videos-iphone
-- [!] 2026-10-22 needs-facts guides/are-hidden-photos-saved-to-icloud
-- [!] 2026-10-22 needs-facts guides/can-apple-see-hidden-photos (Advanced Data Protection; Apple Support 102651)
-- [!] 2026-10-22 needs-facts guides/does-deleting-vault-app-delete-photos
+- [ ] guides/are-hidden-photos-saved-to-icloud
+- [ ] guides/can-apple-see-hidden-photos (Advanced Data Protection; Apple Support 102651)
+- [ ] guides/does-deleting-vault-app-delete-photos
 - [ ] guides/pattern-lock-vs-pin-vs-face-id
 - [ ] guides/hide-photos-from-memories-iphone
 - [ ] guides/recently-deleted-photos-privacy

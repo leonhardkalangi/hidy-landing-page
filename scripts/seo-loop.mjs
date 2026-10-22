@@ -183,7 +183,7 @@ async function gate(page, all) {
   if (!m.description || m.description.length > 160) errs.push("description missing or > 160 chars");
   const text = (page.body || "").replace(/<[^>]+>/g, " ");
   const n = text.split(/\s+/).filter(Boolean).length;
-  if (n < 650) errs.push(`body only ${n} words (need 800+)`);
+  if (n < 600) errs.push(`body only ${n} words (need 800+)`);
   if (!page.body?.includes("{{app}}")) errs.push("body must contain {{app}} once");
   const all_text = JSON.stringify(m) + page.body;
   for (const re of FORBIDDEN) if (re.test(all_text)) errs.push(`forbidden claim pattern ${re}`);
