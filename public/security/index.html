@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="color-scheme" content="light dark">
+<title>How Hidy Vault protects your files | Hidy Vault</title>
+<meta name="description" content="Understand Hidy Vault encryption, Keychain storage, optional iCloud copies and the limits of sharing.">
+<link rel="canonical" href="https://hidyapp.com/security/">
+<link rel="icon" href="/favicon.png">
+<link rel="apple-touch-icon" href="/brand/hidy-icon.png">
+<meta property="og:type" content="website">
+<meta property="og:title" content="How Hidy Vault protects your files | Hidy Vault">
+<meta property="og:description" content="Understand Hidy Vault encryption, Keychain storage, optional iCloud copies and the limits of sharing.">
+<meta property="og:url" content="https://hidyapp.com/security/">
+<meta property="og:image" content="https://hidyapp.com/brand/hidy-icon.png">
+<meta name="twitter:card" content="summary">
+<script src="/vault-theme.js"></script>
+<link rel="stylesheet" href="/vault.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header>
+<div class="nav">
+<a class="brand" href="/">
+<img src="/brand/hidy-icon.webp" width="42" height="42" alt="">Hidy Vault</a>
+<nav aria-label="Main navigation">
+<a href="/features/">Features</a>
+<a href="/#how-it-works">How it works</a>
+<a href="/security/">Security</a>
+<a href="/compare/">Compare</a>
+<a href="/guides/">Guides</a>
+<a href="/tools/">Tools</a>
+</nav>
+<button class="theme-toggle" id="theme-toggle" type="button" aria-label="Switch appearance">Appearance</button>
+<a class="btn nav-cta" href="/go/app-store?ct=web_header_nav&amp;src=/security/">Get App</a>
+</div>
+</header>
+<main id="main">
+<article class="article">
+<a class="crumb" href="/">Hidy Vault</a>
+<h1>How Hidy Vault protects your files</h1>
+<p class="lead">Encryption on your device, with boundaries you can understand.</p>
+<h2>What is encrypted</h2>
+<p>Hidy uses AES-256-GCM for file contents, names, thumbnails, folders and notes. A random vault key protects the stored data. The pattern, a device secret stored in Keychain, and PBKDF2/HKDF key derivation are used to unlock local access.</p>
+<p>Locking drops the active vault session. The app covers its content when inactive and locks when backgrounded. These protections do not make an unlocked or compromised device safe in every situation.</p>
+<h2>Local access and recovery are different</h2>
+<p>The local pattern unlock depends on this device's Keychain secret. An encrypted backup and a valid recovery phrase provide the separate way to restore on another device. Keep the phrase outside the vault it protects.</p>
+<h2>Optional cloud copies</h2>
+<p>Backup, sync and sharing use Apple's CloudKit. Vault contents are encrypted on your device before upload. Apple handles the iCloud account and service. Local storage still exposes approximate file sizes and vault counts to someone who can examine the app container.</p>
+<h2>What sharing can and cannot undo</h2>
+<p>Revoking a participant stops future sharing access after the cloud service processes the change. It cannot erase a copy already downloaded or exported by the recipient. A readable export also leaves the encrypted vault's protection.</p>
+<h2>Data and purchases</h2>
+<p>The app has no Hidy identity account, advertising SDK or analytics SDK. Optional cloud features, Apple purchases and Polar license activation still involve external services. See the <a href="/privacy/">privacy policy</a> for those flows.</p>
+<h2>Practical limits</h2>
+<p>Encryption is not a promise of forensic invisibility, guaranteed memory zeroization or protection from every form of coercion. Hidy has functional regression testing; it has not received an independent cryptographic security audit. Save backups and treat the recovery phrase as a secret.</p>
+<p>
+<a href="/guides/backup-and-recovery/">Set up your recovery and backup plan</a>
+</p>
+</article>
+</main>
+<footer>
+<div class="foot-grid">
+<div class="foot-brand">
+<a class="brand" href="/"><img src="/brand/hidy-icon.webp" width="32" height="32" alt="">Hidy Vault</a>
+<p>Encrypted vault for iPhone. No account, no analytics, no Hidy server.</p>
+<a class="btn" href="/go/app-store?ct=web_footer&amp;src=/security/">Get Hidy Vault</a>
+</div>
+<div><h3>Features</h3>
+<a href="/features/pattern-encryption/">Pattern encryption</a>
+<a href="/features/hidden-vaults/">Hidden vaults</a>
+<a href="/features/decoy-vault/">Decoy vault</a>
+<a href="/features/recovery-phrase/">Recovery phrase</a>
+<a href="/features/encrypted-icloud-backup/">Encrypted iCloud backup</a>
+<a href="/features/device-sync/">Device sync</a>
+<a href="/features/secure-sharing/">Secure sharing</a>
+<a href="/features/secure-camera/">Secure camera</a>
+<a href="/features/app-icons/">Disguised app icons</a>
+<a href="/features/documents-and-notes/">Documents and notes</a>
+<a href="/features/privacy-screen/">Auto-lock and privacy screen</a>
+<a href="/features/location-removal/">Location removal</a>
+</div>
+<div><h3>Compare</h3>
+<a href="/compare/hidy-vs-apple-hidden-album/">Hidy vs Hidden album</a>
+<a href="/compare/hidy-vs-calculator-vault-apps/">Hidy vs calculator vaults</a>
+<a href="/compare/hidy-vs-apple-notes-lock/">Hidy vs Notes lock</a>
+<a href="/compare/hidy-vs-keepsafe/">Hidy vs Keepsafe</a>
+<a href="/compare/hidy-vs-private-photo-vault/">Hidy vs Private Photo Vault</a>
+</div>
+<div><h3>Resources</h3>
+<a href="/guides/">Guides</a>
+<a href="/scenarios/">Scenarios</a>
+<a href="/tools/">Tools</a>
+<a href="/security/">Security</a>
+<a href="/support/">Support</a>
+<a href="/privacy/">Privacy policy</a>
+<a href="https://www.apple.com/legal/internet-services/itunes/dev/stdeula/">App Store EULA</a>
+<a href="mailto:support@hidyapp.com">Contact</a>
+</div>
+</div>
+<p class="foot-legal">© 2026 PT Mirai Kreasi Negeri</p>
+</footer>
+</body>
+</html>

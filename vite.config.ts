@@ -12,6 +12,7 @@ export default defineConfig(({ mode }) => ({
       overlay: false,
     },
   },
+  build: { rollupOptions: { input: { vault: path.resolve(__dirname, "index.html"), mac: path.resolve(__dirname, "mac/index.html") } } },
   plugins: [react(), mode === "development" && componentTagger()].filter(Boolean),
   resolve: {
     alias: {

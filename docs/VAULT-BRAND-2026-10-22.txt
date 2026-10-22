@@ -1,0 +1,65 @@
+HIDY VAULT BRAND AND WEBSITE — 22 OCTOBER 2026
+
+USER DIRECTION
+hidyapp.com is exclusively the Hidy Vault marketing site. Do not return to a
+two-product brand hub or mix Mac screen-blur content into Vault SEO/navigation.
+Use the existing blue Hidy mascot as the primary Vault icon. Competitor reference:
+Vaultaire.app for topic coverage only; Hidy copy and design are independent.
+
+LOCAL IMPLEMENTATION
+- Static index.html is now the Vault homepage, with a large blue mascot above
+  the headline and the same mascot in the navigation and favicon.
+- Features, usage, accurate encryption boundaries, pricing and FAQ rewritten for
+  actual Hidy functionality. Existing three Polar product links/prices preserved.
+- New /security/, /guides/ and three practical guides: getting started,
+  backup/recovery, sharing. /support/ and /privacy/ use Vault content.
+- Original Vault policy body retained. App Store EULA link matches the app.
+- Public App Store availability remains labelled coming; no invented ratings,
+  download URL, independent audit or claim of remotely erasing recipients' copies.
+- /vault/ -> /. Old Vault support/privacy links redirect to their new pages.
+- Original Mac React site moved to /mac/ with customer download, account and
+  legal access preserved; no link from the Vault navigation. Legacy Mac article
+  paths redirect to /mac/blog/. Vault sitemap excludes Mac and checkout pages.
+- App primary AppIcon.png: original Hidy mascot resized to opaque 1024x1024.
+  IconPreview-Default updated too. Alternate disguise icons unchanged.
+
+VALIDATION
+- npm run build: PASS. Existing bundle-size/Browserslist warnings affect the
+  legacy Mac bundle; the Vault homepage does not load that React bundle.
+- 9 Vault pages, unique H1s, all internal links: PASS.
+- 6 old-route redirects and Mac download HTML shell: PASS.
+- Real Chrome render of /mac/download: PASS; release download link still present.
+- Chrome desktop and 390x844 mobile, light and dark: visually checked; mobile
+  content width 390 equals viewport width, no horizontal overflow.
+- Lighthouse local mobile: performance100/accessibility100/best-practices100/SEO100.
+  These are local technical checks, not a ranking or conversion guarantee.
+- scripts/test.sh on a new isolated iOS18.6 simulator: SharingTests + CloudSyncTests,
+  5 tests passed, zero failures. Temporary simulator automatically deleted.
+- Signed generic iOS Release build: PASS, codesign --verify --deep --strict PASS.
+  Initial ad-hoc device attempt failed expected signing-entitlement requirements;
+  corrected build used existing normal development signing.
+
+PUBLICATION STATE
+LIVE. User explicitly approved publication and the exact URL migration.
+Automatic approval initially blocked deployment; after explicit user approval the
+normal npm run deploy succeeded, with no workaround.
+Deployment: https://7dedb251.hidy-landing-page.pages.dev
+Live canonical site: https://hidyapp.com/
+Chrome verified the actual /vault/ redirect to root, visible large mascot, and
+/download redirect/render to /mac/download. Direct Python live HTTP probes received 403 from the edge and were not counted.
+Instead real Chrome verified all 8 Vault pages, canonical URLs, 6 old-route
+redirects, the rendered Mac download page and Mac noindex. Results are saved in
+live-browser-checks.json. The deployed sitemap source contains only Vault URLs.
+No TestFlight upload, App Review, commit or purchase in this branding task.
+User's existing iPhone app and vault/Keychain data were not touched.
+The iOS icon is changed and builds successfully; the installed TestFlight app
+will show it only after a future build is uploaded and installed.
+Temporary test simulator removed. New app fixtures were never added to production.
+Claude acknowledged that future SEO is exclusively for Vault and flagged legacy
+redirect/noindex checks, both of which were already covered and passed.
+
+CANONICAL REPOSITORIES
+Website: /Users/mirai/Code/hidy-landing-page
+Native: /Users/mirai/Code/hidy-vault
+Claude discussion: https://claude.ai/chat/31b3cc25-b314-44f4-ac49-bc501984c591
+The latest live status is sent to that conversation as a final follow-up.

@@ -38,7 +38,7 @@ const Terms = () => (
     <h2>4. The Hidy app and your license</h2>
     <p>
       Buying Hidy gives you a personal, non-transferable license to install and run it on Macs you own or control. The
-      full grant lives in the <a href="/legal/eula">EULA</a> — read it; that's the document that governs the app
+      full grant lives in the <a href="/mac/legal/eula">EULA</a> — read it; that's the document that governs the app
       itself.
     </p>
 
@@ -69,7 +69,7 @@ const Terms = () => (
     <h2>7. Refunds</h2>
     <p>
       We offer a 30-day no-questions-asked refund window after purchase. The full policy lives at{" "}
-      <a href="/legal/refunds">Refunds</a>.
+      <a href="/mac/legal/refunds">Refunds</a>.
     </p>
 
     <h2>8. Acceptable use</h2>
@@ -105,7 +105,7 @@ const Terms = () => (
     <h2>12. Privacy</h2>
     <p>
       Hidy never opens your camera and runs all detection on-device. The full policy is at{" "}
-      <a href="/legal/privacy">Privacy</a>.
+      <a href="/mac/legal/privacy">Privacy</a>.
     </p>
 
     <h2>13. Disclaimers</h2>

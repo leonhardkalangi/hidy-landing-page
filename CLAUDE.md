@@ -1,3 +1,14 @@
+LATEST BRAND AND WEBSITE — 22 OCTOBER 2026
+Read docs/VAULT-BRAND-2026-10-22.txt before brand, website or SEO work.
+User explicitly chose hidyapp.com exclusively for Hidy Vault. The new Vault site
+is LIVE after explicit publication/URL approval. /vault/ redirects to /; old Mac
+customer paths live separately under /mac/ with noindex and no Vault navigation
+link. Earlier two-product SEO plans and root-Mac guidance are superseded.
+Primary Vault app icon is now the existing BLUE HIDY MASCOT. Signed Release build
+and five targeted regressions passed, but this icon has NOT been uploaded to
+TestFlight. No new commit, App Review, purchase, or production app-data change.
+Older Mac instructions below apply only to the legacy /mac/ customer site.
+
 # Hidy landing page — guidance for Claude Code
 
 Vite + React + TypeScript + Tailwind + shadcn/ui SPA for the Hidy macOS app.
