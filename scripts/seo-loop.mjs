@@ -216,7 +216,7 @@ ${run.research || "(none)"}`,
     { role: "user", content: JSON.stringify({ meta: page.meta, body: page.body }) },
   ]);
   // Belt and braces: drop items the reviewer itself marked as fine.
-  return (verdict.unsupported || []).filter((u) => u && u.quote && !/no issue|^supported|is supported|reasonable restatement/i.test(u.why || ""));
+  return (verdict.unsupported || []).filter((u) => u && u.quote && !/no issue|^supported|is supported|reasonable restatement|opinion|not a new fact|— omit/i.test(u.why || ""));
 }
 
 // ---------- MAIN ----------
