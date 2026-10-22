@@ -12,3 +12,4 @@ When the app is released: replace "Coming to the App Store" in public/guides/*/i
 
 Next: see ~/loops/hidy-seo/backlog.md (loop picks the next unchecked line).
 | 2026-10-22 | hide videos iphone | /guides/hide-videos-iphone/ | 18 GSC rows | /guides/hide-photos-iphone/, /compare/hidy-vs-apple-hidden-album/ | cloud loop (DeepSeek); Perplexity: no key |
+| 2026-10-22 | are hidden photos saved to icloud | /guides/are-hidden-photos-saved-to-icloud/ | 18 GSC rows | /guides/hide-photos-iphone/, /compare/hidy-vs-apple-hidden-album/ | cloud loop (DeepSeek); Perplexity: no key |
