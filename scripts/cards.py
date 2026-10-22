@@ -7,7 +7,7 @@ import glob, html, json, os, re, subprocess, sys, tempfile
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 OUT = os.path.join(ROOT, "public", "assets", "cards")
-CHROME = "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome"
+CHROME = os.environ.get("CHROME", "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome")
 ICON = "file://" + os.path.join(ROOT, "public", "brand", "hidy-icon.png")
 LABEL = {"features": "Feature", "compare": "Comparison", "scenarios": "Scenario", "guides": "Guide", "tools": "Free tool"}
 
@@ -37,11 +37,15 @@ def render(path, w, h, doc):
     with tempfile.NamedTemporaryFile("w", suffix=".html", delete=False) as f:
         f.write(doc)
         src = f.name
-    subprocess.run([CHROME, "--headless=new", "--disable-gpu", "--hide-scrollbars", f"--window-size={w},{h}",
+    subprocess.run([CHROME, "--headless=new", "--no-sandbox", "--disable-gpu", "--hide-scrollbars", f"--window-size={w},{h}",
                     "--force-device-scale-factor=1", "--user-data-dir=" + tempfile.mkdtemp(), f"--screenshot={png}", "file://" + src],
                    capture_output=True, timeout=60)
     os.unlink(src)
-    subprocess.run(["sips", "-s", "format", "jpeg", "-s", "formatOptions", "82", png, "--out", path], capture_output=True)
+    if sys.platform == "darwin":
+        subprocess.run(["sips", "-s", "format", "jpeg", "-s", "formatOptions", "82", png, "--out", path], capture_output=True)
+    else:  # GitHub Actions (Linux): Pillow is installed by the workflow
+        from PIL import Image
+        Image.open(png).convert("RGB").save(path, "JPEG", quality=82)
     os.unlink(png)
 
 

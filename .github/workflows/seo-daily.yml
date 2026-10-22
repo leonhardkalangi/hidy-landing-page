@@ -1,0 +1,84 @@
+name: Hidy SEO loop — one quality page per day
+
+# Cloud version of the daily SEO loop (runs without the Mac, like ste-agents).
+# 01:30 UTC = 08:30 WIB. Brain: DeepSeek. Data: Search Console. Research: Perplexity (optional).
+# Deploy: Cloudflare Pages via a token scoped ONLY to "Cloudflare Pages: Edit" (no billing).
+
+on:
+  schedule:
+    - cron: "30 1 * * *"
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+concurrency:
+  group: seo-daily
+  cancel-in-progress: false
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          cache: "npm"
+      - run: npm ci
+      - run: pip install --quiet pillow
+
+      - name: Write today's page
+        run: node scripts/seo-loop.mjs
+        env:
+          DEEPSEEK_API_KEY: ${{ secrets.DEEPSEEK_API_KEY }}
+          GSC_CLIENT_ID: ${{ secrets.GSC_CLIENT_ID }}
+          GSC_CLIENT_SECRET: ${{ secrets.GSC_CLIENT_SECRET }}
+          GSC_REFRESH_TOKEN: ${{ secrets.GSC_REFRESH_TOKEN }}
+          PERPLEXITY_API_KEY: ${{ secrets.PERPLEXITY_API_KEY }}
+
+      - name: Status
+        id: s
+        run: echo "status=$(node -p "require('./.seo-run.json').status")" >> "$GITHUB_OUTPUT"
+
+      - name: Cards, build, deploy
+        if: steps.s.outputs.status == 'published'
+        run: |
+          CHROME=$(which google-chrome || which chromium) python3 scripts/cards.py
+          npm run build
+          npx --yes wrangler@4.110.0 pages deploy dist --project-name=hidy-landing-page --branch=main --commit-dirty=true
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: 375d036fd05d786e8b508abcf6b02419
+
+      - name: Verify live
+        if: steps.s.outputs.status == 'published'
+        run: |
+          URL="https://hidyapp.com$(node -p "require('./.seo-run.json').url")"
+          for i in 1 2 3 4 5 6; do code=$(curl -s -o /dev/null -w "%{http_code}" -A "Mozilla/5.0" "$URL"); [ "$code" = 200 ] && break; sleep 10; done
+          echo "$URL -> $code"; [ "$code" = 200 ]
+
+      - name: Commit
+        if: steps.s.outputs.status == 'published'
+        run: |
+          git config user.name "hidy-seo-bot"
+          git config user.email "actions@github.com"
+          git add content public/sitemap.xml public/llms.txt public/assets/cards public/features public/compare public/scenarios public/guides public/tools index.html public/security public/support public/privacy docs/seo-backlog.md docs/SEO-LOG.md
+          git commit -m "seo(loop): $(node -p "require('./.seo-run.json').url")" && git push
+
+      - name: Email summary
+        if: always()
+        run: |
+          [ -f .seo-run.json ] || echo '{"status":"failed","reason":"loop crashed before writing a result"}' > .seo-run.json
+          node -e '
+            const r = require("./.seo-run.json");
+            const subject = `Hidy SEO loop — ${r.date || ""}: ${r.status}${r.url ? ": https://hidyapp.com" + r.url : ""}`;
+            fetch("https://api.resend.com/emails", { method: "POST",
+              headers: { Authorization: "Bearer " + process.env.RESEND_API_KEY, "Content-Type": "application/json" },
+              body: JSON.stringify({ from: process.env.MAIL_FROM, to: ["leonhardkalangi@gmail.com"], subject, text: JSON.stringify(r, null, 2) + "\n\nRun: " + process.env.RUN_URL })
+            }).then(x => x.text()).then(console.log);'
+        env:
+          RESEND_API_KEY: ${{ secrets.RESEND_API_KEY }}
+          MAIL_FROM: ${{ secrets.MAIL_FROM }}
+          RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}

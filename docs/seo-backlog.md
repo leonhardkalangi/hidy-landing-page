@@ -1,0 +1,30 @@
+# Hidy Vault backlog (one per run, top first; GSC opportunities override)
+- [x] 2026-10-22 guides/hidden-album-vs-vault-app — skipped (covered by compare/hidy-vs-apple-hidden-album); published guides/secret-folder-iphone instead
+- [ ] guides/hide-videos-iphone
+- [ ] guides/are-hidden-photos-saved-to-icloud
+- [ ] guides/can-apple-see-hidden-photos (Advanced Data Protection; Apple Support 102651)
+- [ ] guides/does-deleting-vault-app-delete-photos
+- [ ] guides/pattern-lock-vs-pin-vs-face-id
+- [ ] guides/hide-photos-from-memories-iphone
+- [ ] guides/recently-deleted-photos-privacy
+- [ ] guides/stop-icloud-photos-syncing-other-devices
+- [ ] guides/hidden-photos-disappeared-iphone
+- [ ] guides/password-protect-pdf-iphone
+- [ ] guides/lock-files-app-iphone
+- [ ] guides/stop-whatsapp-photos-saving-camera-roll
+- [ ] guides/one-time-payment-photo-vault (Lifetime plan; prices from homepage only)
+- [ ] guides/offline-photo-vault-no-account
+- [ ] guides/what-is-exif-data (link tools/photo-metadata-remover)
+- [ ] guides/aes-256-encryption-explained
+- [ ] guides/end-to-end-encryption-photos
+- [ ] guides/iphone-privacy-settings-to-change
+- [ ] guides/which-apps-can-see-your-photos (Limited Photos Access)
+- [ ] scenarios/coworker-saw-photos-work-phone
+- [ ] scenarios/kids-using-parents-iphone
+- [ ] scenarios/medical-photos-on-iphone
+- [ ] scenarios/screenshots-of-private-chats
+- [ ] scenarios/lost-or-stolen-iphone-private-photos (Stolen Device Protection)
+- [ ] compare/hidy-vs-hide-it-pro (App Store listing id523488488)
+- [ ] compare/hidy-vs-icloud-shared-library
+- [ ] compare/hidy-vs-google-photos-locked-folder
+- [ ] tools/ (second tool: face/blur or image compressor — PROPOSE first, don't build unasked)
