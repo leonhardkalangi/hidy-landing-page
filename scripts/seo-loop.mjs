@@ -17,6 +17,9 @@ const read = (p) => fs.readFileSync(rel(p), "utf8");
 const today = new Date().toISOString().slice(0, 10);
 const daysAgo = (n) => new Date(Date.now() - n * 864e5).toISOString().slice(0, 10);
 const run = { date: today, status: "skipped", notes: [] };
+class Rejected extends Error {
+  constructor(reason) { super("rejected"); this.reason = reason; }
+}
 const done = (status, extra = {}) => {
   Object.assign(run, { status }, extra);
   fs.writeFileSync(rel(".seo-run.json"), JSON.stringify(run, null, 2));
@@ -71,7 +74,7 @@ function covered(query, all) {
     return qw.length && qw.filter((w) => tw.has(w)).length / qw.length >= 0.75;
   });
 }
-function pick(all, rows) {
+function pick(all, rows, skip = []) {
   const byQuery = new Map();
   for (const r of rows) {
     const [query, page] = r.keys;
@@ -84,7 +87,7 @@ function pick(all, rows) {
   }
   const opps = [...byQuery.values()]
     .filter((o) => o.impressions >= 20 && o.position >= 8 && o.position <= 60 && o.clicks / o.impressions < 0.02 && !/hidy/i.test(o.query))
-    .filter((o) => !covered(o.query, all))
+    .filter((o) => !covered(o.query, all) && !skip.includes(o.query))
     .sort((a, b) => b.impressions - a.impressions);
   if (opps.length) return { kind: "gsc", topic: opps[0].query, evidence: opps[0] };
   const backlog = read("docs/seo-backlog.md").split("\n");
@@ -245,51 +248,75 @@ function cutClaims(page, bad) {
 const all = pages();
 const measured = await gsc().catch((e) => ({ rows: [], note: `GSC error: ${e.message}` }));
 run.gsc = { rows: measured.rows.length, week: measured.week, note: measured.note };
-const choice = pick(all, measured.rows);
-if (!choice) done("skipped", { reason: "backlog empty and no GSC opportunity" });
-run.choice = choice;
-const res = await research(choice.topic).catch((e) => ({ text: "", sources: [], note: `Perplexity error: ${e.message}` }));
-run.notes.push(res.note);
-run.research = res.text;
-
-const user = `TOPIC: ${choice.topic}
-${choice.kind === "backlog" ? `Use section "${choice.section}" and slug "${choice.slug}". Hint: ${choice.hint}` : `GSC query with ${choice.evidence.impressions} impressions, best position ${choice.evidence.position.toFixed(1)}, ${choice.evidence.clicks} clicks. Pages already showing for it: ${choice.evidence.pages.map((p) => p.page).join(", ")}. Put one of those in link_from.`}
-RESEARCH (Perplexity, Apple-only):
-${res.text || "(none — rely on APPLE FACTS; if the topic needs iOS facts not listed there, keep the iOS part general and short)"}
-Research sources: ${res.sources.join(", ") || "none"}`;
-
-const messages = [{ role: "system", content: systemPrompt(all) }, { role: "user", content: user }];
-let page = await deepseek(messages);
-let errs = await gate(page, all);
-if (errs.length) {
-  messages.push({ role: "assistant", content: JSON.stringify(page) }, { role: "user", content: `Fix these problems and return the full JSON again:\n- ${errs.join("\n- ")}` });
-  page = await deepseek(messages);
-  errs = await gate(page, all);
-}
-if (errs.length) done("rejected", { reason: errs });
-
-// fact-check: up to two fix rounds, then reject rather than publish an unsupported claim
-for (let round = 1; ; round++) {
-  const bad = await review(page);
-  run.notes.push(`review round ${round}: ${bad.length} unsupported`, ...bad.map((b) => `  - ${b.quote} | ${b.why}`.slice(0, 220)));
-  if (!bad.length) break;
-  if (round >= 3 && round <= 6) {
-    // Last resort that can only shrink the page: cut each flagged sentence/item ourselves.
-    page = cutClaims(page, bad);
-    errs = await gate(page, all);
-    if (errs.length) done("rejected", { reason: errs });
-    continue;
+let choice, res, page, messages;
+run.rejected = [];
+for (let tries = 0; tries < 3; tries++) {
+  choice = pick(all, measured.rows, run.rejected.map((r) => r.topic));
+  if (!choice) done(run.rejected.length ? "rejected" : "skipped", { reason: run.rejected.length ? "all candidate topics failed the fact check" : "backlog empty and no GSC opportunity" });
+  run.choice = choice;
+  res = await research(choice.topic).catch((e) => ({ text: "", sources: [], note: `Perplexity error: ${e.message}` }));
+  run.notes.push(`topic ${tries + 1}: ${choice.topic} — ${res.note}`);
+  run.research = res.text;
+  try {
+    ({ page, messages } = await attempt(choice, res));
+    break;
+  } catch (e) {
+    if (!(e instanceof Rejected)) throw e;
+    run.rejected.push({ topic: choice.topic, reason: e.reason });
+    if (choice.kind === "backlog") {
+      const b = read("docs/seo-backlog.md").split("\n");
+      b[choice.line] = b[choice.line].replace("- [ ] ", `- [!] ${today} needs-facts `);
+      fs.writeFileSync(rel("docs/seo-backlog.md"), b.join("\n"));
+    }
+    page = null;
   }
-  if (round > 6) done("rejected", { reason: bad.map((b) => `unsupported: ${b.quote} (${b.why})`) });
-  messages.push(
-    { role: "assistant", content: JSON.stringify(page) },
-    { role: "user", content: `A fact-checker found claims not supported by the allowed facts. Remove or reword ONLY these, so each says no more than HIDY FACTS / APPLE FACTS / RESEARCH support (it is fine to say less). Do NOT add any new sentences, steps, tips or claims anywhere else while fixing. Return the full JSON again.\n${bad.map((b) => `- "${b.quote}": ${b.why}`).join("\n")}` }
-  );
-  page = await deepseek(messages);
-  errs = await gate(page, all);
-  if (errs.length) done("rejected", { reason: errs });
 }
+if (!page) done("rejected", { reason: "3 topics in a row failed the fact check" });
 delete run.research;
+
+async function attempt(choice, res) {
+const user = `TOPIC: ${choice.topic}
+  ${choice.kind === "backlog" ? `Use section "${choice.section}" and slug "${choice.slug}". Hint: ${choice.hint}` : `GSC query with ${choice.evidence.impressions} impressions, best position ${choice.evidence.position.toFixed(1)}, ${choice.evidence.clicks} clicks. Pages already showing for it: ${choice.evidence.pages.map((p) => p.page).join(", ")}. Put one of those in link_from.`}
+  RESEARCH (Perplexity, Apple-only):
+  ${res.text || "(none — rely on APPLE FACTS; if the topic needs iOS facts not listed there, keep the iOS part general and short)"}
+  Research sources: ${res.sources.join(", ") || "none"}`;
+  
+  const messages = [{ role: "system", content: systemPrompt(all) }, { role: "user", content: user }];
+  let page = await deepseek(messages);
+  let errs = await gate(page, all);
+  if (errs.length) {
+    messages.push({ role: "assistant", content: JSON.stringify(page) }, { role: "user", content: `Fix these problems and return the full JSON again:\n- ${errs.join("\n- ")}` });
+    page = await deepseek(messages);
+    errs = await gate(page, all);
+  }
+  if (errs.length) (() => { throw new Rejected(errs); })();
+  
+  // fact-check: up to two fix rounds, then reject rather than publish an unsupported claim
+  for (let round = 1; ; round++) {
+    const bad = await review(page);
+    run.notes.push(`review round ${round}: ${bad.length} unsupported`, ...bad.map((b) => `  - ${b.quote} | ${b.why}`.slice(0, 220)));
+    if (!bad.length) break;
+    if (round >= 3 && round <= 8) {
+      // Last resort that can only shrink the page: cut each flagged sentence/item ourselves.
+      page = cutClaims(page, bad);
+      errs = await gate(page, all);
+      if (errs.length) (() => { throw new Rejected(errs); })();
+      continue;
+    }
+    if (round > 8) (() => { throw new Rejected(bad.map((b) => `unsupported: ${b.quote} (${b.why})`)); })();
+    messages.push(
+      { role: "assistant", content: JSON.stringify(page) },
+      { role: "user", content: `A fact-checker found claims not supported by the allowed facts. Remove or reword ONLY these, so each says no more than HIDY FACTS / APPLE FACTS / RESEARCH support (it is fine to say less). Do NOT add any new sentences, steps, tips or claims anywhere else while fixing. Return the full JSON again.\n${bad.map((b) => `- "${b.quote}": ${b.why}`).join("\n")}` }
+    );
+    page = await deepseek(messages);
+    errs = await gate(page, all);
+    if (errs.length) (() => { throw new Rejected(errs); })();
+  }
+  delete run.research;
+    return { page, messages };
+  
+  
+}
 
 // write the page
 const url = `/${page.section}/${page.slug}/`;
