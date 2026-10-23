@@ -1,0 +1,64 @@
+name: Dependabot security fix → test → merge → deploy
+
+# Self-cure without the Mac: when Dependabot opens a security-fix PR, build and test it here. If it
+# is a patch or minor update and everything passes, merge it and deploy production from the cloud.
+# Major updates are left open for a human (the daily digest lists them). ops-guard watches the site
+# after the deploy and rolls back if it breaks. Uses Dependabot secrets (CLOUDFLARE_API_TOKEN,
+# RESEND_API_KEY); runs only for PRs opened by dependabot[bot].
+
+on: pull_request
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  autofix:
+    if: github.event.pull_request.user.login == 'dependabot[bot]'
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - id: meta
+        uses: dependabot/fetch-metadata@v2
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "24"
+          check-latest: true
+      - name: Install, build, test
+        run: |
+          npm ci
+          npm run build
+          npx vitest run
+      - name: Merge (patch/minor only)
+        id: merge
+        if: steps.meta.outputs.update-type != 'version-update:semver-major'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh pr merge "${{ github.event.pull_request.number }}" --squash --delete-branch && echo "merged=1" >> "$GITHUB_OUTPUT"
+      - name: Deploy production from main
+        if: steps.merge.outputs.merged == '1'
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: 375d036fd05d786e8b508abcf6b02419
+        run: |
+          git fetch -q origin main && git checkout -q origin/main
+          npm ci
+          npm run build
+          npx --yes wrangler@4.110.0 pages deploy dist --project-name=hidy-landing-page --branch=main --commit-dirty=true
+      - name: Email what happened
+        if: always()
+        env:
+          RESEND_API_KEY: ${{ secrets.RESEND_API_KEY }}
+          RESULT: ${{ job.status }}
+          MERGED: ${{ steps.merge.outputs.merged }}
+          TITLE: ${{ github.event.pull_request.title }}
+          URL: ${{ github.event.pull_request.html_url }}
+          KIND: ${{ steps.meta.outputs.update-type }}
+        run: |
+          [ -n "$RESEND_API_KEY" ] || exit 0
+          node -e '
+            const e = process.env, ok = e.RESULT === "success";
+            const what = e.MERGED === "1" && ok ? "fixed, merged and deployed" : e.KIND === "version-update:semver-major" ? "major update: left open for you" : "FAILED tests or deploy: left open, production unchanged";
+            fetch("https://api.resend.com/emails", { method: "POST", headers: { Authorization: "Bearer " + e.RESEND_API_KEY, "Content-Type": "application/json" },
+              body: JSON.stringify({ from: "Ops Guard <ops@miraihub.co>", to: ["leonhardkalangi@gmail.com"], subject: `Security fix ${what}: ${process.env.GITHUB_REPOSITORY.split("/")[1]}`, text: `${e.TITLE}\n${e.URL}\n\n${what}.` }) }).then(r => r.text()).then(console.log);'

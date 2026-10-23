@@ -1,0 +1,72 @@
+name: Security loop (daily)
+
+# Hacker loop: new committed secrets, new Supabase security lints, live security headers.
+# Reports only findings that are not in .github/ops/security-baseline.json. ~1 min/day.
+# Pinned: gitleaks v8.30.1, supabase/splinter fccca4b. The DB login is a read-only role
+# (ops_auditor) that can read the schema/policies but no table data.
+
+on:
+  schedule:
+    - cron: "40 2 * * *"
+  workflow_dispatch:
+    inputs:
+      baseline:
+        description: "Write today's findings as the baseline (setup only)"
+        type: boolean
+        default: false
+
+permissions:
+  contents: write   # baseline commit (manual setup run only)
+  issues: write
+
+concurrency:
+  group: security-loop
+  cancel-in-progress: false
+
+jobs:
+  scan:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    env:
+      SITE_URL: https://hidyapp.com/
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "24"
+          check-latest: true
+
+      - name: Secrets committed in the last 2 days (gitleaks)
+        run: |
+          RANGE='--since=2.days'
+          [ "${{ inputs.baseline }}" = "true" ] && RANGE=''
+          docker run --rm -v "$PWD:/repo" zricethezav/gitleaks:v8.30.1 git /repo --redact --no-banner \
+            ${RANGE:+--log-opts="$RANGE"} --report-format json --report-path /repo/gitleaks.json --exit-code 0
+
+      - name: Supabase security lints (read-only role)
+        env:
+          AUDIT_URL: ${{ secrets.SUPABASE_AUDIT_URL }}
+        run: |
+          if [ -z "$AUDIT_URL" ]; then echo "-" > splinter.path; exit 0; fi
+          curl -sfL https://raw.githubusercontent.com/supabase/splinter/fccca4b1c4d8b48b8ccd69bd6b30e84adcb92975/splinter.sql -o splinter.sql
+          { echo "begin;"; cat splinter.sql; echo ";"; echo "rollback;"; } | psql "$AUDIT_URL" -v ON_ERROR_STOP=1 -At -F $'\t' -q > splinter.tsv
+          echo splinter.tsv > splinter.path
+
+      - name: Report new findings
+        env:
+          GH_TOKEN: ${{ github.token }}
+          RESEND_API_KEY: ${{ secrets.RESEND_API_KEY }}
+          PUBLIC_REPO: ${{ github.event.repository.private && '0' || '1' }}
+        run: |
+          gh label create security-loop --color B60205 2>/dev/null || true
+          for l in critical high medium low; do gh label create $l --color 888888 2>/dev/null || true; done
+          if [ "${{ inputs.baseline }}" = "true" ]; then
+            node .github/ops/security.mjs gitleaks.json "$(cat splinter.path)" "$SITE_URL" --baseline
+            git config user.name "security-loop"; git config user.email "actions@github.com"
+            git add .github/ops/security-baseline.json
+            git diff --cached --quiet || { git commit -m "security loop: baseline $(date -u +%F)" && git push; }
+          else
+            node .github/ops/security.mjs gitleaks.json "$(cat splinter.path)" "$SITE_URL"
+          fi
