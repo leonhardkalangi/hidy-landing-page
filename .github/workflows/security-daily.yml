@@ -42,7 +42,7 @@ jobs:
         run: |
           RANGE='--since=2.days'
           [ "${{ inputs.baseline }}" = "true" ] && RANGE=''
-          docker run --rm -v "$PWD:/repo" zricethezav/gitleaks:v8.30.1 git /repo --redact --no-banner \
+          docker run --rm -v "$PWD:/repo" zricethezav/gitleaks:v8.30.1 git /repo --no-banner \
             ${RANGE:+--log-opts="$RANGE"} --report-format json --report-path /repo/gitleaks.json --exit-code 0
 
       - name: Supabase security lints (read-only role)
@@ -70,3 +70,4 @@ jobs:
           else
             node .github/ops/security.mjs gitleaks.json "$(cat splinter.path)" "$SITE_URL"
           fi
+          rm -f gitleaks.json

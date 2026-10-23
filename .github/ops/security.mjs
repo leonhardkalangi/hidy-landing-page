@@ -16,8 +16,22 @@ const BASELINE = ".github/ops/security-baseline.json";
 const REPO = process.env.GITHUB_REPOSITORY;
 const findings = [];
 
-// 1) leaked secrets (gitleaks runs with --redact, so the secret itself never reaches the report)
+// 1) leaked secrets. gitleaks writes the raw match to the runner's disk only; this script never
+// prints it. Public-by-design values are dropped: Supabase anon JWTs (role "anon", shipped in every
+// frontend), IndexNow keys (served publicly at /<key>.txt), and test files.
+const isPublic = (l) => {
+  if (/(^|\/)(test|tests|e2e|test-integration)\/|\.test\.[jt]sx?$|\.spec\.[jt]sx?$/.test(l.File)) return true;
+  if (/INDEXNOW|STORAGE_KEY|MILESTONE_KEY/.test(l.Match || "")) return true;
+  const jwt = (l.Secret || l.Match || "").match(/eyJ[\w-]+\.(eyJ[\w-]+)\.[\w-]+/);
+  if (jwt) {
+    try {
+      return JSON.parse(Buffer.from(jwt[1], "base64url").toString()).role === "anon";
+    } catch {}
+  }
+  return false;
+};
 for (const l of fs.existsSync(gitleaksFile) ? JSON.parse(fs.readFileSync(gitleaksFile, "utf8") || "[]") : []) {
+  if (isPublic(l)) continue;
   findings.push({ key: `secret:${l.RuleID}:${l.File}:${l.Commit?.slice(0, 12)}`, severity: "critical", title: `Secret committed: ${l.RuleID} in ${l.File}`, detail: `Commit ${l.Commit} line ${l.StartLine}. Rotate this credential first, then remove it from the repo.` });
 }
 
