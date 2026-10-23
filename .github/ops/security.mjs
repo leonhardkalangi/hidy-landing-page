@@ -11,6 +11,21 @@
 
 import fs from "node:fs";
 
+// Resend with one retry; logs the result so a missing email is visible in the run log.
+async function sendMail(subject, text) {
+  if (!process.env.RESEND_API_KEY) return console.log("email skipped: no RESEND_API_KEY");
+  for (let i = 0; i < 2; i++) {
+    const r = await fetch("https://api.resend.com/emails", {
+      method: "POST",
+      headers: { Authorization: `Bearer ${process.env.RESEND_API_KEY}`, "Content-Type": "application/json" },
+      body: JSON.stringify({ from: "Ops Guard <ops@miraihub.co>", to: ["leonhardkalangi@gmail.com"], subject, text }),
+    });
+    console.log(`email: HTTP ${r.status} ${(await r.text()).slice(0, 200)}`);
+    if (r.ok) return;
+    await new Promise((ok) => setTimeout(ok, 5000));
+  }
+}
+
 const [gitleaksFile, splinterFile, site] = process.argv.slice(2);
 const BASELINE = ".github/ops/security-baseline.json";
 const REPO = process.env.GITHUB_REPOSITORY;
@@ -68,11 +83,7 @@ if (!fresh.length) process.exit(0);
 
 // Public repos (Hidy): never open issues, since anyone could read them; email the details instead.
 if (process.env.PUBLIC_REPO === "1") {
-  if (process.env.RESEND_API_KEY) await fetch("https://api.resend.com/emails", {
-    method: "POST",
-    headers: { Authorization: `Bearer ${process.env.RESEND_API_KEY}`, "Content-Type": "application/json" },
-    body: JSON.stringify({ from: "Ops Guard <ops@miraihub.co>", to: ["leonhardkalangi@gmail.com"], subject: `SECURITY: ${fresh.length} new finding(s) in ${REPO.split("/")[1]}`, text: fresh.map((f) => `- [${f.severity}] ${f.title}\n  ${f.detail}`).join("\n\n") + "\n\nPublic repo, so no GitHub issue was opened." }),
-  });
+  await sendMail(`SECURITY: ${fresh.length} new finding(s) in ${REPO.split("/")[1]}`, fresh.map((f) => `- [${f.severity}] ${f.title}\n  ${f.detail}`).join("\n\n") + "\n\nPublic repo, so no GitHub issue was opened.");
   process.exit(0);
 }
 
@@ -87,11 +98,7 @@ for (const f of fresh) {
   const i = await gh("/issues", { method: "POST", body: JSON.stringify({ title, labels: ["security-loop", f.severity], body: `${f.detail}\n\nSeverity: **${f.severity}** · key \`${f.key}\`\n\nFound by the daily security loop. Close this issue once fixed, or add the key to .github/ops/security-baseline.json if it is accepted.` }) });
   created.push(`- [${f.severity}] ${f.title} ${i.html_url || ""}`);
 }
-if (created.length && process.env.RESEND_API_KEY) {
+if (created.length) {
   const critical = fresh.some((f) => f.severity === "critical");
-  await fetch("https://api.resend.com/emails", {
-    method: "POST",
-    headers: { Authorization: `Bearer ${process.env.RESEND_API_KEY}`, "Content-Type": "application/json" },
-    body: JSON.stringify({ from: "Ops Guard <ops@miraihub.co>", to: ["leonhardkalangi@gmail.com"], subject: `${critical ? "CRITICAL" : "SECURITY"}: ${created.length} new finding(s) in ${REPO.split("/")[1]}`, text: `${created.join("\n")}\n\nNothing was changed automatically: these need a code or database decision.` }),
-  });
+  await sendMail(`${critical ? "CRITICAL" : "SECURITY"}: ${created.length} new finding(s) in ${REPO.split("/")[1]}`, `${created.join("\n")}\n\nNothing was changed automatically: these need a code or database decision.`);
 }
