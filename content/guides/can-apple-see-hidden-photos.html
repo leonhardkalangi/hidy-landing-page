@@ -1,0 +1,98 @@
+---
+{
+ "title": "Can Apple See Hidden Photos on iPhone? What iOS Says",
+ "description": "Apple's docs don't say hidden photos are encrypted from Apple. With iCloud Photos on, hidden photos sync to your devices. What the Hidden album hides.",
+ "h1": "Can Apple see hidden photos on iPhone?",
+ "lead": "Apple's documentation does not say the Hidden album encrypts photos from Apple. With iCloud Photos on, a hidden photo is still in your iCloud Photos library and syncs as hidden to your other devices. Hiding is a display setting, not a privacy lock against Apple.",
+ "card": "What the Hidden album hides, what iCloud Photos keeps, and where Apple's documentation stops short.",
+ "quick": [
+  "<strong>Hiding is not encryption.</strong> Apple's docs describe the Hidden album as a place photos move to, not as a way to make them unreadable to Apple.",
+  "<strong>iCloud Photos:</strong> hidden photos stay in your library and sync as hidden to your other devices signed in to the same Apple Account.",
+  "<strong>Locked by default:</strong> iOS 16+ locks the Hidden album with Face ID, Touch ID or passcode. That lock is for people holding your phone."
+ ],
+ "faq": [
+  [
+   "Does hiding a photo remove it from iCloud Photos?",
+   "No. Apple's documentation says hidden photos move to the Hidden album and out of the Library, other albums and the Photos widget. It does not say hiding removes the photo from iCloud Photos."
+  ],
+  [
+   "Can Apple read my hidden photos?",
+   "Apple's public documentation does not answer that question for the Hidden album. It describes the lock and the sync behavior, not what Apple can access. Treat any firm yes or no as unverified."
+  ],
+  [
+   "Does Advanced Data Protection change this?",
+   "Apple says Advanced Data Protection end-to-end encrypts most iCloud data, including iCloud Backup, Photos and Notes. Apple's documentation does not spell out how the Hidden album behaves under it, so don't assume the album itself is the protection."
+  ],
+  [
+   "Can someone with my passcode see hidden photos?",
+   "Yes, if they have your passcode. Apple says the Hidden album unlocks with Face ID, Touch ID or passcode. A passcode alone is enough."
+  ]
+ ],
+ "related": [
+  "/guides/are-hidden-photos-saved-to-icloud/",
+  "/compare/hidy-vs-apple-hidden-album/",
+  "/guides/hide-photos-iphone/",
+  "/guides/lock-photos-iphone/"
+ ],
+ "sources": [
+  [
+   "Apple: Hide photos and videos on iPhone",
+   "https://support.apple.com/en-us/104987"
+  ],
+  [
+   "Apple: Delete or hide photos and videos on iPhone",
+   "https://support.apple.com/guide/iphone/delete-or-hide-photos-and-videos-iphb4defbde9/ios"
+  ],
+  [
+   "Apple: iCloud data security overview",
+   "https://support.apple.com/en-us/102651"
+  ],
+  [
+   "Apple: iCloud Photos",
+   "https://support.apple.com/en-us/108782"
+  ],
+  [
+   "Apple: Advanced Data Protection for iCloud",
+   "https://support.apple.com/en-us/108756"
+  ]
+ ],
+ "order": 30,
+ "published": "2026-10-23",
+ "updated": "2026-10-23"
+}
+---
+<h2>What does the Hidden album actually do?</h2>
+<p>Apple's documentation is specific about what hiding changes. A hidden photo moves out of the Library, out of other albums and out of the Photos widget. It lives in the Hidden album instead. That is a display change inside Photos.</p>
+<p>Apple does not describe hiding as encryption. Nothing in the Hidden album documentation says a hidden photo becomes unreadable to Apple or to anyone else who can reach your library.</p>
+<p>So the honest answer to "can Apple see hidden photos" is: Apple's public documentation does not say. It describes where the photo appears, not who can read it. Anyone who tells you a firm yes or no is going beyond what Apple has published.</p>
+
+<h2>What happens when iCloud Photos is on?</h2>
+<p>This is where the question gets practical. Apple says iCloud Photos keeps every photo and video in iCloud, and a change on one device changes on the others. Apple also says that with iCloud Photos, a photo hidden on one device is hidden on your other devices.</p>
+<p>That tells you two things. First, the hidden photo is still part of your iCloud Photos library. Second, the hidden state travels with it to your other devices signed in to the same Apple Account.</p>
+<p>What Apple does not say is how that data is encrypted, what keys are involved, or what Apple can access. The iCloud data security overview describes the general model: standard data protection is the default, and only certain categories are end-to-end encrypted. It does not list the Hidden album as one of them.</p>
+
+<h2>Does Advanced Data Protection change the answer?</h2>
+<p>Advanced Data Protection is the optional setting that end-to-end encrypts most iCloud data, including iCloud Backup, Photos and Notes. Apple says only your trusted devices hold the keys, and not even Apple can access that data.</p>
+<p>That sounds like the answer. But read carefully. Apple's documentation describes Advanced Data Protection at the level of iCloud data categories. It does not publish a separate statement about the Hidden album under Advanced Data Protection. So you can say that Photos is covered by Advanced Data Protection. You cannot say, from Apple's docs, exactly how the Hidden album behaves under it.</p>
+<p>The safer reading: if you want your photos covered by end-to-end encryption in iCloud, Advanced Data Protection is the setting Apple documents for that. The Hidden album is not.</p>
+
+<h2>Who can open the Hidden album on your phone?</h2>
+<p>Apple says the Hidden album is locked by default on iOS 16 and later. It opens with Face ID, Touch ID or passcode. That lock is real, and it stops someone who picks up your unlocked phone from browsing your hidden photos.</p>
+<p>But the passcode is a fallback. Anyone who knows your iPhone passcode can open the Hidden album. That is the same passcode that unlocks the phone. If someone has it, the Hidden album lock does not add a second secret.</p>
+<p>You can also turn off Show Hidden Album in Settings, which removes the album from Photos. That hides the entrance, not the photos.</p>
+
+<h2>What the Hidden album does not protect against</h2>
+<ul>
+<li><strong>Your passcode.</strong> The Hidden album opens with the passcode, so anyone who knows it can get in.</li>
+<li><strong>iCloud Photos sync.</strong> A hidden photo is still in your library and appears as hidden on your other devices.</li>
+<li><strong>Apple's own access.</strong> Apple's documentation does not say what Apple can or cannot read from the Hidden album. Don't assume the album is a boundary.</li>
+</ul>
+
+<h2>What to do if the Hidden album is not enough</h2>
+<p>If your concern is someone holding your phone, the Hidden album plus a passcode only you know is a reasonable first step. If your concern is the photo leaving Photos entirely, the Hidden album is the wrong tool. It keeps the photo in the library.</p>
+<p>A separate encrypted vault is a different model. In <a href="{{app}}">Hidy Vault</a>, you import a photo into a vault, and the file is encrypted with AES-256-GCM on the iPhone. The vault opens with a pattern you draw, not with your iPhone passcode. There is no Face ID unlock for Hidy itself, and no account.</p>
+<p>Hidy is honest about its own limits. An open vault is readable on screen. Someone examining the app's storage can see approximate file sizes and the number of vault folders, not contents or names. Hidy has no independent cryptographic audit yet. And if you forget your pattern, Hidy cannot reset it. A recovery phrase is the way back in.</p>
+<p>That is a different trade than the Hidden album. The Hidden album is fast and built in. A vault is a separate place with its own key. Neither one makes a photo invisible to everyone in every situation. Both are worth understanding before you rely on them.</p>
+
+<h2>The short version</h2>
+<p>Apple's documentation does not say the Hidden album hides photos from Apple. It says hidden photos move out of the Library and into the Hidden album, that the album is locked by default, and that with iCloud Photos the hidden state syncs to your other devices. If you want end-to-end encryption for photos in iCloud, Apple documents Advanced Data Protection for that. If you want a photo out of Photos entirely, use a vault.</p>

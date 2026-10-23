@@ -2,7 +2,7 @@
 - [x] 2026-10-22 guides/hidden-album-vs-vault-app — skipped (covered by compare/hidy-vs-apple-hidden-album); published guides/secret-folder-iphone instead
 - [x] 2026-10-22 guides/hide-videos-iphone
 - [x] 2026-10-22 guides/are-hidden-photos-saved-to-icloud
-- [ ] guides/can-apple-see-hidden-photos (Advanced Data Protection; Apple Support 102651)
+- [x] 2026-10-23 guides/can-apple-see-hidden-photos (Advanced Data Protection; Apple Support 102651)
 - [ ] guides/does-deleting-vault-app-delete-photos
 - [ ] guides/pattern-lock-vs-pin-vs-face-id
 - [ ] guides/hide-photos-from-memories-iphone

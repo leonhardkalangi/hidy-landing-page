@@ -9,6 +9,8 @@ Prohibitions only — facts live in hidy-facts.md / apple-facts.md. Safe to edit
 - Don't claim what turning iCloud Photos on or off does to photos on the device or in the iCloud account.
 - Don't claim what deleting a photo or app does to iCloud Photos copies, other devices, or the app's local or iCloud data.
 - Don't claim how the Hidden album lock authenticates or what it protects (passcode, encryption, file location, storage).
+- Don't claim that the Hidden album lock can be turned off, re-enabled or changed in Photos settings, or how quickly.
+- Don't claim that hidden photos are excluded from, or included in, import to a Mac, PC or any other device.
 - Don't claim who can reach hidden photos through iCloud Photos, iCloud.com, another device, the Apple Account, trusted devices or account sign-in.
 - Don't claim that hidden photos count toward iCloud storage or what happens to their size, metadata or library placement.
 - Don't claim that the hidden state or hidden status syncs through iCloud as a mechanism.
@@ -18,7 +20,6 @@ Prohibitions only — facts live in hidy-facts.md / apple-facts.md. Safe to edit
 - Don't claim how on-device photos are protected beyond the allowed facts (e.g. passcode plus iOS file encryption).
 - Don't claim specific file sizes or storage numbers unless they appear in the allowed facts.
 - Don't claim what a computer local backup or device backup includes or excludes.
-- Don't claim how quickly a Photos setting can be re-enabled.
 - Don't claim how iOS treats an app and its data on uninstall, reinstall, offload or delete, or that app storage has no undo.
 - Don't claim that iOS can or cannot lock the entire Photos app.
 - Don't claim that the recovery phrase is the only way to open a vault or its backups, or that it replaces the Apple Account.
@@ -27,4 +28,3 @@ Prohibitions only — facts live in hidy-facts.md / apple-facts.md. Safe to edit
 - Don't claim location stripping or file shrinking depend on a quality setting beyond the allowed Optimized/Original facts.
 - Don't claim what is visible during screen mirroring, AirPlay or screen sharing.
 - Don't claim what Guided Access does after a restart or once the phone is back in your hands.
-- Don't claim what other vault apps can do or that vault files are absent from the Files app.
