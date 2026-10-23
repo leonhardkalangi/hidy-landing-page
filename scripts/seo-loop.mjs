@@ -16,7 +16,7 @@ const rel = (...p) => path.join(ROOT, ...p);
 const read = (p) => fs.readFileSync(rel(p), "utf8");
 const today = new Date().toISOString().slice(0, 10);
 const daysAgo = (n) => new Date(Date.now() - n * 864e5).toISOString().slice(0, 10);
-const run = { date: today, status: "skipped", notes: [] };
+const run = { date: today, status: "skipped", notes: [], flagged: [] };
 class Rejected extends Error {
   constructor(reason) { super("rejected"); this.reason = reason; }
 }
@@ -26,6 +26,46 @@ const done = (status, extra = {}) => {
   console.log(JSON.stringify(run, null, 2));
   process.exit(0);
 };
+const finish = async (status, extra) => {
+  await learn();
+  done(status, extra);
+};
+
+// ---------- LESSONS (Harness²-style: today's fact-check misses become rules for tomorrow) ----------
+// Only prohibitions are stored, so the file can never teach the writer a "fact": facts stay in
+// docs/hidy-facts.md and docs/apple-facts.md, and the reviewer + gate still check every page.
+const LESSONS = "docs/lessons.md";
+const lessons = () => (fs.existsSync(rel(LESSONS)) ? read(LESSONS).split("\n").filter((l) => l.startsWith("- ")).map((l) => l.slice(2)) : []);
+async function learn() {
+  const misses = run.flagged;
+  delete run.flagged;
+  if (!misses?.length) return;
+  try {
+    const out = await deepseek([
+      {
+        role: "system",
+        content: `You keep a short list of rules for the hidyapp.com page writer, learned from claims a fact-checker removed from its drafts.
+Merge the REMOVED claims into the EXISTING rules. Each rule is one line starting with "Don't" or "Never" that names the kind of claim to avoid (a UI path, a button name, a feature, a number, how Apple handles something).
+Rules may only forbid: never state what is true. Merge duplicates, keep wording general, most frequent mistakes first, at most 25 rules.
+A rule must never forbid something the ALLOWED FACTS below state (drop or narrow any existing rule that does): forbid only what goes beyond them.
+Return JSON {"rules":["..."]}.
+
+ALLOWED FACTS (HIDY):
+${read("docs/hidy-facts.md")}
+
+ALLOWED FACTS (APPLE):
+${read("docs/apple-facts.md")}`,
+      },
+      { role: "user", content: JSON.stringify({ existing: lessons(), removed: misses.slice(0, 30) }) },
+    ]);
+    const rules = (out.rules || []).map((r) => String(r).replace(/\s+/g, " ").trim()).filter((r) => /^(Don't|Do not|Never)\b/.test(r) && r.length <= 220).slice(0, 25);
+    if (!rules.length) return;
+    fs.writeFileSync(rel(LESSONS), `# Lessons from past fact-checks\n\nMaintained by scripts/seo-loop.mjs from claims the reviewer removed; fed into the writer's prompt.\nProhibitions only — facts live in hidy-facts.md / apple-facts.md. Safe to edit by hand.\n\n${rules.map((r) => `- ${r}`).join("\n")}\n`);
+    run.notes.push(`lessons: ${rules.length} rules after ${misses.length} new misses`);
+  } catch (e) {
+    run.notes.push(`lessons: not updated (${e.message})`);
+  }
+}
 
 // ---------- existing pages ----------
 function pages() {
@@ -150,6 +190,7 @@ HARD RULES
 - Never mention or link the old Mac app. Never copy text from other sites.
 - Internal links: only URLs from EXISTING PAGES. Use {{app}} once as the href where the reader would install Hidy.
 - Title ≤ 60 chars (keyword first), description ≤ 155 chars, h1 contains the keyword.
+${lessons().length ? `\nLESSONS FROM PAST FACT-CHECKS (mistakes earlier drafts made — avoid them; anything HIDY FACTS / APPLE FACTS state is still fine to write)\n${lessons().map((l) => `- ${l}`).join("\n")}\n` : ""}
 
 OUTPUT: a JSON object {"section","slug","meta","body","link_from"}.
 - section: one of guides|scenarios|compare|features. slug: lowercase-hyphen.
@@ -316,7 +357,7 @@ let choice, res, page, messages;
 run.rejected = [];
 for (let tries = 0; tries < 3; tries++) {
   choice = pick(all, measured.rows, run.rejected.map((r) => r.topic));
-  if (!choice) done(run.rejected.length ? "rejected" : "skipped", { reason: run.rejected.length ? "all candidate topics failed the fact check" : "backlog empty and no GSC opportunity" });
+  if (!choice) await finish(run.rejected.length ? "rejected" : "skipped", { reason: run.rejected.length ? "all candidate topics failed the fact check" : "backlog empty and no GSC opportunity" });
   run.choice = choice;
   res = await research(choice.topic).catch((e) => ({ text: "", sources: [], note: `Perplexity error: ${e.message}` }));
   run.notes.push(`topic ${tries + 1}: ${choice.topic} — ${res.note}`);
@@ -335,7 +376,7 @@ for (let tries = 0; tries < 3; tries++) {
     page = null;
   }
 }
-if (!page) done("rejected", { reason: "3 topics in a row failed the fact check" });
+if (!page) await finish("rejected", { reason: "3 topics in a row failed the fact check" });
 delete run.research;
 
 async function attempt(choice, res) {
@@ -348,6 +389,7 @@ const user = `TOPIC: ${choice.topic}
   const messages = [{ role: "system", content: systemPrompt(all) }, { role: "user", content: user }];
   let page = await deepseek(messages);
   let errs = await gate(page, all);
+  run.flagged.push(...errs.filter((e) => e.startsWith("forbidden")).map((e) => ({ quote: "", why: e })));
   if (errs.length) {
     messages.push({ role: "assistant", content: JSON.stringify(page) }, { role: "user", content: `Fix these problems and return the full JSON again:\n- ${errs.join("\n- ")}` });
     page = await deepseek(messages);
@@ -360,6 +402,7 @@ const user = `TOPIC: ${choice.topic}
     const bad = await review(page);
     run.notes.push(`review round ${round}: ${bad.length} unsupported`, ...bad.map((b) => `  - ${b.quote} | ${b.why}`.slice(0, 220)));
     if (!bad.length) break;
+    run.flagged.push(...bad.map((b) => ({ quote: String(b.quote).slice(0, 200), why: String(b.why || "").slice(0, 200) })));
     if (round >= 3 && round <= 8) {
       // Last resort that can only shrink the page: cut each flagged sentence/item ourselves.
       page = cutClaims(page, bad);
@@ -411,7 +454,7 @@ try {
 } catch (e) {
   execFileSync("git", ["checkout", "--", "content"], { cwd: ROOT });
   fs.rmSync(file, { force: true });
-  done("rejected", { reason: [`generator: ${String(e.stderr || e.message).slice(0, 400)}`] });
+  await finish("rejected", { reason: [`generator: ${String(e.stderr || e.message).slice(0, 400)}`] });
 }
 
 // mark backlog + site log
@@ -424,4 +467,4 @@ fs.appendFileSync(
   rel("docs/SEO-LOG.md"),
   `| ${today} | ${choice.topic} | ${url} | ${measured.rows.length} GSC rows${choice.kind === "gsc" ? `; ${choice.evidence.impressions} impr` : ""} | ${(page.link_from || []).map((l) => l.url).join(", ")} | cloud loop (DeepSeek); ${res.note}; style slop ${run.style?.slop ?? "n/a"} / orwell ${run.style?.orwell ?? "n/a"} |\n`
 );
-done("published", { url, title: meta.title, links_from: (page.link_from || []).map((l) => l.url), touched: touched.map((t) => path.relative(ROOT, t)) });
+await finish("published", { url, title: meta.title, links_from: (page.link_from || []).map((l) => l.url), touched: touched.map((t) => path.relative(ROOT, t)) });
