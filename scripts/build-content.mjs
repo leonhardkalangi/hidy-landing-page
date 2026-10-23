@@ -11,6 +11,7 @@
 //   {{cta}}  → mid-article CTA box
 
 import fs from "node:fs";
+import crypto from "node:crypto";
 import path from "node:path";
 
 const ROOT = path.resolve(path.dirname(new URL(import.meta.url).pathname), "..");
@@ -58,6 +59,10 @@ const SECTIONS = {
   },
 };
 const ORDER = ["features", "compare", "scenarios", "guides", "tools"];
+// Cache-bust the stylesheet: Pages serves it with max-age=14400, so a changed vault.css
+// would otherwise mix with fresh HTML for up to 4 hours.
+const CSS_V = crypto.createHash("sha1").update(fs.readFileSync(path.join(PUB, "vault.css"))).digest("hex").slice(0, 8);
+const CSS_HREF = `/vault.css?v=${CSS_V}`;
 
 const esc = (s) => String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
 const strip = (s) => String(s).replace(/<[^>]+>/g, "").replace(/\s+/g, " ").trim();
@@ -165,7 +170,7 @@ function head({ title, description, url, type = "article", jsonld, image }) {
 <meta name="twitter:card" content="${image ? "summary_large_image" : "summary"}">
 <script type="application/ld+json">${JSON.stringify(jsonld)}</script>
 <script src="/vault-theme.js"></script>
-<link rel="stylesheet" href="/vault.css">
+<link rel="stylesheet" href="${CSS_HREF}">
 </head>`;
 }
 
@@ -338,6 +343,7 @@ function syncCore(pages) {
     const f = path.join(ROOT, c.file);
     let s = fs.readFileSync(f, "utf8");
     s = s.replace(/<header>[\s\S]*?<\/header>/, header(c.url)).replace(/<footer>[\s\S]*?<\/footer>/, footer(pages, c.url));
+    s = s.replace(/href="\/vault\.css(\?v=[a-f0-9]+)?"/g, `href="${CSS_HREF}"`);
     fs.writeFileSync(f, s);
   }
 }

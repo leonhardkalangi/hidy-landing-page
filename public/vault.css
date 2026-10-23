@@ -177,27 +177,3 @@ footer .foot-legal{margin:32px 0 0}
 @media(max-width:560px){footer .foot-grid{grid-template-columns:1fr}}
 .visually-hidden{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}.tool-panel .drop.over{border-color:var(--accent)}.tool-panel th{width:38%}
 @media(min-width:768px){.nav{justify-content:flex-start}.nav nav{margin:0 auto}.nav .theme-toggle{margin-right:-12px}}
-
-/* hero: animated pattern unlock over the phone screenshot (CSS only, 7s loop) */
-.phone-anim{position:relative;display:inline-block;line-height:0}
-.phone-anim svg{position:absolute;inset:5px;width:calc(100% - 10px);height:calc(100% - 10px);border-radius:27px;pointer-events:none;overflow:hidden}
-.pa-line{fill:none;stroke:#4fd1c5;stroke-width:9;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:1;stroke-dashoffset:1;opacity:.9;filter:drop-shadow(0 0 6px #4fd1c5aa);animation:pa-draw 7s linear infinite}
-@keyframes pa-draw{0%,8%{stroke-dashoffset:1;opacity:.9}50%{stroke-dashoffset:0;opacity:.9}53%{stroke-dashoffset:0;opacity:1;stroke-width:11}64%{stroke-dashoffset:0;opacity:1;stroke-width:9}74%,100%{stroke-dashoffset:0;opacity:0}}
-.pa-dot{fill:#4fd1c5;transform-box:fill-box;transform-origin:center;opacity:0;animation:7s linear infinite}
-.pa-flash{fill:#4fd1c5;opacity:0;animation:pa-flash 7s ease-out infinite}
-@keyframes pa-flash{0%,50%{opacity:0}53%{opacity:.14}64%{opacity:0}100%{opacity:0}}
-@keyframes pa-d0{0%,7.80%{opacity:0;transform:scale(.4)}8.00%{opacity:1;transform:scale(1.5)}11.00%,64%{opacity:1;transform:scale(1)}74%,100%{opacity:0;transform:scale(1)}}
-.pa-dot.d0{animation-name:pa-d0}
-@keyframes pa-d1{0%,13.00%{opacity:0;transform:scale(.4)}13.20%{opacity:1;transform:scale(1.5)}16.20%,64%{opacity:1;transform:scale(1)}74%,100%{opacity:0;transform:scale(1)}}
-.pa-dot.d1{animation-name:pa-d1}
-@keyframes pa-d2{0%,20.36%{opacity:0;transform:scale(.4)}20.56%{opacity:1;transform:scale(1.5)}23.56%,64%{opacity:1;transform:scale(1)}74%,100%{opacity:0;transform:scale(1)}}
-.pa-dot.d2{animation-name:pa-d2}
-@keyframes pa-d3{0%,27.71%{opacity:0;transform:scale(.4)}27.91%{opacity:1;transform:scale(1.5)}30.91%,64%{opacity:1;transform:scale(1)}74%,100%{opacity:0;transform:scale(1)}}
-.pa-dot.d3{animation-name:pa-d3}
-@keyframes pa-d4{0%,35.07%{opacity:0;transform:scale(.4)}35.27%{opacity:1;transform:scale(1.5)}38.27%,64%{opacity:1;transform:scale(1)}74%,100%{opacity:0;transform:scale(1)}}
-.pa-dot.d4{animation-name:pa-d4}
-@keyframes pa-d5{0%,42.43%{opacity:0;transform:scale(.4)}42.63%{opacity:1;transform:scale(1.5)}45.63%,64%{opacity:1;transform:scale(1)}74%,100%{opacity:0;transform:scale(1)}}
-.pa-dot.d5{animation-name:pa-d5}
-@keyframes pa-d6{0%,49.80%{opacity:0;transform:scale(.4)}50.00%{opacity:1;transform:scale(1.5)}53.00%,64%{opacity:1;transform:scale(1)}74%,100%{opacity:0;transform:scale(1)}}
-.pa-dot.d6{animation-name:pa-d6}
-@media(prefers-reduced-motion:reduce){.phone-anim svg{display:none}}
