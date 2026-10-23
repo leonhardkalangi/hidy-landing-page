@@ -1,12 +1,15 @@
-name: Dependabot security fix → test → merge → deploy
+name: Dependency fix → test → merge → deploy
 
 # Self-cure without the Mac: when Dependabot opens a security-fix PR, build and test it here. If it
 # is a patch or minor update and everything passes, merge it and deploy production from the cloud.
 # Major updates are left open for a human (the daily digest lists them). ops-guard watches the site
 # after the deploy and rolls back if it breaks. Uses Dependabot secrets (CLOUDFLARE_API_TOKEN,
-# RESEND_API_KEY); runs only for PRs opened by dependabot[bot].
+# RESEND_API_KEY); runs for PRs opened by dependabot[bot], and for PRs labeled `ops-autofix` by the
+# daily ops agent that change ONLY dependency files (package.json / lockfiles).
 
-on: pull_request
+on:
+  pull_request:
+    types: [opened, reopened, synchronize, labeled]
 
 permissions:
   contents: write
@@ -14,13 +17,23 @@ permissions:
 
 jobs:
   autofix:
-    if: github.event.pull_request.user.login == 'dependabot[bot]'
+    if: >-
+      github.event.pull_request.user.login == 'dependabot[bot]' ||
+      contains(github.event.pull_request.labels.*.name, 'ops-autofix')
     runs-on: ubuntu-latest
     timeout-minutes: 20
     steps:
       - id: meta
+        if: github.event.pull_request.user.login == 'dependabot[bot]'
         uses: dependabot/fetch-metadata@v2
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Agent PRs may only touch dependency files
+        if: github.event.pull_request.user.login != 'dependabot[bot]'
+        run: |
+          bad=$(git diff --name-only "origin/${{ github.base_ref }}...HEAD" | grep -vE '^(package\.json|package-lock\.json|bun\.lockb?|deno\.lock)$' || true)
+          if [ -n "$bad" ]; then echo "::error::ops-autofix PR changes non-dependency files: $bad"; exit 1; fi
       - uses: actions/setup-node@v4
         with:
           node-version: "24"
@@ -55,8 +68,11 @@ jobs:
           TITLE: ${{ github.event.pull_request.title }}
           URL: ${{ github.event.pull_request.html_url }}
           KIND: ${{ steps.meta.outputs.update-type }}
+          ACTION: ${{ github.event.action }}
         run: |
           [ -n "$RESEND_API_KEY" ] || exit 0
+          # One email per PR outcome: Dependabot rebases (synchronize) repeat the same result.
+          [ "$ACTION" = "synchronize" ] && [ "$MERGED" != "1" ] && exit 0
           node -e '
             const e = process.env, ok = e.RESULT === "success";
             const what = e.MERGED === "1" && ok ? "fixed, merged and deployed" : e.KIND === "version-update:semver-major" ? "major update: left open for you" : "FAILED tests or deploy: left open, production unchanged";
