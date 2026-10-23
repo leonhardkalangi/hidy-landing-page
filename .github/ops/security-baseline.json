@@ -1,0 +1,8 @@
+{
+ "note": "Known findings on setup day; only findings NOT listed here are reported. Secrets are never listed.",
+ "date": "2026-10-23",
+ "keys": [
+  "hdr:framing",
+  "hdr:hsts"
+ ]
+}
