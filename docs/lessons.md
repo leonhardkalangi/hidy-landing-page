@@ -3,11 +3,11 @@
 Maintained by scripts/seo-loop.mjs from claims the reviewer removed; fed into the writer's prompt.
 Prohibitions only — facts live in hidy-facts.md / apple-facts.md. Safe to edit by hand.
 
-- Don't name UI paths, button names or gestures for Hide/Unhide, the Hidden album, Recently Deleted, iCloud Photos sync, Notes attachments, Guided Access or Advanced Data Protection beyond the allowed facts.
 - Don't claim what Apple can or cannot read, decrypt, access or hand over, including for iCloud Photos, the Hidden album, Hidy's CloudKit backups or under legal requests.
 - Don't claim how iCloud Photos data is encrypted, in transit, at rest or end-to-end, or what changes when Advanced Data Protection is turned on or off.
 - Don't claim what turning iCloud Photos on or off does to photos on the device or in the iCloud account.
 - Don't claim what deleting a photo or app does to iCloud Photos copies, other devices, or the app's local or iCloud data.
+- Don't claim what happens to Hidy's iCloud backups or vaults when Hidy is deleted, reinstalled or offloaded from the iPhone.
 - Don't claim how the Hidden album lock authenticates or what it protects (passcode, encryption, file location, storage).
 - Don't claim that the Hidden album lock can be turned off, re-enabled or changed in Photos settings, or how quickly.
 - Don't claim that hidden photos are excluded from, or included in, import to a Mac, PC or any other device.
@@ -27,4 +27,3 @@ Prohibitions only — facts live in hidy-facts.md / apple-facts.md. Safe to edit
 - Don't claim that importing moves files out of Photos; only say Hidy offers to delete the originals.
 - Don't claim location stripping or file shrinking depend on a quality setting beyond the allowed Optimized/Original facts.
 - Don't claim what is visible during screen mirroring, AirPlay or screen sharing.
-- Don't claim what Guided Access does after a restart or once the phone is back in your hands.

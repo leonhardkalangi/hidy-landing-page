@@ -1,0 +1,106 @@
+---
+{
+ "title": "Does Deleting a Vault App Delete Your Photos?",
+ "description": "Deleting a vault app removes its local data from your iPhone, but not photos in the Photos app or data it stored in iCloud. What happens to your files.",
+ "h1": "Does deleting a vault app delete your photos?",
+ "lead": "Deleting a vault app removes the app and its local data from your iPhone. It does not delete photos in the built-in Photos app, and data the app stored in iCloud is not deleted with the app, Apple says.",
+ "card": "Deleting the app removes its local data, not your Photos library or its iCloud data.",
+ "quick": [
+  "<strong>Photos app:</strong> deleting a vault app does not delete photos already in your library.",
+  "<strong>App data:</strong> Delete App removes the app and its data from the iPhone, Apple says.",
+  "<strong>iCloud data:</strong> data the app stored in iCloud is not deleted with the app."
+ ],
+ "faq": [
+  [
+   "If I delete a vault app, do my photos in the Photos app disappear?",
+   "No. Deleting an app does not delete photos in the built-in Photos library. Photos are removed only when you delete them in Photos."
+  ],
+  [
+   "What happens to files I imported into a vault app?",
+   "Deleting an app removes the app and its data from the iPhone, Apple says. For a vault app, that can include the encrypted files it stored locally. Apple does not document a universal result for every third-party vault app."
+  ],
+  [
+   "Are my vault backups in iCloud deleted too?",
+   "Data an app stored in iCloud is not deleted when you delete the app from your iPhone, Apple says. Check the app's own documentation for how its backups work."
+  ],
+  [
+   "Can I get deleted photos back?",
+   "Photos you delete in the Photos app stay in Recently Deleted for 30 days. After that, or if you delete them permanently, they cannot be recovered."
+  ]
+ ],
+ "related": [
+  "/guides/move-photos-to-vault-app/",
+  "/guides/are-photo-vault-apps-safe/",
+  "/guides/backup-and-recovery/",
+  "/guides/transfer-vault-new-iphone/"
+ ],
+ "sources": [
+  [
+   "Apple: Remove or delete apps from iPhone",
+   "https://support.apple.com/guide/iphone/remove-or-delete-apps-iph248b543ca/ios"
+  ],
+  [
+   "Apple: Delete or hide photos and videos on iPhone",
+   "https://support.apple.com/guide/iphone/delete-or-hide-photos-and-videos-iphb4defbde9/ios"
+  ],
+  [
+   "Apple: iCloud Photos",
+   "https://support.apple.com/en-us/108782"
+  ]
+ ],
+ "order": 30,
+ "published": "2026-10-24",
+ "updated": "2026-10-24"
+}
+---
+<h2>What does deleting an app actually remove?</h2>
+<p>On iPhone, touch and hold the app, tap <strong>Remove App</strong>, then <strong>Delete App</strong>, and confirm. Apple says this removes the app and its data from the iPhone.</p>
+<p>That sentence carries the weight. For a vault app, "its data" can mean the encrypted files it kept inside its own storage. Those files are not in your Photos library. They live in the app's private space, and deleting the app removes that space.</p>
+<p>Apple also says data the app stored in iCloud is not deleted when you delete the app from the iPhone. So the result depends on where the app kept your files.</p>
+
+<h2>Do my Photos app pictures disappear?</h2>
+<p>No. Deleting a vault app does not delete photos that are already in the built-in Photos app. Apple documents photo deletion separately, inside Photos itself.</p>
+<p>To delete a photo in Photos, open it, tap the Trash button, then tap <strong>Delete Photo</strong>. That is a separate action from deleting an app.</p>
+<p>If you imported photos into a vault app and chose to delete the originals from Photos, those originals went to <strong>Recently Deleted</strong>. iOS keeps them there up to 30 days. Deleting the vault app does not change that.</p>
+
+<h2>What about files inside the vault app?</h2>
+<p>This is where people get caught. Files you imported into a vault app are usually stored inside the app's own data. Apple's rule says that data is removed when you delete the app.</p>
+<p>Apple does not document a universal result for every third-party vault app. Each app decides how it stores files. Some keep everything local. Some keep a copy in iCloud. Some do both.</p>
+<p>Before you delete any vault app, check its own documentation. Look for a section on uninstalling, backups, or export. If the app offers a backup file export, use it first.</p>
+
+<h2>Does iCloud keep a copy?</h2>
+<p>Data an app stored in iCloud is not deleted when you delete the app from your iPhone, Apple says. That can be good news if the app made its own iCloud backups.</p>
+<p>But this is not a guarantee that your files are safe. It depends on whether the app actually stored anything in iCloud, and whether you can restore it later.</p>
+<p>For <a href="{{app}}">Hidy Vault</a>, each vault can have its own encrypted iCloud backup. The iPhone encrypts those backups before upload, and they sit in your own iCloud. You restore them on the lock screen with the vault's 12-word recovery phrase.</p>
+<p>Do not uninstall Hidy to troubleshoot a problem. You can lose local vaults and the Keychain secret.</p>
+
+<h2>What happens to photos in iCloud Photos?</h2>
+<p>iCloud Photos is separate from any vault app. If iCloud Photos is on, your library syncs across devices signed in with the same Apple Account. Deleting a photo on one device deletes it on the others.</p>
+<p>Deleting a vault app does not touch iCloud Photos. Your library stays as it is.</p>
+<p>If you delete a photo in Photos while iCloud Photos is on, it goes to Recently Deleted for 30 days. You can recover it there, or delete it permanently. Permanently deleted photos cannot be recovered.</p>
+
+<h2>How do I delete a vault app safely?</h2>
+<ol>
+<li><strong>Export a backup first.</strong> Use the app's own backup or export feature. Save the file somewhere you can reach it, like Files or iCloud Drive.</li>
+<li><strong>Write down the recovery phrase.</strong> If the app uses one, keep it somewhere separate from the phone.</li>
+<li><strong>Check your Photos library.</strong> Confirm the photos you care about are still in Photos, or safely backed up elsewhere.</li>
+<li><strong>Delete the app.</strong> Touch and hold the icon, tap Remove App, then Delete App.</li>
+<li><strong>Check iCloud later.</strong> If the app kept data in iCloud, review it there.</li>
+</ol>
+<p>If you are moving to a new phone instead of deleting the app, see <a href="/guides/transfer-vault-new-iphone/">how to transfer a photo vault to a new iPhone</a>.</p>
+
+<h2>What if I already deleted the app?</h2>
+<p>If you deleted the app and its local data is gone, your options depend on backups.</p>
+<ul>
+<li><strong>Photos app:</strong> your library is untouched. Check Recently Deleted for anything you removed in the last 30 days.</li>
+<li><strong>iCloud data:</strong> if the app stored a backup in iCloud, reinstall the app and look for a restore option.</li>
+<li><strong>Backup file:</strong> if you exported a backup file, reinstall the app and restore from that file.</li>
+<li><strong>No backup:</strong> neither Apple nor the app's developer can recover local vault data removed with the app.</li>
+</ul>
+<p>Reinstalling an app from the App Store does not bring back data that was deleted with it. Apple says you can reinstall previously downloaded apps, but that restores the app, not its old local files.</p>
+
+<h2>Limits of this answer</h2>
+<p>Apple's rules cover iOS behavior, not every vault app's design. Apple does not document a universal result for third-party vault apps. Some may store files in ways that survive deletion. Others may not.</p>
+<p>This page cannot tell you what a specific app does with your files. Read that app's own documentation before you delete it.</p>
+<p>For Hidy Vault specifically: you can lose local vaults if you uninstall the app. Encrypted iCloud backups and exported backup files are separate, and you need the vault's recovery phrase to open them. Hidy is coming to the App Store. There is no independent cryptographic audit yet.</p>
+<p>If you are still choosing an app, read <a href="/guides/are-photo-vault-apps-safe/">are photo vault apps safe?</a> first.</p>
