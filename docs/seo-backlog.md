@@ -4,7 +4,7 @@
 - [x] 2026-10-22 guides/are-hidden-photos-saved-to-icloud
 - [x] 2026-10-23 guides/can-apple-see-hidden-photos (Advanced Data Protection; Apple Support 102651)
 - [x] 2026-10-24 guides/does-deleting-vault-app-delete-photos
-- [ ] guides/pattern-lock-vs-pin-vs-face-id
+- [x] 2026-10-25 guides/pattern-lock-vs-pin-vs-face-id
 - [ ] guides/hide-photos-from-memories-iphone
 - [ ] guides/recently-deleted-photos-privacy
 - [ ] guides/stop-icloud-photos-syncing-other-devices

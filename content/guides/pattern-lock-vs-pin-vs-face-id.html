@@ -1,0 +1,107 @@
+---
+{
+ "title": "Pattern Lock vs PIN vs Face ID on iPhone: What Works",
+ "description": "iPhone has no Android-style pattern lock. Compare PIN, alphanumeric passcode and Face ID, plus Hidy Vault's pattern unlock for encrypted files.",
+ "h1": "Pattern lock vs PIN vs Face ID on iPhone",
+ "lead": "iPhone has no built-in pattern lock. You unlock it with a passcode (PIN or alphanumeric) and, on supported models, Face ID. Hidy Vault adds a 5×5 pattern for its encrypted vaults.",
+ "card": "iPhone offers a passcode and Face ID, not a pattern. Hidy Vault uses a 5×5 pattern for encrypted vaults.",
+ "quick": [
+  "<strong>iPhone:</strong> no pattern lock. Use a passcode and Face ID.",
+  "<strong>Passcode:</strong> 6-digit default; custom numeric or alphanumeric in Settings.",
+  "<strong>Hidy Vault:</strong> draw a pattern on a 5×5 grid to open an encrypted vault."
+ ],
+ "faq": [
+  [
+   "Can I set a pattern lock on iPhone?",
+   "No. Apple documents only a passcode and Face ID for unlocking iPhone. A pattern lock is an Android feature. Hidy Vault uses a pattern, but only inside the app for its encrypted vaults."
+  ],
+  [
+   "Is Face ID more secure than a passcode?",
+   "They work together. Face ID requires a passcode as a fallback, and iPhone asks for the passcode after five failed face-match attempts. Apple says Require Attention makes Face ID more secure."
+  ],
+  [
+   "What happens after 10 wrong passcode attempts?",
+   "If you turn on Erase Data in Settings > Face ID & Passcode, iPhone erases all content and settings after 10 consecutive incorrect passcode attempts."
+  ],
+  [
+   "How do I quickly disable Face ID?",
+   "Press and hold the side button and either volume button for 2 seconds. When the sliders appear, press the side button to lock iPhone. Face ID works again after the next passcode unlock."
+  ]
+ ],
+ "related": [
+  "/guides/lock-photos-iphone/",
+  "/features/pattern-encryption/",
+  "/compare/hidy-vs-apple-hidden-album/",
+  "/guides/forgot-vault-pattern/"
+ ],
+ "sources": [
+  [
+   "Apple: Set up Face ID on iPhone",
+   "https://support.apple.com/guide/iphone/set-up-face-id-iph6d162927a/ios"
+  ],
+  [
+   "Apple: About Face ID advanced technology",
+   "https://support.apple.com/en-us/102381"
+  ],
+  [
+   "Apple: Use Face ID on iPhone",
+   "https://support.apple.com/en-us/108411"
+  ],
+  [
+   "Apple: Secure your iPhone or iPad with Face ID",
+   "https://support.apple.com/guide/personal-safety/secure-your-iphone-or-ipad-with-face-id-ips037f76104/web"
+  ]
+ ],
+ "order": 30,
+ "published": "2026-10-25",
+ "updated": "2026-10-25"
+}
+---
+<h2>Does iPhone have a pattern lock?</h2>
+<p>No. Apple documents two ways to unlock iPhone: a passcode and, on supported models, Face ID. There is no Android-style pattern lock in iOS. If you want a pattern, it has to come from an app.</p>
+<p><a href="{{app}}">Hidy Vault</a> is one of those apps. It unlocks with a pattern drawn on a 5×5 grid, using at least 6 different dots. Each valid pattern opens its own vault. That pattern is not the iPhone lock screen; it protects files inside Hidy.</p>
+
+<h2>How does the iPhone passcode work?</h2>
+<p>The passcode is the base credential. Face ID cannot replace it entirely; Apple says Face ID requires a passcode. To set one, go to <strong>Settings &gt; Face ID &amp; Passcode</strong>, tap <strong>Turn Passcode On</strong>, and enter a six-digit passcode.</p>
+<p>Tap <strong>Passcode Options</strong> to choose <strong>Custom Alphanumeric Code</strong>, <strong>Custom Numeric Code</strong>, or <strong>4-Digit Numeric Code</strong>. The six-digit code is the default. Apple does not state a maximum length for custom codes.</p>
+<p>To change it later, go to <strong>Settings &gt; Face ID &amp; Passcode &gt; Change Passcode</strong>, enter the current code, then enter the new one twice.</p>
+<p>There is a hard limit you can turn on. In <strong>Settings &gt; Face ID &amp; Passcode</strong>, enable <strong>Erase Data</strong>. After 10 consecutive incorrect passcode attempts, iPhone erases all content and settings.</p>
+
+<h2>How does Face ID fit in?</h2>
+<p>Face ID is a convenience layer on top of the passcode. Set it up in <strong>Settings &gt; Face ID &amp; Passcode &gt; Set Up Face ID &gt; Get Started</strong>. Put your face in the frame, move your head to complete the circle, tap <strong>Continue</strong>, repeat the scan, then tap <strong>Done</strong>.</p>
+<p>Under <strong>Use Face ID For</strong>, you can enable it for <strong>iPhone Unlock</strong>, <strong>iTunes &amp; App Store</strong>, <strong>Wallet &amp; Apple Pay</strong>, <strong>Password AutoFill</strong>, and supported apps. If your face changes a lot, set an alternate appearance in <strong>Settings &gt; Face ID &amp; Passcode &gt; Set Up an Alternate Appearance</strong>.</p>
+<p>Face ID has its own limits. After five unsuccessful face-match attempts, iPhone requires the passcode. Apple also requires the passcode after a restart, after more than 48 hours without unlocking, and after a remote lock command. The same happens after initiating power off or Emergency SOS.</p>
+<p>One setting matters for security. With <strong>Require Attention for Face ID</strong> on, iPhone unlocks only when your eyes are open and looking at the screen. Apple says requiring attention makes Face ID more secure.</p>
+
+<h2>How do the three compare?</h2>
+<table>
+<thead>
+<tr><th></th><th>Pattern (Hidy Vault)</th><th>PIN or passcode (iPhone)</th><th>Face ID (iPhone)</th></tr>
+</thead>
+<tbody>
+<tr><td>Where it works</td><td>Inside Hidy Vault</td><td>iPhone lock screen and system prompts</td><td>iPhone lock screen and supported apps</td></tr>
+<tr><td>What you do</td><td>Draw at least 6 dots on a 5×5 grid</td><td>Type digits or letters</td><td>Look at the iPhone</td></tr>
+<tr><td>Fallback</td><td>Recovery phrase for that vault</td><td>None; it is the base credential</td><td>Passcode</td></tr>
+<tr><td>Wrong-entry limit</td><td>No lockout described</td><td>Optional erase after 10 wrong attempts</td><td>Passcode required after 5 failed matches</td></tr>
+</tbody>
+</table>
+<p>The comparison is not quite fair, because they protect different things. The passcode and Face ID guard the whole iPhone. A Hidy pattern guards one encrypted vault inside the app.</p>
+
+<h2>Why use a pattern at all?</h2>
+<p>A pattern is fast to draw with one hand and easy to remember as a shape. In Hidy, the pattern is not just a screen lock. The pattern plus a device secret in the iPhone Keychain derive the encryption key. File contents, names, thumbnails, folders and notes are encrypted with AES-256-GCM.</p>
+<p>That design has a practical consequence: each valid pattern opens a different vault. An unused pattern opens a new, empty vault that is saved only after you add the first item. There is no list of vaults and no wrong-pattern message.</p>
+<p>You can change a vault's pattern in its Settings. Hidy cannot reset a forgotten pattern. That is what the 12-word recovery phrase is for: it reopens the vault so you can choose a new pattern.</p>
+
+<h2>When should you use each one?</h2>
+<ul>
+<li><strong>Use a strong passcode</strong> as your base. A six-digit code is the default; a custom alphanumeric code is stronger if you can type it comfortably.</li>
+<li><strong>Use Face ID</strong> for daily speed, with Require Attention on. Keep in mind it falls back to the passcode after five failed attempts.</li>
+<li><strong>Use a Hidy pattern</strong> for files you do not want in the Photos library or the Hidden album. It keeps them behind a separate credential.</li>
+<li><strong>Store the recovery phrase</strong> for any vault you care about. Without it, a forgotten pattern means the vault stays closed.</li>
+</ul>
+
+<h2>What are the limits?</h2>
+<p>Hidy's pattern is not a replacement for your iPhone passcode. It protects vault contents, not the device. An open vault is readable on screen, and Hidy has no independent cryptographic audit yet. Someone examining the app's storage can see approximate file sizes and the number of vault folders, though not contents or names.</p>
+<p>There is also no Face ID or Touch ID unlock for Hidy itself. The pattern is the way in. If you want to hide the app icon too, Hidy Pro offers Calculator, Notes, Weather or Tasks icons, but the name under the icon stays "Hidy Vault."</p>
+<p>On the iPhone side, Face ID is convenient but not absolute. It requires the passcode after a restart, after five failed matches, and in the other cases Apple lists. Treat the passcode as the real key.</p>
+<p>Hidy Vault is coming to the App Store for iOS 16 or later. You can read more about <a href="/features/pattern-encryption/">pattern encryption</a> and how the pattern derives the key.</p>
