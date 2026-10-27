@@ -8,8 +8,8 @@
 - [!] 2026-10-26 needs-facts guides/hide-photos-from-memories-iphone
 - [!] 2026-10-26 needs-facts guides/recently-deleted-photos-privacy
 - [x] 2026-10-26 guides/stop-icloud-photos-syncing-other-devices
-- [ ] guides/hidden-photos-disappeared-iphone
-- [ ] guides/password-protect-pdf-iphone
+- [!] 2026-10-27 needs-facts guides/hidden-photos-disappeared-iphone
+- [x] 2026-10-27 guides/password-protect-pdf-iphone
 - [ ] guides/lock-files-app-iphone
 - [ ] guides/stop-whatsapp-photos-saving-camera-roll
 - [ ] guides/one-time-payment-photo-vault (Lifetime plan; prices from homepage only)
