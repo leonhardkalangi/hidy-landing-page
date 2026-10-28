@@ -4,7 +4,9 @@ Maintained by scripts/seo-loop.mjs from claims the reviewer removed; fed into th
 Prohibitions only — facts live in hidy-facts.md / apple-facts.md. Safe to edit by hand.
 
 - Don't name a button, menu item or UI path for deleting photos, clearing Recently Deleted or removing items in bulk; only use Select > More > Hide for several items.
-- Don't name a button, menu item or UI path for locking, unlocking or turning off a lock on a document, PDF, note or Pages file.
+- Don't name a button, menu item or UI path for locking, unlocking, removing or turning off a lock on an app, document, PDF, note or Pages file.
+- Don't claim which apps can or cannot be locked or hidden, or that a limit applies to a named app such as Files.
+- Don't claim what Remove from Home Screen, offload, delete or reinstall does to an app, its data, its placement or its findability.
 - Don't claim what Apple's documentation or support pages do or do not describe, cover or mention.
 - Don't claim what Apple can or cannot read, decrypt, access or hand over, including for iCloud Photos, the Hidden album, Hidy's CloudKit backups or under legal requests.
 - Don't claim how iCloud Photos data is encrypted, in transit, at rest or end-to-end, or what changes when Advanced Data Protection is turned on or off.
@@ -23,8 +25,6 @@ Prohibitions only — facts live in hidy-facts.md / apple-facts.md. Safe to edit
 - Don't claim how on-device photos are protected beyond the allowed facts (e.g. passcode plus iOS file encryption).
 - Don't claim specific file sizes or storage numbers unless they appear in the allowed facts.
 - Don't claim what a computer local backup or device backup includes or excludes.
-- Don't claim how iOS treats an app and its data on uninstall, reinstall, offload or delete, or that app storage has no undo.
 - Don't claim that iOS can or cannot lock the entire Photos app.
 - Don't claim that the recovery phrase is the only way to open a vault or its backups, or that it replaces the Apple Account.
 - Don't claim ordering or timing of when Hidy encrypts before other steps.
-- Don't claim that importing moves files out of Photos; only say Hidy offers to delete the originals.

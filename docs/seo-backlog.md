@@ -10,9 +10,9 @@
 - [x] 2026-10-26 guides/stop-icloud-photos-syncing-other-devices
 - [!] 2026-10-27 needs-facts guides/hidden-photos-disappeared-iphone
 - [x] 2026-10-27 guides/password-protect-pdf-iphone
-- [ ] guides/lock-files-app-iphone
-- [ ] guides/stop-whatsapp-photos-saving-camera-roll
-- [ ] guides/one-time-payment-photo-vault (Lifetime plan; prices from homepage only)
+- [!] 2026-10-28 needs-facts guides/lock-files-app-iphone
+- [!] 2026-10-28 needs-facts guides/stop-whatsapp-photos-saving-camera-roll
+- [x] 2026-10-28 guides/one-time-payment-photo-vault (Lifetime plan; prices from homepage only)
 - [ ] guides/offline-photo-vault-no-account
 - [ ] guides/what-is-exif-data (link tools/photo-metadata-remover)
 - [ ] guides/aes-256-encryption-explained
