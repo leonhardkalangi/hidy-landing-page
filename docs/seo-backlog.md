@@ -13,9 +13,9 @@
 - [!] 2026-10-28 needs-facts guides/lock-files-app-iphone
 - [!] 2026-10-28 needs-facts guides/stop-whatsapp-photos-saving-camera-roll
 - [x] 2026-10-28 guides/one-time-payment-photo-vault (Lifetime plan; prices from homepage only)
-- [ ] guides/offline-photo-vault-no-account
-- [ ] guides/what-is-exif-data (link tools/photo-metadata-remover)
-- [ ] guides/aes-256-encryption-explained
+- [!] 2026-10-29 needs-facts guides/offline-photo-vault-no-account
+- [!] 2026-10-29 needs-facts guides/what-is-exif-data (link tools/photo-metadata-remover)
+- [!] 2026-10-29 needs-facts guides/aes-256-encryption-explained
 - [ ] guides/end-to-end-encryption-photos
 - [ ] guides/iphone-privacy-settings-to-change
 - [ ] guides/which-apps-can-see-your-photos (Limited Photos Access)

@@ -26,5 +26,5 @@ Prohibitions only — facts live in hidy-facts.md / apple-facts.md. Safe to edit
 - Don't claim specific file sizes or storage numbers unless they appear in the allowed facts.
 - Don't claim what a computer local backup or device backup includes or excludes.
 - Don't claim that iOS can or cannot lock the entire Photos app.
-- Don't claim that the recovery phrase is the only way to open a vault or its backups, or that it replaces the Apple Account.
+- Don't claim the recovery phrase is the only way to open a vault or its backups, or that it replaces the Apple Account.
 - Don't claim ordering or timing of when Hidy encrypts before other steps.
