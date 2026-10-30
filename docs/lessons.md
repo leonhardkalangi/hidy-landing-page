@@ -9,7 +9,7 @@ Prohibitions only — facts live in hidy-facts.md / apple-facts.md. Safe to edit
 - Don't claim what Remove from Home Screen, offload, delete or reinstall does to an app, its data, its placement or its findability.
 - Don't claim what Apple's documentation or support pages do or do not describe, cover or mention.
 - Don't claim what Apple can or cannot read, decrypt, access or hand over, including for iCloud Photos, the Hidden album, Hidy's CloudKit backups or under legal requests.
-- Don't claim how iCloud Photos data is encrypted, in transit, at rest or end-to-end, or what changes when Advanced Data Protection is turned on or off.
+- Don't claim how iCloud data or iCloud Photos is encrypted in transit, at rest or end-to-end, or what changes when Advanced Data Protection is turned on or off.
 - Don't claim what turning iCloud Photos on or off does to photos on the device or in the iCloud account.
 - Don't claim what deleting a photo or app does to iCloud Photos copies, other devices, or the app's local or iCloud data.
 - Don't claim what happens to Hidy's iCloud backups or vaults when Hidy is deleted, reinstalled or offloaded from the iPhone.
@@ -27,4 +27,4 @@ Prohibitions only — facts live in hidy-facts.md / apple-facts.md. Safe to edit
 - Don't claim what a computer local backup or device backup includes or excludes.
 - Don't claim that iOS can or cannot lock the entire Photos app.
 - Don't claim the recovery phrase is the only way to open a vault or its backups, or that it replaces the Apple Account.
-- Don't claim ordering or timing of when Hidy encrypts before other steps.
+- Don't claim where imported files live, whether they stay inside Hidy, or whether they remain visible in the Photos app.

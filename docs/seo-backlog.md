@@ -16,7 +16,7 @@
 - [!] 2026-10-29 needs-facts guides/offline-photo-vault-no-account
 - [!] 2026-10-29 needs-facts guides/what-is-exif-data (link tools/photo-metadata-remover)
 - [!] 2026-10-29 needs-facts guides/aes-256-encryption-explained
-- [ ] guides/end-to-end-encryption-photos
+- [x] 2026-10-30 guides/end-to-end-encryption-photos
 - [ ] guides/iphone-privacy-settings-to-change
 - [ ] guides/which-apps-can-see-your-photos (Limited Photos Access)
 - [ ] scenarios/coworker-saw-photos-work-phone
