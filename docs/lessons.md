@@ -5,6 +5,7 @@ Prohibitions only — facts live in hidy-facts.md / apple-facts.md. Safe to edit
 
 - Don't name a button, menu item or UI path for deleting photos, clearing Recently Deleted or removing items in bulk; only use Select > More > Hide for several items.
 - Don't name a button, menu item or UI path for locking, unlocking, removing or turning off a lock on an app, document, PDF, note or Pages file.
+- Don't name a button, menu item or UI path for checking which app is using the camera or microphone, such as Control Center indicators.
 - Don't claim which apps can or cannot be locked or hidden, or that a limit applies to a named app such as Files.
 - Don't claim what Remove from Home Screen, offload, delete or reinstall does to an app, its data, its placement or its findability.
 - Don't claim what Apple's documentation or support pages do or do not describe, cover or mention.
@@ -27,4 +28,3 @@ Prohibitions only — facts live in hidy-facts.md / apple-facts.md. Safe to edit
 - Don't claim what a computer local backup or device backup includes or excludes.
 - Don't claim that iOS can or cannot lock the entire Photos app.
 - Don't claim the recovery phrase is the only way to open a vault or its backups, or that it replaces the Apple Account.
-- Don't claim where imported files live, whether they stay inside Hidy, or whether they remain visible in the Photos app.

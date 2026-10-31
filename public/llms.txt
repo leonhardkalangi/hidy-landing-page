@@ -73,6 +73,7 @@
 - [How to share private photos from iPhone securely](https://hidyapp.com/guides/share-private-photos-iphone/): Share private photos from iPhone with fewer copies left behind: remove location, avoid shared albums, use AirDrop, or share an encrypted vault.
 - [How to stop iCloud Photos syncing to other devices](https://hidyapp.com/guides/stop-icloud-photos-syncing-other-devices/): Turn off Sync this iPhone to stop new photos and edits reaching your other devices, or turn off iCloud Photos for the whole account. What each choice does.
 - [How to transfer a photo vault to a new iPhone](https://hidyapp.com/guides/transfer-vault-new-iphone/): Move each Hidy Vault to a new iPhone with an encrypted iCloud backup or a backup file and its recovery phrase. Step by step, plus what to check before erasing.
+- [Which apps can see your photos on iPhone?](https://hidyapp.com/guides/which-apps-can-see-your-photos/): See which apps have access to your photos on iPhone, how to review and limit that access, and what the App Privacy Report shows. Plus what iOS can't control.
 
 ## Tools
 

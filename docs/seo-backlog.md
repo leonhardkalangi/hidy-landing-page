@@ -17,8 +17,8 @@
 - [!] 2026-10-29 needs-facts guides/what-is-exif-data (link tools/photo-metadata-remover)
 - [!] 2026-10-29 needs-facts guides/aes-256-encryption-explained
 - [x] 2026-10-30 guides/end-to-end-encryption-photos
-- [ ] guides/iphone-privacy-settings-to-change
-- [ ] guides/which-apps-can-see-your-photos (Limited Photos Access)
+- [!] 2026-10-31 needs-facts guides/iphone-privacy-settings-to-change
+- [x] 2026-10-31 guides/which-apps-can-see-your-photos (Limited Photos Access)
 - [ ] scenarios/coworker-saw-photos-work-phone
 - [ ] scenarios/kids-using-parents-iphone
 - [ ] scenarios/medical-photos-on-iphone

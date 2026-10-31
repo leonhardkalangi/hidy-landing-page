@@ -1,0 +1,115 @@
+---
+{
+ "title": "Which Apps Can See Your Photos on iPhone?",
+ "description": "See which apps have access to your photos on iPhone, how to review and limit that access, and what the App Privacy Report shows. Plus what iOS can't control.",
+ "h1": "Which apps can see your photos on iPhone?",
+ "lead": "Go to Settings > Privacy & Security > Photos to see every app that has asked for photo access. Tap an app to change what it can see. The App Privacy Report shows when apps used that access in the past 7 days.",
+ "card": "Find the apps with photo access, limit what they see, and check the App Privacy Report.",
+ "quick": [
+  "<strong>See the list:</strong> Settings &gt; Privacy &amp; Security &gt; Photos.",
+  "<strong>Limit access:</strong> tap an app and choose which photos it can use.",
+  "<strong>Check history:</strong> Settings &gt; Privacy &amp; Security &gt; App Privacy Report."
+ ],
+ "faq": [
+  [
+   "Does an app appear in the Photos list before it asks for permission?",
+   "No. An app appears only after it asks for permission to access your photos."
+  ],
+  [
+   "Can I limit an app to just a few photos?",
+   "Yes. When an app has limited access, you can change which photos it can access in that app's Photos permission settings."
+  ],
+  [
+   "Does the App Privacy Report show which photos an app opened?",
+   "No. It shows how many times and when apps accessed privacy-sensitive data, including photos, in the past 7 days. It does not list the individual photos."
+  ],
+  [
+   "Is camera access part of Photos access?",
+   "No. Camera access is separate. Go to Settings > Privacy & Security > Camera to review or change which apps can use the camera."
+  ],
+  [
+   "Does this list cover every way an app can get a photo?",
+   "No. Apple's permission list covers apps that request access to your Photos data. It does not identify every app that might receive a photo through a share or upload action."
+  ]
+ ],
+ "related": [
+  "/guides/hide-photos-iphone/",
+  "/guides/are-photo-vault-apps-safe/",
+  "/guides/remove-location-from-iphone-photos/",
+  "/scenarios/someone-borrows-your-phone/"
+ ],
+ "sources": [
+  [
+   "Apple: Control access to information in apps",
+   "https://support.apple.com/guide/iphone/control-access-to-information-in-apps-iph251e92810/ios"
+  ],
+  [
+   "Apple: App privacy features in Apple products",
+   "https://support.apple.com/guide/personal-safety/app-privacy-features-in-apple-products-ipsd4dac4a2c/web"
+  ],
+  [
+   "Apple: Control what you share",
+   "https://support.apple.com/guide/iphone/control-what-you-share-iph6e7d349d1/ios"
+  ]
+ ],
+ "order": 30,
+ "published": "2026-10-31",
+ "updated": "2026-10-31"
+}
+---
+<h2>How do I see which apps can access my photos?</h2>
+<p>Open <strong>Settings &gt; Privacy &amp; Security &gt; Photos</strong>. You will see a list of apps that have asked for permission to access your photos. Tap any app to see or change its access. An app appears in this list only after it asks for permission.</p>
+<p>This list is the starting point. It shows apps that requested access to your Photos library. It does not show apps that received a photo through a share or upload action.</p>
+
+<h2>What do the Photos access choices mean?</h2>
+<p>When an app asks for photo access, you choose what it can see. Apple documents that you can change an app's Photos access later, including allowing or removing access. The app can use Photos only if permission is granted.</p>
+<p>If an app has <strong>limited access</strong>, you can change which photos it can access in that app's Photos permission settings. Apple documents this control but does not state a fixed maximum number of selected photos.</p>
+<p>To review or change an app's access, go to Settings &gt; Privacy &amp; Security &gt; Photos and tap the app. The options you see depend on the app and the iOS version.</p>
+
+<h2>How can I check when apps used my photos?</h2>
+<p>Go to <strong>Settings &gt; Privacy &amp; Security &gt; App Privacy Report</strong> and turn on App Privacy Report. The report shows how many times and when apps accessed privacy-sensitive data during the past 7 days. That includes photo access.</p>
+<p>The report is a history, not a list of individual photos. It helps you spot an app that reads your photos more often than you expect.</p>
+
+<h2>Is camera access the same as photo access?</h2>
+<p>No. Camera access is separate. Go to <strong>Settings &gt; Privacy &amp; Security &gt; Camera</strong> to review or change which apps can use the camera. A green indicator appears whenever an app uses the camera.</p>
+<p>An app with camera access can take new photos. That is different from reading photos already in your library.</p>
+
+<h2>What about apps that are not in the Photos list?</h2>
+<p>Apple notes that items stored outside the Photos Library may still be accessible to other apps. The Photos permission list covers apps that request access to your Photos data. It does not identify every app that might receive an individual photo through a share or upload action.</p>
+<p>So the list is a useful check, but it is not a complete map of every photo that leaves your library.</p>
+
+<h2>How do I limit what an app can see?</h2>
+<ol>
+<li>Open <strong>Settings &gt; Privacy &amp; Security &gt; Photos</strong>.</li>
+<li>Tap the app you want to change.</li>
+<li>Choose the access level you want. If the app has limited access, you can change which photos it can access.</li>
+<li>To remove access, choose the option that removes the app's access to Photos.</li>
+</ol>
+<p>Repeat for each app. Check the list again after you install new apps, since an app appears only after it asks.</p>
+
+<h2>What iOS cannot do</h2>
+<p>iOS can show you which apps asked for photo access and let you limit that access. It cannot stop an app from receiving a photo you share with it. It also cannot show you every photo an app has received through a share or upload.</p>
+<p>The App Privacy Report shows access counts and timing, not the content of the photos. And the Photos list does not cover items stored outside the Photos Library.</p>
+<p>If you want a separate space for photos that apps with library access cannot read, an encrypted vault is one option. <a href="{{app}}">Hidy Vault</a> stores photos encrypted inside the app. Imported photos are encrypted with AES-256-GCM, and the vault locks when the app goes to the background.</p>
+
+<h2>Limits of Hidy Vault</h2>
+<ul>
+<li>Hidy is not yet on the App Store. It is coming to the App Store.</li>
+<li>There is no Face ID or Touch ID unlock for Hidy itself. You unlock by drawing a pattern on a 5×5 grid.</li>
+<li>Hidy cannot reset a forgotten pattern. Each vault can have a 12-word recovery phrase to reopen it.</li>
+<li>An open vault is readable on screen. There is no independent cryptographic audit yet.</li>
+<li>Sharing a file out of Hidy gives the recipient a readable copy.</li>
+<li>Someone examining the app's storage can see approximate file sizes and the number of vault folders, not contents or names.</li>
+</ul>
+
+<h2>Quick reference</h2>
+<table>
+<thead>
+<tr><th>What you want to check</th><th>Where to go</th></tr>
+</thead>
+<tbody>
+<tr><td>Apps that asked for photo access</td><td>Settings &gt; Privacy &amp; Security &gt; Photos</td></tr>
+<tr><td>When apps used photo access</td><td>Settings &gt; Privacy &amp; Security &gt; App Privacy Report</td></tr>
+<tr><td>Apps that can use the camera</td><td>Settings &gt; Privacy &amp; Security &gt; Camera</td></tr>
+</tbody>
+</table>
