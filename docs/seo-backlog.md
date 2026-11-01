@@ -19,8 +19,8 @@
 - [x] 2026-10-30 guides/end-to-end-encryption-photos
 - [!] 2026-10-31 needs-facts guides/iphone-privacy-settings-to-change
 - [x] 2026-10-31 guides/which-apps-can-see-your-photos (Limited Photos Access)
-- [ ] scenarios/coworker-saw-photos-work-phone
-- [ ] scenarios/kids-using-parents-iphone
+- [!] 2026-11-01 needs-facts scenarios/coworker-saw-photos-work-phone
+- [x] 2026-11-01 scenarios/kids-using-parents-iphone
 - [ ] scenarios/medical-photos-on-iphone
 - [ ] scenarios/screenshots-of-private-chats
 - [ ] scenarios/lost-or-stolen-iphone-private-photos (Stolen Device Protection)
