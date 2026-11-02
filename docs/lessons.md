@@ -7,6 +7,7 @@ Prohibitions only — facts live in hidy-facts.md / apple-facts.md. Safe to edit
 - Don't name a button, menu item or UI path for locking, unlocking, removing or turning off a lock on an app, document, PDF, note or Pages file.
 - Don't name a button, menu item or UI path for checking which app is using the camera or microphone, such as Control Center indicators.
 - Don't name a button, menu item or UI path for turning off notification previews, changing the device passcode, or setting up, starting or ending Guided Access.
+- Don't name or describe any Apple privacy or safety feature, setting or reset flow that is not in the allowed Apple facts, such as Safety Check or Emergency Reset.
 - Don't claim which apps can or cannot be locked or hidden, or that a limit applies to a named app such as Files or Photos.
 - Don't claim what Remove from Home Screen, offload, delete or reinstall does to an app, its data, its placement or its findability.
 - Don't claim what Apple's documentation or support pages do or do not describe, cover or mention.
@@ -27,4 +28,3 @@ Prohibitions only — facts live in hidy-facts.md / apple-facts.md. Safe to edit
 - Don't claim how on-device photos are protected beyond the allowed facts (e.g. passcode plus iOS file encryption).
 - Don't claim specific file sizes or storage numbers unless they appear in the allowed facts.
 - Don't claim what a computer local backup or device backup includes or excludes.
-- Don't claim that iOS can or cannot lock the entire Photos app, or what Safety Check, Emergency Reset or the app switcher does to photos or permissions.
