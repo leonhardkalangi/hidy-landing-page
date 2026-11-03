@@ -23,6 +23,8 @@
 - [x] 2026-11-01 scenarios/kids-using-parents-iphone
 - [!] 2026-11-02 needs-facts scenarios/medical-photos-on-iphone
 - [x] 2026-11-02 scenarios/screenshots-of-private-chats
+- [x] 2026-11-03 guides/turn-off-shared-library-iphone (topic signal: Vaultaire)
+- [ ] guides/unsubscribe-shared-album-notify-iphone (topic signal: Vaultaire)
 - [ ] scenarios/lost-or-stolen-iphone-private-photos (Stolen Device Protection)
 - [ ] compare/hidy-vs-hide-it-pro (App Store listing id523488488)
 - [ ] compare/hidy-vs-icloud-shared-library
