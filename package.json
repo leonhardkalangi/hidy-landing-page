@@ -89,5 +89,10 @@
     "vite": "^6.4.4",
     "vitest": "^4.1.12",
     "wrangler": "^4.156.0"
+  },
+  "overrides": {
+    "@tailwindcss/typography": {
+      "postcss-selector-parser": "6.1.5"
+    }
   }
 }
