@@ -1,0 +1,119 @@
+---
+{
+ "title": "Lost or Stolen iPhone: Protect Private Photos Now",
+ "description": "If your iPhone is lost or stolen, act fast: Lost Mode, Stolen Device Protection, and what actually protects private photos. Honest limits and steps.",
+ "h1": "Lost or stolen iPhone: what happens to your private photos",
+ "lead": "If your iPhone is lost or stolen, your private photos are only as safe as the locks you set up beforehand. Here is what to do now, and what iOS can and cannot protect.",
+ "card": "Lost Mode, Stolen Device Protection, and the honest limits of hiding photos on a stolen iPhone.",
+ "quick": [
+  "<strong>Act now:</strong> use Find My to turn on <strong>Lost Mode</strong>; it locks the iPhone and suspends Apple Pay.",
+  "<strong>Before loss:</strong> turn on Stolen Device Protection so saved passwords and account changes need Face ID.",
+  "<strong>Photos:</strong> the Hidden album lock and Hidy's encryption are your real barriers, not the passcode alone."
+ ],
+ "faq": [
+  [
+   "Can someone see my hidden photos if my iPhone is stolen?",
+   "If the Hidden album lock is on, opening it requires Face ID, Touch ID, or the device passcode. Someone who knows your passcode can open it. Hidy Vault adds a separate pattern that is not the iPhone passcode."
+  ],
+  [
+   "Does Lost Mode hide my photos?",
+   "No. Lost Mode locks the iPhone and suspends Apple Pay cards and passes. It does not change what is stored in Photos or in a vault app."
+  ],
+  [
+   "Should I erase my iPhone remotely?",
+   "Erase This Device in Find My is permanent. Do not remove the iPhone from Find My afterward, because that removes Activation Lock. Erasing does not delete iCloud data."
+  ],
+  [
+   "What if I never set up Find My or Stolen Device Protection?",
+   "You can still change your Apple Account password and review app access from another device. Without Find My, you cannot use Lost Mode or Activation Lock."
+  ],
+  [
+   "Does Hidy Vault protect photos on a stolen iPhone?",
+   "Hidy encrypts vault contents with AES-256-GCM, and the key comes from your pattern plus a device secret in the iPhone Keychain. Hidy cannot reset a forgotten pattern. An open vault is readable on screen, so lock the app when you put the phone down."
+  ]
+ ],
+ "related": [
+  "/scenarios/forced-to-unlock-phone/",
+  "/scenarios/selling-old-iphone/",
+  "/guides/hide-photos-iphone/",
+  "/features/privacy-screen/"
+ ],
+ "sources": [
+  [
+   "Apple: Use Stolen Device Protection",
+   "https://support.apple.com/en-us/120340"
+  ],
+  [
+   "Apple: Hide photos and videos on iPhone",
+   "https://support.apple.com/en-us/104987"
+  ],
+  [
+   "Apple: Delete or hide photos and videos",
+   "https://support.apple.com/guide/iphone/delete-or-hide-photos-and-videos-iphb4defbde9/ios"
+  ],
+  [
+   "Apple: What to do before you sell or trade in your iPhone",
+   "https://support.apple.com/en-us/109511"
+  ],
+  [
+   "Apple: iCloud data security overview",
+   "https://support.apple.com/en-us/102651"
+  ]
+ ],
+ "order": 30,
+ "published": "2026-11-04",
+ "updated": "2026-11-04"
+}
+---
+<h2>What should I do first if my iPhone is lost or stolen?</h2>
+<p>Use Find My from another device or a browser. Select your iPhone and turn on <strong>Lost Mode</strong>. Apple says Lost Mode locks the iPhone and suspends Apple Pay cards and passes.</p>
+<p>Then change your Apple Account password from a device you still control. If you use Stolen Device Protection, some account changes require an hour's security delay. That delay is a feature, not a bug.</p>
+<p>Do not remove the iPhone from Find My. Removing it turns off Activation Lock, which is what stops another person from activating the device.</p>
+
+<h2>Does Lost Mode protect my private photos?</h2>
+<p>No. Lost Mode locks the iPhone and suspends Apple Pay. It does not move, hide, or encrypt anything in Photos or in a vault app.</p>
+<p>What protects your photos is what you set up before the phone left your hands. That means the Hidden album lock, a separate vault app, and a strong passcode.</p>
+
+<h2>What does Stolen Device Protection change?</h2>
+<p>Stolen Device Protection is an iOS 17.3 feature. It must be on before loss. Away from familiar locations, some actions need Face ID or Touch ID with no passcode fallback. Apple lists saved passwords and passkeys, Safari AutoFill payment methods, and turning off Lost Mode.</p>
+<p>Certain critical changes need Face ID or Touch ID, a one-hour wait, and Face ID or Touch ID again. Examples include changing the Apple Account password, signing out, changing the passcode, and turning off Stolen Device Protection.</p>
+<p>By default, the extra protections apply only away from familiar locations. You can set <strong>Require Security Delay</strong> to <strong>Always</strong> in Settings &gt; Face ID &amp; Passcode &gt; Stolen Device Protection.</p>
+<p>Stolen Device Protection protects account and device changes. It does not mention the Photos app. Do not expect it to hide your camera roll.</p>
+
+<h2>Can a thief open my Hidden album?</h2>
+<p>On iOS 16 and later, the Hidden album is locked by default. Apple says Hidden and Recently Deleted unlock with Face ID, Touch ID, or the device passcode.</p>
+<p>That last option matters. Someone who watched you type your passcode can open the Hidden album. The lock slows a stranger. It does not stop a person who knows your passcode.</p>
+<p>You can turn the lock off or on in Settings &gt; Apps &gt; Photos &gt; Use Face ID. You can also hide the album itself with Show Hidden Album off. That removes the album from Utilities, but it does not encrypt the photos.</p>
+
+<h2>What about Recently Deleted?</h2>
+<p>Deleted photos stay in Recently Deleted for 30 days. Opening it requires Face ID, Touch ID, or the passcode. If you deleted a private photo before the phone was lost, it may still be there.</p>
+
+<h2>Should I erase the iPhone remotely?</h2>
+<p>Erase This Device in Find My is permanent. Apple says erasing does not delete iCloud data. If you erase, do not remove the iPhone from Find My afterward, because that removes Activation Lock.</p>
+<p>Erasing the iPhone does not erase a vault app's iCloud backups. It also does not change what is in your iCloud account.</p>
+
+<h2>Where a vault app fits</h2>
+<p>A vault app adds a second lock that is not your iPhone passcode. In <a href="{{app}}">Hidy Vault</a>, you unlock by drawing a pattern on a 5×5 grid. Each valid pattern opens its own vault. The pattern plus a device secret in the iPhone Keychain derive the key.</p>
+<p>Hidy encrypts file contents, file names, thumbnails, folders, and notes with AES-256-GCM. Hidy cannot reset a forgotten pattern. A 12-word recovery phrase can reopen a vault if you forget the pattern.</p>
+<p>Hidy locks as soon as the app goes to the background and covers the app switcher. An open vault is readable on screen, so lock the app when you set the phone down.</p>
+
+<h2>What iOS cannot do for you</h2>
+<ul>
+<li>Lost Mode does not hide or encrypt photos.</li>
+<li>The Hidden album lock accepts the device passcode.</li>
+<li>Stolen Device Protection does not mention the Photos app.</li>
+<li>Erasing the iPhone does not delete iCloud data.</li>
+<li>No setting stops a person who already knows your passcode from opening what that passcode unlocks.</li>
+</ul>
+<p>If someone is forcing you to unlock, see <a href="/scenarios/forced-to-unlock-phone/">forced to unlock your phone</a>. If you are selling the phone instead, see <a href="/scenarios/selling-old-iphone/">before you sell or trade in your iPhone</a>.</p>
+
+<h2>Set this up before you lose the phone</h2>
+<ol>
+<li>Turn on Find My iPhone in Settings &gt; [your name] &gt; Find My.</li>
+<li>Turn on Stolen Device Protection in Settings &gt; Face ID &amp; Passcode.</li>
+<li>Set Require Security Delay to Always if you want the extra checks everywhere.</li>
+<li>Keep the Hidden album lock on in Settings &gt; Apps &gt; Photos.</li>
+<li>Move your most private photos into an encrypted vault with its own pattern.</li>
+<li>Write down the vault's recovery phrase and store it away from the phone.</li>
+</ol>
+<p>None of this makes a stolen iPhone safe. It raises the cost of getting in, and it buys you time to act.</p>
