@@ -26,9 +26,9 @@
 - [x] 2026-11-03 guides/turn-off-shared-library-iphone (topic signal: Vaultaire)
 - [!] 2026-11-04 needs-facts guides/unsubscribe-shared-album-notify-iphone (topic signal: Vaultaire)
 - [x] 2026-11-04 scenarios/lost-or-stolen-iphone-private-photos (Stolen Device Protection)
-- [ ] compare/hidy-vs-hide-it-pro (App Store listing id523488488)
-- [ ] compare/hidy-vs-icloud-shared-library
-- [ ] compare/hidy-vs-google-photos-locked-folder
+- [!] 2026-11-06 needs-facts compare/hidy-vs-hide-it-pro (App Store listing id523488488)
+- [!] 2026-11-06 needs-facts compare/hidy-vs-icloud-shared-library
+- [!] 2026-11-06 needs-facts compare/hidy-vs-google-photos-locked-folder
 - [ ] tools/ (second tool: face/blur or image compressor — PROPOSE first, don't build unasked)
 
 

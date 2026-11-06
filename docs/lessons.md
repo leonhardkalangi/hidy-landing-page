@@ -3,12 +3,14 @@
 Maintained by scripts/seo-loop.mjs from claims the reviewer removed; fed into the writer's prompt.
 Prohibitions only — facts live in hidy-facts.md / apple-facts.md. Safe to edit by hand.
 
+- Don't state facts about third-party apps such as Hide It Pro or Google Photos Locked Folder (their history, reputation, availability on iPhone, setup, encryption, backup, storage, unlock method or data loss).
+- Don't claim what an app's presence, installation or listing looks like in Settings, the App Library or the Home Screen.
+- Don't claim which apps can or cannot be locked or hidden, or that a limit applies to a named app such as Files or Photos.
 - Don't name a button, menu item or UI path for deleting photos, clearing Recently Deleted or removing items in bulk; only use Select > More > Hide for several items.
 - Don't name a button, menu item or UI path for locking, unlocking, removing or turning off a lock on an app, document, PDF, note or Pages file.
 - Don't name a button, menu item or UI path for checking which app is using the camera or microphone, such as Control Center indicators.
 - Don't name a button, menu item or UI path for turning off notification previews, changing the device passcode, or setting up, starting or ending Guided Access.
 - Don't name or describe any Apple privacy or safety feature, setting or reset flow that is not in the allowed Apple facts, such as Safety Check or Emergency Reset.
-- Don't claim which apps can or cannot be locked or hidden, or that a limit applies to a named app such as Files or Photos.
 - Don't claim what Remove from Home Screen, offload, delete or reinstall does to an app, its data, its placement or its findability.
 - Don't claim what Apple's documentation or support pages do or do not describe, cover or mention.
 - Don't claim what Apple can or cannot read, decrypt, access or hand over, including for iCloud Photos, the Hidden album, Hidy's CloudKit backups or under legal requests.
@@ -26,5 +28,3 @@ Prohibitions only — facts live in hidy-facts.md / apple-facts.md. Safe to edit
 - Don't claim what Advanced Data Protection requires, how it is enabled, or what happens if recovery keys or contacts are lost.
 - Don't claim iCloud Backup encryption or key custody under standard data protection.
 - Don't claim how on-device photos are protected beyond the allowed facts (e.g. passcode plus iOS file encryption).
-- Don't claim specific file sizes or storage numbers unless they appear in the allowed facts.
-- Don't claim what a computer local backup or device backup includes or excludes.
