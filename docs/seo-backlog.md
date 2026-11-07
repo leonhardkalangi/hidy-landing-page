@@ -33,7 +33,7 @@
 
 
 ## Competitor topic pool (seeded once; ideas only, write from Hidy facts)
-- [ ] guides/apple-intelligence-photo-scanning (topic signal: Vaultaire)
+- [x] 2026-11-07 guides/apple-intelligence-photo-scanning (topic signal: Vaultaire)
 - [ ] guides/can-hackers-access-your-cloud-photos (topic signal: Vaultaire)
 - [ ] guides/change-hidden-album-password-iphone (topic signal: Vaultaire)
 - [ ] guides/cloud-photo-storage-privacy (topic signal: Vaultaire)

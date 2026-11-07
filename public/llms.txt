@@ -54,6 +54,7 @@
 ## Guides
 
 - [Guides](https://hidyapp.com/guides/): Step-by-step guides to hiding and locking photos on iPhone, the Hidden album, backups, recovery and using Hidy Vault.
+- [Apple Intelligence photo scanning on iPhone](https://hidyapp.com/guides/apple-intelligence-photo-scanning/): Apple Intelligence searches your Photos library by description and builds memory movies. What it scans, where it runs, and what it means for private photos.
 - [Are hidden photos saved to iCloud?](https://hidyapp.com/guides/are-hidden-photos-saved-to-icloud/): Yes. Hidden photos sync to iCloud Photos like any other photo, and they count in your iCloud storage. Here is what hiding does and does not change.
 - [Are photo vault apps safe? 7 checks before you trust one](https://hidyapp.com/guides/are-photo-vault-apps-safe/): How to tell whether a photo vault app is safe: on-device encryption, who holds the key, backups, ads and trackers, account requirements and honest limits.
 - [Back up and recover a Hidy Vault](https://hidyapp.com/guides/backup-and-recovery/): How Hidy Vault recovery phrases, encrypted backup files and iCloud backup work together.
