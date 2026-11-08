@@ -34,9 +34,9 @@
 
 ## Competitor topic pool (seeded once; ideas only, write from Hidy facts)
 - [x] 2026-11-07 guides/apple-intelligence-photo-scanning (topic signal: Vaultaire)
-- [ ] guides/can-hackers-access-your-cloud-photos (topic signal: Vaultaire)
-- [ ] guides/change-hidden-album-password-iphone (topic signal: Vaultaire)
-- [ ] guides/cloud-photo-storage-privacy (topic signal: Vaultaire)
+- [!] 2026-11-08 needs-facts guides/can-hackers-access-your-cloud-photos (topic signal: Vaultaire)
+- [!] 2026-11-08 needs-facts guides/change-hidden-album-password-iphone (topic signal: Vaultaire)
+- [!] 2026-11-08 needs-facts guides/cloud-photo-storage-privacy (topic signal: Vaultaire)
 - [ ] guides/delete-photos-iphone-keep-icloud (topic signal: Vaultaire)
 - [ ] guides/did-someone-open-my-hidden-album-iphone (topic signal: Vaultaire)
 - [ ] guides/does-carplay-show-your-photos (topic signal: Vaultaire)
