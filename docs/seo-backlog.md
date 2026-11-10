@@ -39,7 +39,7 @@
 - [!] 2026-11-08 needs-facts guides/cloud-photo-storage-privacy (topic signal: Vaultaire)
 - [-] 2026-11-10 dropped guides/did-someone-open-my-hidden-album-iphone (topic signal: Vaultaire; no Apple doc on Hidden album access history, every answer would be unsupported)
 - [-] 2026-11-10 dropped guides/does-carplay-show-your-photos (topic signal: Vaultaire; no Apple CarPlay/Photos fact, too thin for 800 words)
-- [ ] guides/delete-photos-iphone-keep-icloud (topic signal: Vaultaire)
+- [x] 2026-11-10 guides/delete-photos-iphone-keep-icloud (topic signal: Vaultaire)
 - [ ] guides/does-factory-reset-erase-icloud-photos (topic signal: Vaultaire)
 - [ ] guides/wipe-iphone-data-before-trade-in (topic signal: Vaultaire)
 - [ ] guides/protect-photos-before-iphone-repair (topic signal: Vaultaire)
