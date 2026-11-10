@@ -73,7 +73,7 @@ for (const s of ["features", "compare", "scenarios", "guides", "tools"]) {
 }
 const backlogPath = rel("docs/seo-backlog.md");
 let backlog = fs.readFileSync(backlogPath, "utf8").split("\n");
-const inBacklog = () => backlog.map((l) => l.match(/^- \[[ x]\] (?:\S+ )?([a-z]+)\/([a-z0-9-]+)/)).filter(Boolean).map((m) => m[2]);
+const inBacklog = () => backlog.map((l) => l.match(/^- \[[ x!-]\] (?:\S+ )*?([a-z]+)\/([a-z0-9-]+)/)).filter(Boolean).map((m) => m[2]);
 
 const fresh = [], pool = [];
 const summary = [];

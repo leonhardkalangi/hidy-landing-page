@@ -66,3 +66,27 @@ support.apple.com citation. Cite the URL in "sources".
 - App access to Photos (https://support.apple.com/guide/iphone/control-access-to-information-in-apps-iph251e92810/ios):
   apps ask the first time; change later in Settings > Privacy & Security > [category]; App
   Privacy Report shows how apps use permissions.
+
+## Added 2026-11-10 (fetched from support.apple.com) — for "delete photos from iPhone, keep in iCloud"
+- iCloud Photos delete behaviour (https://support.apple.com/en-us/108782,
+  https://support.apple.com/en-us/111762, https://support.apple.com/en-us/108922): with iCloud
+  Photos on, deleting a photo or video on one device also removes it from iCloud and from every
+  device signed in with the same Apple Account that uses iCloud Photos. Recently Deleted keeps it
+  30 days, then it is gone for good. If iCloud storage is over its limit, deleted photos and
+  videos are removed immediately and do not go to Recently Deleted.
+- iCloud Photos is not duplicated in iCloud Backup, so Apple says to keep your own backup copies
+  of the library (108782). Without iCloud Photos, the Photos library is part of iCloud Backup
+  (108922).
+- Optimize Storage (108782): the iPhone keeps space-saving versions while iCloud Photos keeps the
+  originals at full resolution; originals download over Wi-Fi or cellular when needed. Path:
+  Settings > [your name] > iCloud > Photos (under "Saved to iCloud") > iPhone Storage > Optimize
+  Storage (in iOS 26 or earlier, just choose Optimize Storage). This is Apple's way to free
+  iPhone space without deleting from iCloud.
+- Keep a copy before deleting (https://support.apple.com/en-us/111762):
+  iPhone: select photos > Share button > Export Unmodified Originals, then save to Files
+  (including an external storage device). iCloud.com: icloud.com/photos, select up to 1,000
+  items, download as Unmodified Originals or Most Compatible (JPEG or MP4/H.264). Mac: Photos >
+  Settings > iCloud > Download Originals to this Mac. Windows: iCloud for Windows, then File
+  Explorer > iCloud Photos or iCloud.com (https://support.apple.com/en-us/108994).
+- NOT in these facts (do not claim): what happens to photos on the iPhone when iCloud Photos is
+  turned off on that one device, or any "Remove from iPhone" / "Download Photos & Videos" choice.
