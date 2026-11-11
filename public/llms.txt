@@ -81,6 +81,7 @@
 - [How to transfer a photo vault to a new iPhone](https://hidyapp.com/guides/transfer-vault-new-iphone/): Move each Hidy Vault to a new iPhone with an encrypted iCloud backup or a backup file and its recovery phrase. Step by step, plus what to check before erasing.
 - [How to turn off Shared Library on iPhone](https://hidyapp.com/guides/turn-off-shared-library-iphone/): Stop sharing from the camera, leave an iCloud Shared Photo Library, or delete one you organize. What happens to your photos, and what to check first.
 - [Which apps can see your photos on iPhone?](https://hidyapp.com/guides/which-apps-can-see-your-photos/): See which apps have access to your photos on iPhone, how to review and limit that access, and what the App Privacy Report shows. Plus what iOS can't control.
+- [How to wipe iPhone data before trade-in](https://hidyapp.com/guides/wipe-iphone-data-before-trade-in/): Back up, sign out, then Erase All Content and Settings. What the erase removes, how Activation Lock clears, and what it does not touch.
 
 ## Tools
 

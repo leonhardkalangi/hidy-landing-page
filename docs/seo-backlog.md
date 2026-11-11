@@ -29,6 +29,7 @@
 - [!] 2026-11-06 needs-facts compare/hidy-vs-hide-it-pro (App Store listing id523488488)
 - [!] 2026-11-06 needs-facts compare/hidy-vs-icloud-shared-library
 - [!] 2026-11-06 needs-facts compare/hidy-vs-google-photos-locked-folder
+- [!] 2026-11-11 needs-facts guides/photo-vault-screenshot-protection-iphone (topic signal: Vaultaire)
 - [ ] tools/ (second tool: face/blur or image compressor — PROPOSE first, don't build unasked)
 
 
@@ -40,8 +41,8 @@
 - [-] 2026-11-10 dropped guides/did-someone-open-my-hidden-album-iphone (topic signal: Vaultaire; no Apple doc on Hidden album access history, every answer would be unsupported)
 - [-] 2026-11-10 dropped guides/does-carplay-show-your-photos (topic signal: Vaultaire; no Apple CarPlay/Photos fact, too thin for 800 words)
 - [x] 2026-11-10 guides/delete-photos-iphone-keep-icloud (topic signal: Vaultaire)
-- [ ] guides/does-factory-reset-erase-icloud-photos (topic signal: Vaultaire)
-- [ ] guides/wipe-iphone-data-before-trade-in (topic signal: Vaultaire)
+- [!] 2026-11-11 needs-facts guides/does-factory-reset-erase-icloud-photos (topic signal: Vaultaire)
+- [x] 2026-11-11 guides/wipe-iphone-data-before-trade-in (topic signal: Vaultaire)
 - [ ] guides/protect-photos-before-iphone-repair (topic signal: Vaultaire)
 - [ ] guides/turn-off-photo-location-sharing-iphone (topic signal: Vaultaire)
 - [ ] guides/icloud-shared-album-privacy (topic signal: Vaultaire)
