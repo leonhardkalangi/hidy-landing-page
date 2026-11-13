@@ -31,7 +31,7 @@
 - [!] 2026-11-06 needs-facts compare/hidy-vs-google-photos-locked-folder
 - [!] 2026-11-11 needs-facts guides/photo-vault-screenshot-protection-iphone (topic signal: Vaultaire)
 - [x] 2026-11-12 guides/photo-privacy-work-managed-iphone (topic signal: Vaultaire)
-- [ ] guides/set-up-second-iphone-without-photos (topic signal: Vaultaire)
+- [x] 2026-11-13 guides/set-up-second-iphone-without-photos (topic signal: Vaultaire)
 - [ ] tools/ (second tool: face/blur or image compressor — PROPOSE first, don't build unasked)
 
 
