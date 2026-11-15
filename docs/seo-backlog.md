@@ -32,6 +32,8 @@
 - [!] 2026-11-11 needs-facts guides/photo-vault-screenshot-protection-iphone (topic signal: Vaultaire)
 - [x] 2026-11-12 guides/photo-privacy-work-managed-iphone (topic signal: Vaultaire)
 - [x] 2026-11-13 guides/set-up-second-iphone-without-photos (topic signal: Vaultaire)
+- [!] 2026-11-15 needs-facts guides/end-to-end-encrypted-cloud-storage (topic signal: Vaultaire)
+- [!] 2026-11-15 needs-facts guides/gallery-safe-app-alternative-iphone (topic signal: Vaultaire)
 - [ ] tools/ (second tool: face/blur or image compressor — PROPOSE first, don't build unasked)
 
 
@@ -48,7 +50,7 @@
 - [!] 2026-11-14 needs-facts guides/protect-photos-before-iphone-repair (topic signal: Vaultaire)
 - [!] 2026-11-14 needs-facts guides/turn-off-photo-location-sharing-iphone (topic signal: Vaultaire)
 - [!] 2026-11-14 needs-facts guides/icloud-shared-album-privacy (topic signal: Vaultaire)
-- [ ] guides/iphone-photo-recovery-after-delete (topic signal: Vaultaire)
+- [x] 2026-11-15 guides/iphone-photo-recovery-after-delete (topic signal: Vaultaire)
 - [ ] guides/exif-metadata-iphone-photos (topic signal: Vaultaire)
 - [ ] guides/gallery-lock-photo-locker (topic signal: Vaultaire)
 - [ ] guides/hidden-album-face-id-bypass-iphone (topic signal: Vaultaire)

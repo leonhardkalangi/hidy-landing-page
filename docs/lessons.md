@@ -6,7 +6,11 @@ Prohibitions only — facts live in hidy-facts.md / apple-facts.md. Safe to edit
 - Don't name a button, menu item or UI path for locking, hiding, unlocking or removing a lock on an app, note, document or album beyond the allowed facts.
 - Don't name a button, menu item or UI path for deleting photos, clearing Recently Deleted, recovering or restoring deleted items, or removing items in bulk; only use Select > More > Hide for several items.
 - Don't name a button, menu item or UI path for importing from Photos, turning off Hidy's delete offer, or any other Hidy flow not in the allowed facts.
-- Don't claim any upload, sync or progress indicator, count or status screen in Photos or iCloud Photos, or how to tell that an upload or sync has finished.
+- Don't claim what happens if Advanced Data Protection is turned on and account access, recovery keys or recovery contacts are lost, or name any way back in.
+- Don't claim what Advanced Data Protection does or does not change for iCloud.com web access, or that it can be turned back on.
+- Don't claim what Advanced Data Protection costs or that it is free.
+- Don't claim a number of end-to-end encrypted categories, data types or features under any iCloud setting.
+- Don't claim what a setup flow does when a device is unsupported, too old or not signed in.
 - Don't claim what happens to photos on the iPhone when iCloud Photos is turned off on that device, or describe any "Remove from iPhone" / "Download Photos & Videos" choice.
 - Don't claim that stopping or turning off iCloud Photos deletes photos after a set period, or describe any undo or grace period for that.
 - Don't claim that Optimize Storage needs, uses or fails without iCloud storage space, or how it behaves when storage is full.
@@ -23,8 +27,3 @@ Prohibitions only — facts live in hidy-facts.md / apple-facts.md. Safe to edit
 - Don't claim that hidden photos are excluded from, or included in, import, export or transfer to a Mac, PC or any other device.
 - Don't claim who can reach hidden photos through iCloud Photos, iCloud.com, another device, the Apple Account, trusted devices or account sign-in.
 - Don't claim that hidden photos count toward iCloud storage or what happens to their size, metadata or library placement.
-- Don't claim that the hidden state or hidden status syncs through iCloud as a mechanism.
-- Don't claim that Recently Deleted is locked by default or how it authenticates beyond the allowed facts.
-- Don't claim that Notes with attachments (video, audio, PDFs, documents) can be locked, or name a button or path for locking a note.
-- Don't claim what Advanced Data Protection requires, how it is enabled, or what happens if recovery keys or contacts are lost.
-- Don't claim iCloud Backup encryption or key custody under standard data protection.
