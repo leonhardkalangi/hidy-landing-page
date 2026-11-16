@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://hidyapp.com/</loc><lastmod>2026-11-15</lastmod></url>
-  <url><loc>https://hidyapp.com/security/</loc><lastmod>2026-11-15</lastmod></url>
-  <url><loc>https://hidyapp.com/support/</loc><lastmod>2026-11-15</lastmod></url>
-  <url><loc>https://hidyapp.com/privacy/</loc><lastmod>2026-11-15</lastmod></url>
-  <url><loc>https://hidyapp.com/features/</loc><lastmod>2026-11-15</lastmod></url>
-  <url><loc>https://hidyapp.com/compare/</loc><lastmod>2026-11-15</lastmod></url>
-  <url><loc>https://hidyapp.com/scenarios/</loc><lastmod>2026-11-15</lastmod></url>
-  <url><loc>https://hidyapp.com/guides/</loc><lastmod>2026-11-15</lastmod></url>
-  <url><loc>https://hidyapp.com/tools/</loc><lastmod>2026-11-15</lastmod></url>
+  <url><loc>https://hidyapp.com/</loc><lastmod>2026-11-16</lastmod></url>
+  <url><loc>https://hidyapp.com/security/</loc><lastmod>2026-11-16</lastmod></url>
+  <url><loc>https://hidyapp.com/support/</loc><lastmod>2026-11-16</lastmod></url>
+  <url><loc>https://hidyapp.com/privacy/</loc><lastmod>2026-11-16</lastmod></url>
+  <url><loc>https://hidyapp.com/features/</loc><lastmod>2026-11-16</lastmod></url>
+  <url><loc>https://hidyapp.com/compare/</loc><lastmod>2026-11-16</lastmod></url>
+  <url><loc>https://hidyapp.com/scenarios/</loc><lastmod>2026-11-16</lastmod></url>
+  <url><loc>https://hidyapp.com/guides/</loc><lastmod>2026-11-16</lastmod></url>
+  <url><loc>https://hidyapp.com/tools/</loc><lastmod>2026-11-16</lastmod></url>
   <url><loc>https://hidyapp.com/features/app-icons/</loc><lastmod>2026-10-22</lastmod></url>
   <url><loc>https://hidyapp.com/features/decoy-vault/</loc><lastmod>2026-10-22</lastmod></url>
   <url><loc>https://hidyapp.com/features/device-sync/</loc><lastmod>2026-10-22</lastmod></url>
@@ -21,7 +21,7 @@
   <url><loc>https://hidyapp.com/features/recovery-phrase/</loc><lastmod>2026-10-22</lastmod></url>
   <url><loc>https://hidyapp.com/features/secure-camera/</loc><lastmod>2026-10-22</lastmod></url>
   <url><loc>https://hidyapp.com/features/secure-sharing/</loc><lastmod>2026-10-22</lastmod></url>
-  <url><loc>https://hidyapp.com/compare/hidy-vs-apple-hidden-album/</loc><lastmod>2026-10-23</lastmod></url>
+  <url><loc>https://hidyapp.com/compare/hidy-vs-apple-hidden-album/</loc><lastmod>2026-11-16</lastmod></url>
   <url><loc>https://hidyapp.com/compare/hidy-vs-apple-notes-lock/</loc><lastmod>2026-10-22</lastmod></url>
   <url><loc>https://hidyapp.com/compare/hidy-vs-calculator-vault-apps/</loc><lastmod>2026-10-22</lastmod></url>
   <url><loc>https://hidyapp.com/compare/hidy-vs-keepsafe/</loc><lastmod>2026-10-28</lastmod></url>
@@ -48,12 +48,13 @@
   <url><loc>https://hidyapp.com/guides/does-deleting-vault-app-delete-photos/</loc><lastmod>2026-10-24</lastmod></url>
   <url><loc>https://hidyapp.com/guides/end-to-end-encryption-photos/</loc><lastmod>2026-10-30</lastmod></url>
   <url><loc>https://hidyapp.com/guides/forgot-vault-pattern/</loc><lastmod>2026-10-22</lastmod></url>
+  <url><loc>https://hidyapp.com/guides/gallery-lock-photo-locker/</loc><lastmod>2026-11-16</lastmod></url>
   <url><loc>https://hidyapp.com/guides/get-started/</loc><lastmod>2026-10-22</lastmod></url>
   <url><loc>https://hidyapp.com/guides/hide-photos-iphone/</loc><lastmod>2026-11-07</lastmod></url>
   <url><loc>https://hidyapp.com/guides/hide-vault-app-iphone/</loc><lastmod>2026-10-22</lastmod></url>
   <url><loc>https://hidyapp.com/guides/hide-videos-iphone/</loc><lastmod>2026-10-22</lastmod></url>
   <url><loc>https://hidyapp.com/guides/iphone-photo-recovery-after-delete/</loc><lastmod>2026-11-15</lastmod></url>
-  <url><loc>https://hidyapp.com/guides/lock-photos-iphone/</loc><lastmod>2026-10-25</lastmod></url>
+  <url><loc>https://hidyapp.com/guides/lock-photos-iphone/</loc><lastmod>2026-11-16</lastmod></url>
   <url><loc>https://hidyapp.com/guides/move-photos-to-vault-app/</loc><lastmod>2026-10-24</lastmod></url>
   <url><loc>https://hidyapp.com/guides/one-time-payment-photo-vault/</loc><lastmod>2026-10-28</lastmod></url>
   <url><loc>https://hidyapp.com/guides/password-album-sharing/</loc><lastmod>2026-11-05</lastmod></url>

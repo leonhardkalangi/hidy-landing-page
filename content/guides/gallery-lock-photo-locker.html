@@ -1,0 +1,128 @@
+---
+{
+ "title": "Gallery Lock Photo Locker: Lock Photos on iPhone",
+ "description": "A gallery lock hides photos behind Face ID, a passcode or an encrypted vault. Compare the iPhone Hidden album, a locked Photos app and Hidy Vault.",
+ "h1": "Gallery lock photo locker: how to lock your photos on iPhone",
+ "lead": "A gallery lock photo locker keeps private photos behind a check before they open. On iPhone you have three real options: the Hidden album, a locked Photos app, or an encrypted vault app like Hidy Vault.",
+ "card": "Three ways to lock a photo gallery on iPhone, and what each one actually protects.",
+ "quick": [
+  "<strong>Hidden album:</strong> touch and hold a photo &gt; Hide. iOS 16+ locks the album by default.",
+  "<strong>Lock Photos:</strong> touch and hold the app &gt; Require Face ID (iOS 18+).",
+  "<strong>Vault:</strong> Hidy encrypts files with AES-256-GCM; the pattern is the key."
+ ],
+ "faq": [
+  [
+   "What is a gallery lock photo locker?",
+   "Any app or setting that asks for Face ID, Touch ID, a passcode or a pattern before your photos open. On iPhone that can be the Hidden album, a locked Photos app, or a separate vault app."
+  ],
+  [
+   "Is the iPhone Hidden album a real lock?",
+   "Apple locks the Hidden album by default on iOS 16 and later, and it needs Face ID, Touch ID or your passcode to open."
+  ],
+  [
+   "Can I lock the whole Photos app?",
+   "Yes, on iOS 18 and later. Touch and hold the Photos icon, choose Require Face ID, and the app asks for authentication each time it opens. Apple says the lock applies only to that iPhone."
+  ],
+  [
+   "What happens if I forget a vault pattern?",
+   "In Hidy Vault, a 12-word recovery phrase can reopen the vault. Hidy cannot reset a forgotten pattern for you, so store the phrase somewhere safe."
+  ]
+ ],
+ "related": [
+  "/guides/lock-photos-iphone/",
+  "/guides/hide-photos-iphone/",
+  "/compare/hidy-vs-apple-hidden-album/",
+  "/guides/are-photo-vault-apps-safe/"
+ ],
+ "sources": [
+  [
+   "Apple: Hide photos and videos on iPhone",
+   "https://support.apple.com/en-us/104987"
+  ],
+  [
+   "Apple: Delete or hide photos and videos on iPhone",
+   "https://support.apple.com/guide/iphone/delete-or-hide-photos-and-videos-iphb4defbde9/ios"
+  ],
+  [
+   "Apple: Lock or hide an app on iPhone",
+   "https://support.apple.com/guide/iphone/lock-or-hide-an-app-iph00f208d05/ios"
+  ]
+ ],
+ "order": 30,
+ "published": "2026-11-16",
+ "updated": "2026-11-16"
+}
+---
+<h2>What does a gallery lock photo locker actually do?</h2>
+<p>A gallery lock is a gate in front of your photos. It asks for Face ID, Touch ID, a passcode or a pattern before the pictures open. That is the whole idea, and it is worth knowing which gate you are standing behind.</p>
+<p>On iPhone you have three practical choices. The Hidden album hides individual photos. A locked Photos app gates the whole library. A vault app like Hidy Vault encrypts the files themselves. Each one solves a different problem.</p>
+
+<h2>Option 1: The Hidden album</h2>
+<p>This is the built-in gallery lock, and it takes seconds.</p>
+<ol>
+<li>Open <strong>Photos</strong> and find the photo or video.</li>
+<li>Touch and hold it, then tap <strong>Hide</strong> and confirm.</li>
+<li>To see it again, go to <strong>Collections &gt; Utilities &gt; Hidden</strong>, then tap <strong>View Album</strong> and authenticate.</li>
+</ol>
+<p>Apple says hidden items leave the Library, other albums and the Photos widget. On iOS 16 and later the Hidden album is locked by default. Apple also says that with iCloud Photos on, a photo hidden on one device is hidden on your other devices too.</p>
+<p>You can remove the album from view entirely. Go to <strong>Settings &gt; Apps &gt; Photos</strong> and turn off <strong>Show Hidden Album</strong>. Turn it back on when you need it.</p>
+<p><strong>What it is not:</strong> a separate encrypted locker.</p>
+
+<h2>Option 2: Lock the whole Photos app (iOS 18 and later)</h2>
+<p>If the worry is someone opening Photos and scrolling, lock the app itself.</p>
+<ol>
+<li>On the Home Screen, touch and hold the <strong>Photos</strong> icon.</li>
+<li>Tap <strong>Require Face ID</strong> (or Touch ID or Passcode).</li>
+
+</ol>
+<p>Apple says a locked app needs authentication to open and locks again after you quit it. Apple also says the lock applies only to that iPhone and does not sync to your other devices.</p>
+
+<h2>Option 3: An encrypted vault app</h2>
+<p>A vault app is a different design. The photos move out of your camera roll and into an encrypted store. <a href="{{app}}">Hidy Vault</a> is one example, coming to the App Store for iOS 16 or later.</p>
+<p>Here is how Hidy works, in plain terms:</p>
+<ul>
+<li>You unlock by drawing a pattern on a 5×5 grid, at least 6 different dots. Tap controls exist too.</li>
+<li>Each valid pattern opens its own vault. An unused pattern opens a new, empty vault.</li>
+<li>The pattern plus a device secret in the iPhone Keychain derive the key. AES-256-GCM encrypts file contents, file names, thumbnails, folders and notes.</li>
+<li>There is no list of vaults and no wrong-pattern message.</li>
+<li>Each vault can have its own 12-word recovery phrase, shown once.</li>
+</ul>
+<p>Hidy has no Face ID or Touch ID unlock for the app itself. The pattern is the key. That is a deliberate trade: no biometric shortcut, but also no biometric bypass.</p>
+
+<h2>How the three compare</h2>
+<table>
+<thead>
+<tr><th></th><th>Hidden album</th><th>Locked Photos app</th><th>Hidy Vault</th></tr>
+</thead>
+<tbody>
+<tr><td>What opens it</td><td>Face ID, Touch ID or passcode</td><td>Face ID, Touch ID or passcode</td><td>Pattern (5×5 grid)</td></tr>
+<tr><td>Where photos live</td><td>Still in your photo library</td><td>Still in your photo library</td><td>Encrypted inside the vault</td></tr>
+<tr><td>Separate vaults</td><td>No</td><td>No</td><td>Yes, one per pattern</td></tr>
+<tr><td>Recovery phrase</td><td>No</td><td>No</td><td>Yes, per vault</td></tr>
+<tr><td>iOS version</td><td>iOS 16+ for the lock</td><td>iOS 18+</td><td>iOS 16+</td></tr>
+</tbody>
+</table>
+<p>None of these is strictly better. They answer different questions. "Hide this from a quick glance" is the Hidden album. "Stop someone opening my gallery" is a locked Photos app. "Keep these files out of my library and encrypted" is a vault.</p>
+
+<h2>Which one should you use?</h2>
+<ul>
+<li><strong>You share your phone at home.</strong> Lock the Photos app. It is one setting and it covers everything.</li>
+<li><strong>A few photos should not show up in the grid.</strong> Hide them. The album is locked by default on iOS 16 and later.</li>
+<li><strong>Someone knows your passcode.</strong> A passcode-based lock will not stop them. A vault with its own pattern is a separate barrier. See <a href="/scenarios/partner-knows-iphone-passcode/">my partner knows my iPhone passcode</a>.</li>
+<li><strong>You want photos out of the camera roll entirely.</strong> Import them into a vault, then remove the originals. Hidy offers to delete the originals after import, and iOS asks you to confirm.</li>
+</ul>
+
+<h2>Limits you should know</h2>
+<p>Honesty matters more than a sales pitch here.</p>
+<ul>
+
+<li>Hiding a photo is not encryption. The file is still in your photo library.</li>
+<li>Hidy has no independent cryptographic audit yet. The encryption design is described in <a href="/features/pattern-encryption/">pattern encryption</a>, but no outside firm has reviewed it.</li>
+<li>An open vault is readable on screen. Hidy locks when the app goes to the background and covers the app switcher, but a photo on screen is a photo on screen.</li>
+<li>Someone examining the app's storage can see approximate file sizes and the number of vault folders. Not contents, not names.</li>
+<li>Hidy cannot reset a forgotten pattern. The recovery phrase is the way back. Read <a href="/guides/forgot-vault-pattern/">forgot your vault pattern</a> before you need it.</li>
+<li>Do not uninstall Hidy to troubleshoot. Local vaults and the Keychain secret can be lost.</li>
+</ul>
+
+<h2>The short version</h2>
+<p>Start with the free options. Lock the Photos app if you are on iOS 18 or later, and hide the few photos you never want in the grid. If your threat is someone who knows your passcode, or you want the files encrypted and out of your library, use a vault. <a href="/guides/are-photo-vault-apps-safe/">Check any vault app</a> before you trust it with anything that matters.</p>

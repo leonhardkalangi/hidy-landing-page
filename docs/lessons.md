@@ -6,8 +6,18 @@ Prohibitions only — facts live in hidy-facts.md / apple-facts.md. Safe to edit
 - Don't name a button, menu item or UI path for locking, hiding, unlocking or removing a lock on an app, note, document or album beyond the allowed facts.
 - Don't name a button, menu item or UI path for deleting photos, clearing Recently Deleted, recovering or restoring deleted items, or removing items in bulk; only use Select > More > Hide for several items.
 - Don't name a button, menu item or UI path for importing from Photos, turning off Hidy's delete offer, or any other Hidy flow not in the allowed facts.
+- Don't claim what the Photos app does or does not offer for removing, clearing or editing metadata fields such as camera model, lens, shutter speed, date or time, or name any Info, Revert or metadata-editing control.
+- Don't claim what the Photos app does or does not offer as an import step, or that it lacks one, for stripping location or metadata.
+- Don't claim that Photos uses metadata to sort, search or find photos by date or place, or how the Info panel indicates a stored location.
+- Don't claim what setting Camera location to Never does to new photos, or that new photos then carry no location.
+- Don't claim what metadata reveals about the device model used, or that a photo shows which iPhone took it.
+- Don't claim that the Hidden album, a locked app or a locked note is or is not encryption, or characterize how strong the protection is.
+- Don't claim which credentials unlock the Hidden album or a locked app, or that anyone who knows the passcode can open them.
+- Don't claim that hidden photos remain ordinary library photos, are moved rather than encrypted, or what Apple does with the files.
+- Don't claim an authentication or confirmation step in the app-lock or Hidden album flow beyond the allowed facts.
+- Don't claim that a vault's pattern or key is a separate barrier against someone who knows the device passcode.
+- Don't claim what Advanced Data Protection is, does or does not change for iCloud.com web access, or that it can be turned back on.
 - Don't claim what happens if Advanced Data Protection is turned on and account access, recovery keys or recovery contacts are lost, or name any way back in.
-- Don't claim what Advanced Data Protection does or does not change for iCloud.com web access, or that it can be turned back on.
 - Don't claim what Advanced Data Protection costs or that it is free.
 - Don't claim a number of end-to-end encrypted categories, data types or features under any iCloud setting.
 - Don't claim what a setup flow does when a device is unsupported, too old or not signed in.
@@ -18,12 +28,3 @@ Prohibitions only — facts live in hidy-facts.md / apple-facts.md. Safe to edit
 - Don't claim what Apple's documentation or support pages do or do not describe, cover, mention or say.
 - Don't claim what Apple can or cannot read, decrypt, access or hand over, including for iCloud Photos, the Hidden album, Hidy's CloudKit backups or under legal requests.
 - Don't claim how iCloud data or iCloud Photos is encrypted in transit, at rest or end-to-end, or what changes when Advanced Data Protection is turned on or off.
-- Don't claim what turning iCloud Photos on or off, or turning off Show Hidden Album, does or does not prevent or change on the device or in the account.
-- Don't claim what deleting a photo or app does to iCloud Photos copies, other devices, or the app's local or iCloud data.
-- Don't claim what happens to Hidy's iCloud backups or vaults when Hidy is deleted, reinstalled or offloaded from the iPhone.
-- Don't claim what Remove from Home Screen, offload, delete or reinstall does to an app, its data, its placement or its findability.
-- Don't claim how the Hidden album lock authenticates or what it protects (passcode, encryption, file location, storage), or that it is separate from the Show Hidden Album setting.
-- Don't claim that the Hidden album lock can be turned off, re-enabled or changed in Photos settings, or how quickly.
-- Don't claim that hidden photos are excluded from, or included in, import, export or transfer to a Mac, PC or any other device.
-- Don't claim who can reach hidden photos through iCloud Photos, iCloud.com, another device, the Apple Account, trusted devices or account sign-in.
-- Don't claim that hidden photos count toward iCloud storage or what happens to their size, metadata or library placement.
