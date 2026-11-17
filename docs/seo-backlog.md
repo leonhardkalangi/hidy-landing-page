@@ -53,7 +53,7 @@
 - [x] 2026-11-15 guides/iphone-photo-recovery-after-delete (topic signal: Vaultaire)
 - [!] 2026-11-16 needs-facts guides/exif-metadata-iphone-photos (topic signal: Vaultaire)
 - [x] 2026-11-16 guides/gallery-lock-photo-locker (topic signal: Vaultaire)
-- [ ] guides/hidden-album-face-id-bypass-iphone (topic signal: Vaultaire)
+- [x] 2026-11-17 guides/hidden-album-face-id-bypass-iphone (topic signal: Vaultaire)
 - [ ] guides/hide-apps-screen-time-iphone (topic signal: Vaultaire)
 - [ ] guides/hide-someone-from-people-album-iphone (topic signal: Vaultaire)
 - [ ] guides/icloud-e2e-photo-storage (topic signal: Vaultaire)

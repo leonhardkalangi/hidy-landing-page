@@ -13,6 +13,7 @@ Prohibitions only — facts live in hidy-facts.md / apple-facts.md. Safe to edit
 - Don't claim what metadata reveals about the device model used, or that a photo shows which iPhone took it.
 - Don't claim that the Hidden album, a locked app or a locked note is or is not encryption, or characterize how strong the protection is.
 - Don't claim which credentials unlock the Hidden album or a locked app, or that anyone who knows the passcode can open them.
+- Don't claim whether the Hidden album lock has a second factor, an additional password or any extra authentication step.
 - Don't claim that hidden photos remain ordinary library photos, are moved rather than encrypted, or what Apple does with the files.
 - Don't claim an authentication or confirmation step in the app-lock or Hidden album flow beyond the allowed facts.
 - Don't claim that a vault's pattern or key is a separate barrier against someone who knows the device passcode.
@@ -27,4 +28,3 @@ Prohibitions only — facts live in hidy-facts.md / apple-facts.md. Safe to edit
 - Don't claim that sharing an Apple Account, passcode or device gives anyone access to a locked or hidden album, app, library or vault.
 - Don't claim what Apple's documentation or support pages do or do not describe, cover, mention or say.
 - Don't claim what Apple can or cannot read, decrypt, access or hand over, including for iCloud Photos, the Hidden album, Hidy's CloudKit backups or under legal requests.
-- Don't claim how iCloud data or iCloud Photos is encrypted in transit, at rest or end-to-end, or what changes when Advanced Data Protection is turned on or off.
