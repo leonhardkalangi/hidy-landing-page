@@ -56,7 +56,7 @@
 - [x] 2026-11-17 guides/hidden-album-face-id-bypass-iphone (topic signal: Vaultaire)
 - [!] 2026-11-18 needs-facts guides/hide-apps-screen-time-iphone (topic signal: Vaultaire)
 - [x] 2026-11-18 guides/hide-someone-from-people-album-iphone (topic signal: Vaultaire)
-- [ ] guides/icloud-e2e-photo-storage (topic signal: Vaultaire)
+- [x] 2026-11-19 guides/icloud-e2e-photo-storage (topic signal: Vaultaire)
 - [ ] guides/iphone-airdrop-privacy (topic signal: Vaultaire)
 - [ ] guides/iphone-analytics-opt-out (topic signal: Vaultaire)
 - [ ] guides/iphone-burner-phone-setup (topic signal: Vaultaire)
