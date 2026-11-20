@@ -1,0 +1,188 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="color-scheme" content="light dark">
+<title>Metadata Cleaner App: Remove C2PA on iPhone (What Works)</title>
+<meta name="description" content="No Apple setting strips C2PA metadata. See what iPhone Photos can remove (location), what it can't, and how a vault app keeps files out of the library.">
+<link rel="canonical" href="https://hidyapp.com/guides/metadata-cleaner-app-remove-c2pa/">
+<link rel="icon" href="/favicon.png">
+<link rel="apple-touch-icon" href="/brand/hidy-icon.png">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Hidy Vault">
+<meta property="og:title" content="Metadata Cleaner App: Remove C2PA on iPhone (What Works)">
+<meta property="og:description" content="No Apple setting strips C2PA metadata. See what iPhone Photos can remove (location), what it can't, and how a vault app keeps files out of the library.">
+<meta property="og:url" content="https://hidyapp.com/guides/metadata-cleaner-app-remove-c2pa/">
+<meta property="og:image" content="https://hidyapp.com/assets/cards/guides-metadata-cleaner-app-remove-c2pa-og.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Article","headline":"Metadata cleaner app: remove C2PA on iPhone","description":"No Apple setting strips C2PA metadata. See what iPhone Photos can remove (location), what it can't, and how a vault app keeps files out of the library.","datePublished":"2026-11-20","dateModified":"2026-11-20","author":{"@type":"Organization","name":"Hidy","url":"https://hidyapp.com/"},"publisher":{"@type":"Organization","name":"Hidy","url":"https://hidyapp.com/","logo":{"@type":"ImageObject","url":"https://hidyapp.com/brand/hidy-icon.png"}},"mainEntityOfPage":"https://hidyapp.com/guides/metadata-cleaner-app-remove-c2pa/","image":"https://hidyapp.com/assets/cards/guides-metadata-cleaner-app-remove-c2pa-og.jpg"},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Hidy Vault","item":"https://hidyapp.com/"},{"@type":"ListItem","position":2,"name":"Guides","item":"https://hidyapp.com/guides/"},{"@type":"ListItem","position":3,"name":"Metadata cleaner app: remove C2PA on iPhone","item":"https://hidyapp.com/guides/metadata-cleaner-app-remove-c2pa/"}]},{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Can I remove C2PA metadata with iPhone Photos?","acceptedAnswer":{"@type":"Answer","text":"No. Apple documents location controls for sharing and camera recording. It does not document any step that removes C2PA credentials from a photo."}},{"@type":"Question","name":"Does turning off Location when sharing remove all metadata?","acceptedAnswer":{"@type":"Answer","text":"No. Apple says the Location option removes location information from the shared copy. It does not document removal of other metadata or C2PA."}},{"@type":"Question","name":"Will a metadata cleaner app definitely remove C2PA?","acceptedAnswer":{"@type":"Answer","text":"Not necessarily. Check the app's own documentation. Many cleaners target EXIF fields and leave embedded manifests untouched."}},{"@type":"Question","name":"Does Hidy Vault remove C2PA?","acceptedAnswer":{"@type":"Answer","text":"Hidy does not claim to strip C2PA. Its Optimized import removes location data from photos and videos and stores a smaller copy encrypted in the vault."}}]}]}</script>
+<script src="/vault-theme.js"></script>
+<link rel="stylesheet" href="/vault.css?v=26abae15">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header>
+<div class="nav">
+<a class="brand" href="/">
+<img src="/brand/hidy-icon.webp" width="42" height="42" alt="">Hidy Vault</a>
+<nav aria-label="Main navigation">
+<a href="/features/">Features</a>
+<a href="/#how-it-works">How it works</a>
+<a href="/security/">Security</a>
+<a href="/compare/">Compare</a>
+<a href="/guides/">Guides</a>
+<a href="/tools/">Tools</a>
+</nav>
+<button class="theme-toggle" id="theme-toggle" type="button" aria-label="Switch appearance">Appearance</button>
+<a class="btn nav-cta" href="/go/app-store?ct=web_header_nav&amp;src=/guides/metadata-cleaner-app-remove-c2pa/">Get App</a>
+</div>
+</header>
+<main id="main">
+<article class="article">
+<nav class="crumb" aria-label="Breadcrumb"><a href="/">Hidy Vault</a> <span>›</span> <a href="/guides/">Guides</a></nav>
+<h1>Metadata cleaner app: remove C2PA on iPhone</h1>
+<p class="meta">Updated 20 November 2026 · By Hidy</p>
+<p class="lead">No built-in iPhone setting removes C2PA metadata. Apple's Photos controls cover location data only. A metadata cleaner app is the only route for C2PA, and results vary by app.</p>
+<div class="note quick">
+<strong>Quick answer</strong>
+<ul>
+<li><strong>Apple Photos:</strong> Share &gt; Options &gt; Location off removes location from the shared copy only.</li>
+<li><strong>C2PA:</strong> no Apple-documented setting or step removes it.</li>
+<li><strong>Vault route:</strong> Hidy's Optimized import strips location and stores a smaller copy inside the vault.</li>
+</ul>
+</div>
+<h2>What is C2PA metadata, and why can't I remove it on iPhone?</h2>
+<p>C2PA is a content credential standard. It attaches a signed record to a file, describing where it came from and what was done to it. Some cameras and apps write these credentials into photos.</p>
+<p>Apple's documented Photos controls cover location information. They do not include a step for removing C2PA credentials. So there is no built-in iPhone switch that strips them.</p>
+<p>That is the honest starting point. A metadata cleaner app may help, but only if it explicitly handles C2PA. Many do not.</p>
+
+<h2>What iPhone Photos can actually remove</h2>
+<p>Apple documents two location controls. Both are narrow, and neither touches C2PA.</p>
+<ul>
+<li><strong>Share without location:</strong> select a photo, tap Share, tap Options, turn off Location, then tap Done. Apple says this removes location information from the shared copy.</li>
+<li><strong>Stop future location recording:</strong> go to Settings &gt; Privacy &amp; Security &gt; Location Services &gt; Camera and choose Never. This affects new photos taken with Camera.</li>
+</ul>
+<p>Apple does not document either step as removing other metadata or C2PA credentials. The share option changes the copy you send, not the original in your library.</p>
+<p>Photos also offers Clean Up for removing distracting objects from an image. Apple documents it as an image-editing feature, not a metadata tool.</p>
+
+<div class="note cta-box">
+<strong>Want photos your iPhone passcode can't open?</strong>
+<p>Hidy Vault keeps photos, videos and documents in encrypted vaults that open only with a pattern you draw. No account, no Hidy server. Free for 3 vaults.</p>
+<p><a class="btn" href="/go/app-store?ct=web_g_metadata_cleaner_app_remove_c2pa&amp;src=/guides/metadata-cleaner-app-remove-c2pa/">Get Hidy Vault</a></p>
+</div>
+<h2>Why a metadata cleaner app may not remove C2PA either</h2>
+<p>C2PA credentials are not ordinary EXIF fields. They sit in a structured manifest, often with a cryptographic signature. Removing them cleanly takes deliberate support for that format.</p>
+<p>Before you trust a cleaner app, check three things:</p>
+<ol>
+<li><strong>Does its documentation name C2PA?</strong> If it only lists EXIF, GPS and date fields, assume it leaves credentials alone.</li>
+<li><strong>Does it edit the original or a copy?</strong> Some apps export a cleaned copy and leave the original untouched in Photos.</li>
+<li><strong>Where does the cleaned file go?</strong> If it lands back in your camera roll, you have not reduced what is on the phone.</li>
+</ol>
+<p>If an app cannot answer these questions, treat its C2PA claims as unproven.</p>
+
+<h2>What Hidy Vault does, and what it does not</h2>
+<p>Hidy Vault is an encrypted vault for iPhone, coming to the App Store. It is not a metadata cleaner, and it does not claim to strip C2PA.</p>
+<p>What it does offer is a different route. When you import photos and videos from Photos, the default import quality is Optimized. Hidy stores a smaller copy (HEIC or JPEG, up to 3,024 px) and removes location data from photos and videos. Original keeps files exactly as they are.</p>
+<p>Those imported files are encrypted inside the vault with AES-256-GCM. File contents, names, thumbnails, folders and notes are all encrypted. The vault unlocks with a pattern you draw on a 5×5 grid.</p>
+<p>Hidy's own camera saves straight into the vault. Those photos never reach the Photos library.</p>
+<p>If you want to try it, <a href="/go/app-store?ct=web_g_metadata_cleaner_app_remove_c2pa&amp;src=/guides/metadata-cleaner-app-remove-c2pa/">Hidy Vault</a> is the place to start.</p>
+
+<h2>Comparing the options</h2>
+<table>
+<thead>
+<tr><th>Approach</th><th>Removes location</th><th>Removes C2PA</th><th>Keeps file off the camera roll</th></tr>
+</thead>
+<tbody>
+<tr><td>Photos share options (Location off)</td><td>Yes, on the shared copy</td><td>Not documented</td><td>No</td></tr>
+<tr><td>Camera location set to Never</td><td>Future photos only</td><td>No</td><td>No</td></tr>
+<tr><td>Third-party metadata cleaner</td><td>Varies</td><td>Varies; check its docs</td><td>Varies</td></tr>
+<tr><td>Hidy Vault, Optimized import</td><td>Yes, on import</td><td>Not claimed</td><td>Yes, encrypted in the vault</td></tr>
+</tbody>
+</table>
+<p>The table shows the trade-off. Apple's tools handle location. C2PA removal depends on a third-party app that supports it. A vault keeps the file out of the library but does not promise to strip credentials.</p>
+
+<h2>Limits you should know</h2>
+<ul>
+<li><strong>No Apple C2PA removal.</strong> Apple documents location controls only. Do not expect a hidden setting.</li>
+<li><strong>Cleaner apps vary.</strong> Without a named C2PA feature in the app's documentation, assume credentials remain.</li>
+<li><strong>Hidy does not strip C2PA.</strong> Optimized import removes location data and shrinks the file. It does not claim to remove content credentials.</li>
+<li><strong>Sharing out of Hidy gives a readable copy.</strong> Once a file leaves the vault, the recipient has it.</li>
+<li><strong>No outside security review yet.</strong> Hidy's encryption is built on standard primitives, but no third party has reviewed it.</li>
+</ul>
+<p>If C2PA removal is your main goal, test a cleaner app on a copy first and verify the result. If your goal is keeping private photos out of the camera roll and off other apps' view, a vault is the more direct tool.</p>
+<h2>Frequently asked questions</h2>
+<h3>Can I remove C2PA metadata with iPhone Photos?</h3>
+<p>No. Apple documents location controls for sharing and camera recording. It does not document any step that removes C2PA credentials from a photo.</p>
+<h3>Does turning off Location when sharing remove all metadata?</h3>
+<p>No. Apple says the Location option removes location information from the shared copy. It does not document removal of other metadata or C2PA.</p>
+<h3>Will a metadata cleaner app definitely remove C2PA?</h3>
+<p>Not necessarily. Check the app's own documentation. Many cleaners target EXIF fields and leave embedded manifests untouched.</p>
+<h3>Does Hidy Vault remove C2PA?</h3>
+<p>Hidy does not claim to strip C2PA. Its Optimized import removes location data from photos and videos and stores a smaller copy encrypted in the vault.</p>
+<figure class="pin-card"><figcaption>Save this guide</figcaption><img src="/assets/cards/guides-metadata-cleaner-app-remove-c2pa-pin.jpg" width="500" height="750" loading="lazy" alt="Metadata cleaner app: remove C2PA on iPhone: summary card"></figure>
+<h2>Related pages</h2>
+<div class="guide-grid related">
+<a class="guide" href="/guides/remove-location-from-iphone-photos/"><h3>How to remove location from iPhone photos</h3><p>Per photo, while sharing, or for good: three ways to strip location from iPhone photos.</p><span>Read more →</span></a>
+<a class="guide" href="/features/location-removal/"><h3>Location removal: photos stored without where they were taken</h3><p>Optimized import strips location data from photos and videos and saves space. On by default.</p><span>Read more →</span></a>
+<a class="guide" href="/tools/photo-metadata-remover/"><h3>Photo metadata viewer and remover</h3><p>See a photo's hidden GPS, camera and time data, and save a clean copy. No upload.</p><span>Read more →</span></a>
+<a class="guide" href="/guides/are-photo-vault-apps-safe/"><h3>Are photo vault apps safe? 7 checks before you trust one</h3><p>Encryption, keys, backups, ads, accounts and honesty: seven checks for any vault app.</p><span>Read more →</span></a>
+</div>
+<h2>Sources</h2>
+<ul class="sources">
+<li><a href="https://support.apple.com/guide/iphone/control-location-information-in-photos-iphf1188e4a5/18.0/ios/18.0">Apple: Control location information in Photos</a></li>
+<li><a href="https://support.apple.com/guide/iphone/control-the-location-information-you-share-iph3dd5f9d91/18.0/ios/18.0">Apple: Control the location information you share on iPhone</a></li>
+<li><a href="https://support.apple.com/guide/iphone/share-photos-and-videos-iphf28f17237/18.0/ios/18.0">Apple: Share photos and videos on iPhone</a></li>
+<li><a href="https://support.apple.com/en-us/121429">Apple: Requirements to use Clean Up in Photos</a></li>
+</ul>
+<aside class="app-banner">
+<img src="/brand/hidy-icon.webp" width="56" height="56" alt="">
+<div><strong>Hidy Vault</strong><span>Encrypted vault for iPhone. Free to start. Coming to the App Store.</span></div>
+<a class="btn" href="/go/app-store?ct=web_gb_metadata_cleaner_app_remove_c2pa&amp;src=/guides/metadata-cleaner-app-remove-c2pa/">Get Hidy Vault</a>
+</aside>
+</article>
+</main>
+<footer>
+<div class="foot-grid">
+<div class="foot-brand">
+<a class="brand" href="/"><img src="/brand/hidy-icon.webp" width="32" height="32" alt="">Hidy Vault</a>
+<p>Encrypted vault for iPhone. No account, no analytics, no Hidy server.</p>
+<a class="btn" href="/go/app-store?ct=web_footer&amp;src=/guides/metadata-cleaner-app-remove-c2pa/">Get Hidy Vault</a>
+</div>
+<div><h3>Features</h3>
+<a href="/features/pattern-encryption/">Pattern encryption</a>
+<a href="/features/hidden-vaults/">Hidden vaults</a>
+<a href="/features/decoy-vault/">Decoy vault</a>
+<a href="/features/recovery-phrase/">Recovery phrase</a>
+<a href="/features/encrypted-icloud-backup/">Encrypted iCloud backup</a>
+<a href="/features/device-sync/">Device sync</a>
+<a href="/features/secure-sharing/">Secure sharing</a>
+<a href="/features/secure-camera/">Secure camera</a>
+<a href="/features/app-icons/">Disguised app icons</a>
+<a href="/features/documents-and-notes/">Documents and notes</a>
+<a href="/features/privacy-screen/">Auto-lock and privacy screen</a>
+<a href="/features/location-removal/">Location removal</a>
+</div>
+<div><h3>Compare</h3>
+<a href="/compare/hidy-vs-apple-hidden-album/">Hidy vs Hidden album</a>
+<a href="/compare/hidy-vs-calculator-vault-apps/">Hidy vs calculator vaults</a>
+<a href="/compare/hidy-vs-apple-notes-lock/">Hidy vs Notes lock</a>
+<a href="/compare/hidy-vs-keepsafe/">Hidy vs Keepsafe</a>
+<a href="/compare/hidy-vs-private-photo-vault/">Hidy vs Private Photo Vault</a>
+</div>
+<div><h3>Resources</h3>
+<a href="/guides/">Guides</a>
+<a href="/scenarios/">Scenarios</a>
+<a href="/tools/">Tools</a>
+<a href="/security/">Security</a>
+<a href="/support/">Support</a>
+<a href="/privacy/">Privacy policy</a>
+<a href="https://www.apple.com/legal/internet-services/itunes/dev/stdeula/">App Store EULA</a>
+<a href="mailto:support@hidyapp.com">Contact</a>
+</div>
+</div>
+<p class="foot-legal">© 2026 PT Mirai Kreasi Negeri</p>
+</footer>
+
+</body>
+</html>

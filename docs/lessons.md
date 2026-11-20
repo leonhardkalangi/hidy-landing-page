@@ -3,6 +3,7 @@
 Maintained by scripts/seo-loop.mjs from claims the reviewer removed; fed into the writer's prompt.
 Prohibitions only — facts live in hidy-facts.md / apple-facts.md. Safe to edit by hand.
 
+- Don't claim Hidy or its encryption has been independently audited, certified or reviewed by a third party.
 - Don't name a button, menu item or UI path for locking, hiding, unlocking or removing a lock on an app, note, document or album beyond the allowed facts.
 - Don't name a button, menu item or UI path for deleting photos, clearing Recently Deleted, recovering or restoring deleted items, or removing items in bulk; only use Select > More > Hide for several items.
 - Don't name a button, menu item or UI path for importing from Photos, turning off Hidy's delete offer, or any other Hidy flow not in the allowed facts.
@@ -27,4 +28,3 @@ Prohibitions only — facts live in hidy-facts.md / apple-facts.md. Safe to edit
 - Don't claim what a setup flow does when a device is unsupported, too old or not signed in.
 - Don't claim what happens to photos on the iPhone when iCloud Photos is turned off on that device, or describe any "Remove from iPhone" / "Download Photos & Videos" choice.
 - Don't claim that stopping or turning off iCloud Photos deletes photos after a set period, or describe any undo or grace period for that.
-- Don't claim that Optimize Storage needs, uses or fails without iCloud storage space, or how it behaves when storage is full.
