@@ -35,7 +35,7 @@
 - [!] 2026-11-15 needs-facts guides/end-to-end-encrypted-cloud-storage (topic signal: Vaultaire)
 - [!] 2026-11-15 needs-facts guides/gallery-safe-app-alternative-iphone (topic signal: Vaultaire)
 - [x] 2026-11-20 guides/metadata-cleaner-app-remove-c2pa (topic signal: Vaultaire)
-- [ ] guides/vault-password-recovery (topic signal: Vaultaire)
+- [!] 2026-11-21 needs-facts guides/vault-password-recovery (topic signal: Vaultaire)
 - [ ] tools/ (second tool: face/blur or image compressor — PROPOSE first, don't build unasked)
 
 
@@ -59,7 +59,7 @@
 - [!] 2026-11-18 needs-facts guides/hide-apps-screen-time-iphone (topic signal: Vaultaire)
 - [x] 2026-11-18 guides/hide-someone-from-people-album-iphone (topic signal: Vaultaire)
 - [x] 2026-11-19 guides/icloud-e2e-photo-storage (topic signal: Vaultaire)
-- [ ] guides/iphone-airdrop-privacy (topic signal: Vaultaire)
+- [x] 2026-11-21 guides/iphone-airdrop-privacy (topic signal: Vaultaire)
 - [ ] guides/iphone-analytics-opt-out (topic signal: Vaultaire)
 - [ ] guides/iphone-burner-phone-setup (topic signal: Vaultaire)
 - [ ] guides/iphone-clipboard-privacy (topic signal: Vaultaire)
