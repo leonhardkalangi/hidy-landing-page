@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://hidyapp.com/</loc><lastmod>2026-11-21</lastmod></url>
-  <url><loc>https://hidyapp.com/security/</loc><lastmod>2026-11-21</lastmod></url>
-  <url><loc>https://hidyapp.com/support/</loc><lastmod>2026-11-21</lastmod></url>
-  <url><loc>https://hidyapp.com/privacy/</loc><lastmod>2026-11-21</lastmod></url>
-  <url><loc>https://hidyapp.com/features/</loc><lastmod>2026-11-21</lastmod></url>
-  <url><loc>https://hidyapp.com/compare/</loc><lastmod>2026-11-21</lastmod></url>
-  <url><loc>https://hidyapp.com/scenarios/</loc><lastmod>2026-11-21</lastmod></url>
-  <url><loc>https://hidyapp.com/guides/</loc><lastmod>2026-11-21</lastmod></url>
-  <url><loc>https://hidyapp.com/tools/</loc><lastmod>2026-11-21</lastmod></url>
+  <url><loc>https://hidyapp.com/</loc><lastmod>2026-11-22</lastmod></url>
+  <url><loc>https://hidyapp.com/security/</loc><lastmod>2026-11-22</lastmod></url>
+  <url><loc>https://hidyapp.com/support/</loc><lastmod>2026-11-22</lastmod></url>
+  <url><loc>https://hidyapp.com/privacy/</loc><lastmod>2026-11-22</lastmod></url>
+  <url><loc>https://hidyapp.com/features/</loc><lastmod>2026-11-22</lastmod></url>
+  <url><loc>https://hidyapp.com/compare/</loc><lastmod>2026-11-22</lastmod></url>
+  <url><loc>https://hidyapp.com/scenarios/</loc><lastmod>2026-11-22</lastmod></url>
+  <url><loc>https://hidyapp.com/guides/</loc><lastmod>2026-11-22</lastmod></url>
+  <url><loc>https://hidyapp.com/tools/</loc><lastmod>2026-11-22</lastmod></url>
   <url><loc>https://hidyapp.com/features/app-icons/</loc><lastmod>2026-10-22</lastmod></url>
   <url><loc>https://hidyapp.com/features/decoy-vault/</loc><lastmod>2026-10-22</lastmod></url>
   <url><loc>https://hidyapp.com/features/device-sync/</loc><lastmod>2026-10-22</lastmod></url>
@@ -56,7 +56,8 @@
   <url><loc>https://hidyapp.com/guides/hide-vault-app-iphone/</loc><lastmod>2026-10-22</lastmod></url>
   <url><loc>https://hidyapp.com/guides/hide-videos-iphone/</loc><lastmod>2026-10-22</lastmod></url>
   <url><loc>https://hidyapp.com/guides/icloud-e2e-photo-storage/</loc><lastmod>2026-11-19</lastmod></url>
-  <url><loc>https://hidyapp.com/guides/iphone-airdrop-privacy/</loc><lastmod>2026-11-21</lastmod></url>
+  <url><loc>https://hidyapp.com/guides/iphone-airdrop-privacy/</loc><lastmod>2026-11-22</lastmod></url>
+  <url><loc>https://hidyapp.com/guides/iphone-analytics-opt-out/</loc><lastmod>2026-11-22</lastmod></url>
   <url><loc>https://hidyapp.com/guides/iphone-photo-recovery-after-delete/</loc><lastmod>2026-11-15</lastmod></url>
   <url><loc>https://hidyapp.com/guides/lock-photos-iphone/</loc><lastmod>2026-11-16</lastmod></url>
   <url><loc>https://hidyapp.com/guides/metadata-cleaner-app-remove-c2pa/</loc><lastmod>2026-11-20</lastmod></url>
@@ -74,7 +75,7 @@
   <url><loc>https://hidyapp.com/guides/stop-icloud-photos-syncing-other-devices/</loc><lastmod>2026-11-13</lastmod></url>
   <url><loc>https://hidyapp.com/guides/transfer-vault-new-iphone/</loc><lastmod>2026-11-11</lastmod></url>
   <url><loc>https://hidyapp.com/guides/turn-off-shared-library-iphone/</loc><lastmod>2026-11-03</lastmod></url>
-  <url><loc>https://hidyapp.com/guides/which-apps-can-see-your-photos/</loc><lastmod>2026-11-12</lastmod></url>
+  <url><loc>https://hidyapp.com/guides/which-apps-can-see-your-photos/</loc><lastmod>2026-11-22</lastmod></url>
   <url><loc>https://hidyapp.com/guides/wipe-iphone-data-before-trade-in/</loc><lastmod>2026-11-11</lastmod></url>
   <url><loc>https://hidyapp.com/tools/photo-metadata-remover/</loc><lastmod>2026-11-20</lastmod></url>
 </urlset>

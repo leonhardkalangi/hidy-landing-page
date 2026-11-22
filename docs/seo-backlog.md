@@ -60,7 +60,7 @@
 - [x] 2026-11-18 guides/hide-someone-from-people-album-iphone (topic signal: Vaultaire)
 - [x] 2026-11-19 guides/icloud-e2e-photo-storage (topic signal: Vaultaire)
 - [x] 2026-11-21 guides/iphone-airdrop-privacy (topic signal: Vaultaire)
-- [ ] guides/iphone-analytics-opt-out (topic signal: Vaultaire)
+- [x] 2026-11-22 guides/iphone-analytics-opt-out (topic signal: Vaultaire)
 - [ ] guides/iphone-burner-phone-setup (topic signal: Vaultaire)
 - [ ] guides/iphone-clipboard-privacy (topic signal: Vaultaire)
 - [ ] guides/iphone-guest-mode (topic signal: Vaultaire)
