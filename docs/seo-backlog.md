@@ -36,6 +36,8 @@
 - [!] 2026-11-15 needs-facts guides/gallery-safe-app-alternative-iphone (topic signal: Vaultaire)
 - [x] 2026-11-20 guides/metadata-cleaner-app-remove-c2pa (topic signal: Vaultaire)
 - [!] 2026-11-21 needs-facts guides/vault-password-recovery (topic signal: Vaultaire)
+- [!] 2026-11-24 needs-facts guides/hdr-to-sdr-photo-converter (topic signal: Vaultaire)
+- [x] 2026-11-24 guides/lighten-dark-photos-online-free (topic signal: Vaultaire)
 - [ ] tools/ (second tool: face/blur or image compressor — PROPOSE first, don't build unasked)
 
 
