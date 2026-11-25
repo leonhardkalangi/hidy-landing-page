@@ -3,6 +3,9 @@
 Maintained by scripts/seo-loop.mjs from claims the reviewer removed; fed into the writer's prompt.
 Prohibitions only — facts live in hidy-facts.md / apple-facts.md. Safe to edit by hand.
 
+- Don't claim how the iOS clipboard behaves, including whether it keeps history, only one item, or clears itself.
+- Don't claim what the Ask or any paste setting does, or that iOS prompts when an app pastes from another app.
+- Don't claim Hidy copies text out of a vault, puts vault content on the clipboard, or any Hidy clipboard behaviour.
 - Don't claim Hidy or its encryption has been independently audited, certified or reviewed by a third party.
 - Don't name a button, menu item or UI path for locking, hiding, unlocking or removing a lock on an app, note, document or album beyond the allowed facts.
 - Don't name a button, menu item or UI path for deleting photos, clearing Recently Deleted, recovering or restoring deleted items, or removing items in bulk; only use Select > More > Hide for several items.
@@ -25,6 +28,3 @@ Prohibitions only — facts live in hidy-facts.md / apple-facts.md. Safe to edit
 - Don't claim what happens if Advanced Data Protection is turned on and account access, recovery keys or recovery contacts are lost, or name any way back in.
 - Don't claim what Advanced Data Protection costs or that it is free.
 - Don't claim a number of end-to-end encrypted categories, data types or features under any iCloud setting.
-- Don't claim what a setup flow does when a device is unsupported, too old or not signed in.
-- Don't claim what happens to photos on the iPhone when iCloud Photos is turned off on that device, or describe any "Remove from iPhone" / "Download Photos & Videos" choice.
-- Don't claim that stopping or turning off iCloud Photos deletes photos after a set period, or describe any undo or grace period for that.
