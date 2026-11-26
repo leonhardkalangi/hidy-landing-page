@@ -3,6 +3,16 @@
 Maintained by scripts/seo-loop.mjs from claims the reviewer removed; fed into the writer's prompt.
 Prohibitions only — facts live in hidy-facts.md / apple-facts.md. Safe to edit by hand.
 
+- Don't claim what the iPhone Keychain or iCloud Keychain stores, syncs, encrypts or how it is protected, or name any Passwords or Keychain setting, button or path.
+- Don't claim how the Passwords app unlocks, what it requires to open, who can open it, or that it is the front door to iCloud Keychain.
+- Don't claim Apple's password or passkey sharing behaviour, shared password groups, or that sharing goes through iCloud Keychain.
+- Don't claim what happens to stored passwords or passkeys when iCloud Keychain is turned off, or that they stay on the iPhone.
+- Don't claim what Advanced Data Protection requires before turning it on, asks for during setup, or whether it is available by country or account.
+- Don't claim what Apple can or cannot access, read or be compelled to hand over under any iCloud setting, or that Apple cannot read data.
+- Don't claim what happens if account access or recovery keys are lost with Advanced Data Protection on, or name any way back in.
+- Don't claim what Advanced Data Protection is, does or does not change for iCloud.com web access, or that it can be turned back on.
+- Don't claim what Advanced Data Protection costs or that it is free.
+- Don't claim a number of end-to-end encrypted categories, data types or features under any iCloud setting.
 - Don't claim how the iOS clipboard behaves, including whether it keeps history, only one item, or clears itself.
 - Don't claim what the Ask or any paste setting does, or that iOS prompts when an app pastes from another app.
 - Don't claim Hidy copies text out of a vault, puts vault content on the clipboard, or any Hidy clipboard behaviour.
@@ -18,13 +28,3 @@ Prohibitions only — facts live in hidy-facts.md / apple-facts.md. Safe to edit
 - Don't claim that Photos uses metadata to sort, search or find photos by date or place, or how the Info panel indicates a stored location.
 - Don't claim what setting Camera location to Never does to new photos, or that new photos then carry no location.
 - Don't claim what metadata reveals about the device model used, or that a photo shows which iPhone took it.
-- Don't claim that the Hidden album, a locked app or a locked note is or is not encryption, or characterize how strong the protection is.
-- Don't claim which credentials unlock the Hidden album or a locked app, or that anyone who knows the passcode can open them.
-- Don't claim whether the Hidden album lock has a second factor, an additional password or any extra authentication step.
-- Don't claim that hidden photos remain ordinary library photos, are moved rather than encrypted, or what Apple does with the files.
-- Don't claim an authentication or confirmation step in the app-lock or Hidden album flow beyond the allowed facts.
-- Don't claim that a vault's pattern or key is a separate barrier against someone who knows the device passcode.
-- Don't claim what Advanced Data Protection is, does or does not change for iCloud.com web access, or that it can be turned back on.
-- Don't claim what happens if Advanced Data Protection is turned on and account access, recovery keys or recovery contacts are lost, or name any way back in.
-- Don't claim what Advanced Data Protection costs or that it is free.
-- Don't claim a number of end-to-end encrypted categories, data types or features under any iCloud setting.
